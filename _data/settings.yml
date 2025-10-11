@@ -3,7 +3,7 @@
 
 menu:
 - {name: 'Projects', url: ''}
-- {name: 'Blog',     url: 'blog'}
+#- {name: 'Blog',     url: 'blog'}
 - {name: 'About',    url: 'about'}
 - {name: 'Contact',  url: 'contact'}
 
@@ -22,6 +22,8 @@ projects:
 
 social:
 - {icon: 'twitter',   link: 'https://twitter.com/robbickel'}
+- {icon: 'facebook',   link: 'https://www.facebook.com/rob.bickel.39'}
+- {icon: 'youtube',   link: 'https://www.youtube.com/@RobBickel'}
 - {icon: 'instagram', link: 'https://instagram.com/robbickel165'}
 - {icon: 'github',    link: 'https://github.com/robbickel'}
 - {icon: 'linkedin',  link: 'https://linkedin.com/in/robbickel'}
