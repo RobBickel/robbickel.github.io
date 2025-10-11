@@ -3,7 +3,7 @@
 Gem::Specification.new do |spec|
   spec.name          = "portfolio-jekyll-theme"
   spec.version       = "2.0.0"
-  spec.authors       = ["Paul Le"]
+  spec.authors       = ["Rob Bickel"]
   spec.email         = ["hello@paulle.ca"]
 
   spec.summary       = "A minimalist Jekyll theme for building a personal portfolio site powered by Jekyll and GitHub Pages"

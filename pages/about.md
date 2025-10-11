@@ -4,6 +4,6 @@ title: About
 permalink: /about
 ---
 
-# Portfolio Jekyll Theme
+# Rob Bickel
 
-This is a personal portfolio theme that I built from the ground up, using the [DevTips Starter Kit](http://devtipsstarterkit.com/) as a foundation for starting, and following closely the amazing tutorial by [Travis Neilson over at DevTips](https://www.youtube.com/watch?v=T6jKLsxbFg4&list=PL0CB3OvPhDA_STygmp3sDenx3UpdOMk7P). You can [check out the demo](lenpaul.github.io/portfolio-jekyll-theme/), and [fork the repository](https://github.com/LeNPaul/portfolio-jekyll-theme/fork), to get started.
+Rob Bickel is a technologist specializing in the fields of Digital Marketing, IoT, and Artificial Intelligence. Rob has worked for a varietey of large enterprise companies and 0 to 1 startups with a principled framework of what makes success possible. Rob grew up in the interior of Alaska off-grid. Rob's work has been featured in major publications including the New York Times and USA today, his projects have gone on to be the framework of social media today and the enablement of modern low cost processing for GPS navigation. Every linux based computer in the world has a little bit of Rob's code running on it and the world would look different without his contributions.
