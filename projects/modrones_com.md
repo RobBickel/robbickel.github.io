@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 'Project Four'
+title: 'Mo Drones'
 ---
 
-In diam odio, facilisis eu elementum in, sodales ut dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean fermentum ante vitae sagittis efficitur. Praesent interdum sagittis porttitor. Duis non hendrerit metus. Nullam bibendum nunc cursus elit cursus ornare. Nulla eget sodales erat. Quisque laoreet nibh eu eleifend vehicula.
+Mo Drones is your neighborly supplier of top quality, Giant Scale RC Airplanes. We believe in balsa planes ran on gas and glow powerplants. We strive to bring you finely crafted products, not plastic and foam junk.
 
-{% include image.html url="https://robbickel.com/" image="projects/modrones/home.png" %}
+{% include image.html url="https://robbickel.com/" image="projects/modrones/thumbnail.png" %}
