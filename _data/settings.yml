@@ -11,8 +11,8 @@ menu:
 # Projects Section
 
 projects:
-- {name: 'M2M Gateway',   url: 'm2mgateway'}
-- {name: 'Mo Drones',   url: 'modrones'}
+- {name: 'M2M Gateway',   url: 'm2mgateway_net'}
+- {name: 'Mo Drones',   url: 'modrones_com'}
 
 #-------------------------------
 # Contact Section
@@ -48,6 +48,7 @@ seo:
 
 # If you are not using Google Analytics, please change 'google-ID' to an empty string
 google-analytics-ua: ''
+google-analytics-ga4: 'G-DF02EVXTK4'
 
 #-------------------------------
 # Disqus Section
