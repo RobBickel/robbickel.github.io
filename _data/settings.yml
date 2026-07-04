@@ -14,6 +14,9 @@ menu:
 projects:
 - {name: 'M2M Gateway',   url: 'm2mgateway_net'}
 - {name: 'Mo Drones',   url: 'modrones_com'}
+- {name: 'Fractional Pipe',   url: 'fractionalpip_com'}
+- {name: 'Kyooret',   url: 'kyooret_com'}
+- {name: 'Traffik Co',   url: 'traffikco_com'}
 
 #-------------------------------
 # Contact Section
