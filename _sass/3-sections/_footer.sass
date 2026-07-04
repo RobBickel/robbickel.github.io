@@ -1,25 +1,52 @@
+// Dark Theme Footer
+
 footer
-  height: 200px
+  margin-top: 80px
+  padding: 40px
+  border-top: 1px solid $dark-border
+  background: $dark-bg-lighter
+
   .footer-wrap
-    max-width: 500px
-    margin: 0px auto 0px
-    padding: 10px
+    max-width: 800px
+    margin: 0 auto
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: 20px
+    text-align: center
+
     .footer-tagline
-      text-align: center
-      color: rgba(0,0,0,1)
-      font:
-        size: 24px
-        weight: 700
+      p
+        font-size: 14px
+        color: $text-muted
+        margin: 0
+
     .social-media
-      text-align: center
       nav
-        margin: 0px
-        padding: 0px
+        display: flex
+        align-items: center
+        justify-content: center
+        gap: 12px
+
         a
-          margin: 10px
-          color: rgba(0,0,0,1)
-          font:
-            size: 20px
-            weight: 700
+          display: flex
+          align-items: center
+          justify-content: center
+          width: 36px
+          height: 36px
+          color: $text-muted
+          font-size: 16px
+          border-radius: 6px
+          transition: all 0.2s ease
+          background: $dark-bg-card
+          border: 1px solid $dark-border
+
           &:hover
-            color: $accent-color
+            color: $text-white
+            background: $primary
+            border-color: $primary
+
+@media (max-width: 768px)
+  footer
+    margin-top: 48px
+    padding: 32px 24px

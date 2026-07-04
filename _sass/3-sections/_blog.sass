@@ -1,20 +1,47 @@
+// Dark Theme Blog Layout
+
 .blog-container
-  padding-top: 10px
-  margin: 30px
+  max-width: 800px
+  margin: 0 auto
+  padding: 80px 48px
+
+  @media (max-width: 768px)
+    padding: 48px 24px
+
   .blog-unit
+    padding-bottom: 32px
+    margin-bottom: 32px
+    border-bottom: 1px solid $dark-border
+
+    &:last-child
+      border-bottom: none
+      margin-bottom: 0
+
     h1
-      display: inline-block
-      margin-bottom: 5px
-      padding: 0px
-      font:
-        size: 24px
-        weight: 700
+      display: block
+      margin-bottom: 8px
+      padding: 0
+      font-size: 24px
+      font-weight: 600
+
       a
-        color: black
+        color: $text-white
+        transition: color 0.15s ease
+
       &:hover a
-        color: $accent-color
+        color: $primary
+
     .blog-date
       display: block
-      font:
-        size: 14px
-        weight: 700
+      font-size: 14px
+      font-weight: 500
+      color: $text-muted
+
+@media (max-width: 768px)
+  .blog-container
+    .blog-unit
+      padding-bottom: 24px
+      margin-bottom: 24px
+
+      h1
+        font-size: 20px

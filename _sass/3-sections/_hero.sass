@@ -1,0 +1,253 @@
+// Hero Section with Animated Taglines
+
+.hero
+  min-height: 100vh
+  display: flex
+  align-items: center
+  padding: 60px 48px
+  position: relative
+
+.hero-content
+  max-width: 800px
+
+.hero-greeting
+  font-size: 18px
+  color: $primary
+  font-weight: 500
+  margin-bottom: 16px
+  letter-spacing: 0.05em
+  text-transform: uppercase
+
+.hero-title
+  font-size: 56px
+  font-weight: 700
+  color: $text-white
+  line-height: 1.1
+  margin-bottom: 24px
+  letter-spacing: -0.02em
+
+  @media (max-width: 768px)
+    font-size: 36px
+
+.hero-subtitle
+  font-size: 20px
+  color: $text-muted
+  line-height: 1.6
+  margin-bottom: 40px
+  max-width: 600px
+
+  @media (max-width: 768px)
+    font-size: 17px
+
+// Animated taglines
+.hero-taglines
+  margin-bottom: 48px
+
+.tagline-item
+  font-size: 28px
+  font-weight: 600
+  color: $text-light
+  margin-bottom: 12px
+  opacity: 0
+  transform: translateY(20px)
+  animation: fadeInUp 0.6s ease forwards
+
+  @media (max-width: 768px)
+    font-size: 20px
+
+  &:nth-child(1)
+    animation-delay: 0.2s
+
+  &:nth-child(2)
+    animation-delay: 0.4s
+
+  &:nth-child(3)
+    animation-delay: 0.6s
+
+  &:nth-child(4)
+    animation-delay: 0.8s
+
+  .highlight
+    color: $primary
+    position: relative
+
+    &::after
+      content: ''
+      position: absolute
+      bottom: 2px
+      left: 0
+      width: 100%
+      height: 3px
+      background: $primary
+      opacity: 0.3
+
+// Typing animation for taglines (alternative style)
+.tagline-typing
+  font-size: 32px
+  font-weight: 600
+  color: $text-light
+  min-height: 48px
+  margin-bottom: 48px
+
+  @media (max-width: 768px)
+    font-size: 22px
+    min-height: 36px
+
+  .typed-text
+    color: $primary
+
+  .cursor
+    display: inline-block
+    width: 3px
+    height: 1em
+    background: $primary
+    margin-left: 4px
+    animation: blink 1s infinite
+
+// Hero CTA buttons
+.hero-cta
+  display: flex
+  gap: 16px
+  flex-wrap: wrap
+
+  .btn-primary
+    display: inline-flex
+    align-items: center
+    gap: 8px
+    padding: 16px 32px
+    background: $primary
+    color: $text-white
+    font-size: 15px
+    font-weight: 600
+    border-radius: 8px
+    text-decoration: none
+    transition: all 0.2s ease
+
+    &:hover
+      background: $primary-dark
+      transform: translateY(-2px)
+      box-shadow: 0 8px 24px rgba($primary, 0.3)
+
+  .btn-secondary
+    display: inline-flex
+    align-items: center
+    gap: 8px
+    padding: 16px 32px
+    background: transparent
+    color: $text-white
+    font-size: 15px
+    font-weight: 600
+    border: 2px solid $dark-border
+    border-radius: 8px
+    text-decoration: none
+    transition: all 0.2s ease
+
+    &:hover
+      border-color: $text-white
+      background: rgba($text-white, 0.05)
+
+// Scroll indicator
+.hero-scroll
+  position: absolute
+  bottom: 40px
+  left: 48px
+  display: flex
+  align-items: center
+  gap: 12px
+  color: $text-muted
+  font-size: 13px
+  text-transform: uppercase
+  letter-spacing: 0.1em
+
+  .scroll-line
+    width: 1px
+    height: 60px
+    background: linear-gradient(to bottom, $primary, transparent)
+    animation: scrollLine 2s infinite
+
+// Animations
+@keyframes fadeInUp
+  from
+    opacity: 0
+    transform: translateY(20px)
+
+  to
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes blink
+  0%, 50%
+    opacity: 1
+
+  51%, 100%
+    opacity: 0
+
+@keyframes scrollLine
+  0%
+    transform: scaleY(0)
+    transform-origin: top
+
+  50%
+    transform: scaleY(1)
+    transform-origin: top
+
+  51%
+    transform: scaleY(1)
+    transform-origin: bottom
+
+  100%
+    transform: scaleY(0)
+    transform-origin: bottom
+
+// Hero with background
+.hero-bg
+  position: relative
+  overflow: hidden
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: linear-gradient(135deg, rgba($primary, 0.1) 0%, transparent 50%)
+    pointer-events: none
+
+// Stats row in hero
+.hero-stats
+  display: flex
+  gap: 48px
+  margin-top: 64px
+  padding-top: 40px
+  border-top: 1px solid $dark-border
+
+  @media (max-width: 768px)
+    gap: 32px
+    flex-wrap: wrap
+
+.stat-item
+  .stat-number
+    font-size: 42px
+    font-weight: 700
+    color: $text-white
+    line-height: 1
+    margin-bottom: 8px
+
+    @media (max-width: 768px)
+      font-size: 32px
+
+  .stat-label
+    font-size: 14px
+    color: $text-muted
+    text-transform: uppercase
+    letter-spacing: 0.05em
+
+@media (max-width: 768px)
+  .hero
+    padding: 40px 24px
+    min-height: auto
+    padding-top: 80px
+
+  .hero-scroll
+    display: none

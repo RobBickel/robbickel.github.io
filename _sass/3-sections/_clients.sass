@@ -1,0 +1,177 @@
+// Client Logos Section
+
+.clients-section
+  padding: 80px 48px
+  border-top: 1px solid $dark-border
+
+  @media (max-width: 768px)
+    padding: 48px 24px
+
+.clients-header
+  text-align: center
+  margin-bottom: 48px
+
+  h2
+    font-size: 14px
+    font-weight: 600
+    color: $text-muted
+    text-transform: uppercase
+    letter-spacing: 0.1em
+    margin: 0
+
+.clients-grid
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr))
+  gap: 32px
+  align-items: center
+  max-width: 1000px
+  margin: 0 auto
+
+  @media (max-width: 768px)
+    grid-template-columns: repeat(3, 1fr)
+    gap: 24px
+
+  @media (max-width: 480px)
+    grid-template-columns: repeat(2, 1fr)
+
+.client-logo
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 24px
+  background: $dark-bg-card
+  border: 1px solid $dark-border
+  border-radius: 12px
+  transition: all 0.2s ease
+  min-height: 80px
+
+  &:hover
+    border-color: $dark-border-light
+    transform: translateY(-2px)
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2)
+
+  img
+    max-width: 120px
+    max-height: 40px
+    width: auto
+    height: auto
+    filter: grayscale(100%) brightness(0.8)
+    opacity: 0.7
+    transition: all 0.2s ease
+
+  &:hover img
+    filter: grayscale(0%) brightness(1)
+    opacity: 1
+
+  // Text-based logo fallback
+  .client-name
+    font-size: 16px
+    font-weight: 600
+    color: $text-muted
+    text-transform: uppercase
+    letter-spacing: 0.05em
+    transition: color 0.2s ease
+
+  &:hover .client-name
+    color: $text-white
+
+// Alternative: Scrolling logos
+.clients-scroll
+  overflow: hidden
+  padding: 40px 0
+  position: relative
+
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    top: 0
+    bottom: 0
+    width: 100px
+    z-index: 1
+    pointer-events: none
+
+  &::before
+    left: 0
+    background: linear-gradient(to right, $dark-bg, transparent)
+
+  &::after
+    right: 0
+    background: linear-gradient(to left, $dark-bg, transparent)
+
+.clients-track
+  display: flex
+  gap: 48px
+  animation: scroll 30s linear infinite
+
+  .client-logo
+    flex-shrink: 0
+
+@keyframes scroll
+  0%
+    transform: translateX(0)
+
+  100%
+    transform: translateX(-50%)
+
+// Testimonial-style clients section
+.clients-testimonial
+  padding: 100px 48px
+  background: $dark-bg-lighter
+  border-top: 1px solid $dark-border
+  border-bottom: 1px solid $dark-border
+
+  @media (max-width: 768px)
+    padding: 64px 24px
+
+.clients-testimonial-content
+  max-width: 800px
+  margin: 0 auto
+  text-align: center
+
+  .testimonial-quote
+    font-size: 24px
+    font-weight: 500
+    color: $text-white
+    line-height: 1.6
+    margin-bottom: 32px
+    position: relative
+
+    @media (max-width: 768px)
+      font-size: 20px
+
+    &::before
+      content: '"'
+      position: absolute
+      top: -20px
+      left: -20px
+      font-size: 80px
+      color: $primary
+      opacity: 0.3
+      font-family: Georgia, serif
+      line-height: 1
+
+  .testimonial-author
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 16px
+
+    .author-avatar
+      width: 48px
+      height: 48px
+      border-radius: 50%
+      background: $dark-bg-card
+      border: 2px solid $dark-border
+
+    .author-info
+      text-align: left
+
+      .author-name
+        font-size: 16px
+        font-weight: 600
+        color: $text-white
+
+      .author-title
+        font-size: 14px
+        color: $text-muted

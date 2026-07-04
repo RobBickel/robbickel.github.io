@@ -1,24 +1,99 @@
+// Dark Theme Post/Project Detail Layout
+
 .post-container
-  max-width: 600px
-  margin: 0px auto 30px
+  max-width: 800px
+  margin: 0 auto
+  padding: 80px 48px
   position: relative
-  display: block
-  h4
-    color: black
+
+  @media (max-width: 768px)
+    padding: 48px 24px
+
+  h1
+    font-size: 36px
     line-height: 1.2
-    margin-bottom: 10px
-    font:
-      weight: 700
-      size: 24px
+    color: $text-white
+    margin-bottom: 24px
+
+    @media (max-width: 768px)
+      font-size: 28px
+
+  h4
+    font-size: 24px
+    color: $text-white
+    line-height: 1.3
+    margin-bottom: 16px
+    font-weight: 600
+
+    @media (max-width: 768px)
+      font-size: 20px
+
+  p
+    font-size: 17px
+    line-height: 1.75
+    color: $text-light
+    margin-bottom: 24px
+
+    @media (max-width: 768px)
+      font-size: 16px
+
   img
     max-width: 100%
+    border-radius: 12px
+    margin: 32px 0
+    border: 1px solid $dark-border
+
   a
     &:hover img
-      opacity: 0.5
+      opacity: 0.9
+
   .post-return
+    position: absolute
+    top: 80px
+    left: -60px
     cursor: pointer
-    font:
-      size: 24px
-    +position(absolute, -3px null null -35px)
+    font-size: 20px
+    color: $text-muted
+    transition: all 0.2s ease
+    width: 40px
+    height: 40px
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 8px
+    background: $dark-bg-card
+    border: 1px solid $dark-border
+
+    &:hover
+      color: $primary
+      border-color: $primary
+
+    @media (max-width: 900px)
+      position: static
+      margin-bottom: 24px
+
   .loading
     text-align: center
+    padding: 48px
+    color: $text-muted
+
+// Post metadata
+.post-meta
+  display: flex
+  align-items: center
+  gap: 16px
+  margin-bottom: 32px
+  font-size: 14px
+  color: $text-muted
+
+  .post-date
+    display: flex
+    align-items: center
+    gap: 6px
+
+  .post-category
+    background: $dark-bg-card
+    padding: 4px 12px
+    border-radius: 100px
+    font-weight: 500
+    border: 1px solid $dark-border

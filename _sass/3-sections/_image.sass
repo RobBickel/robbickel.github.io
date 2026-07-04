@@ -1,13 +1,25 @@
+// Dark Theme Image Container
+
 .image-container
   position: relative
   width: 100%
-  margin-bottom: 20px
+  margin-bottom: 24px
+  border-radius: 12px
+  overflow: hidden
+  border: 1px solid $dark-border
+
   &:hover .overlay
     opacity: 1
+
+  &:hover .image
+    transform: scale(1.02)
+
   .image
     display: block
     width: 100%
     height: auto
+    transition: transform 0.3s ease
+
   .overlay
     position: absolute
     top: 0
@@ -17,15 +29,15 @@
     height: 100%
     width: 100%
     opacity: 0
-    //transition: .5s ease
-    background-color: rgba(255,255,255,0.05)
+    transition: opacity 0.2s ease
+    background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.8) 100%)
+    display: flex
+    align-items: flex-end
+    justify-content: center
+    padding: 24px
+
   .text
-    color: black
-    font:
-      size: 24px
-      weight: 700
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-    -ms-transform: translate(-50%, -50%)
+    color: $text-white
+    font-size: 18px
+    font-weight: 600
+    text-align: center

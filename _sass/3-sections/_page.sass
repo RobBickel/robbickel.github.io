@@ -1,17 +1,153 @@
-.page-content
-  max-width: 750px
-  margin: 30px
-  h1
-    line-height: 1.5
-    color: black
-    font:
-      size: 30px
-      weight: 700
-  p
-    line-height: 1.5
-    font:
-      size: 16px
+// Dark Theme Page Layout
 
-@media (max-width: 768px)
-  .page-content
-    width: 80vw
+.page-content
+  max-width: 800px
+  margin: 0 auto
+  padding: 80px 48px
+
+  @media (max-width: 768px)
+    padding: 48px 24px
+
+  // Page title
+  h1
+    font-size: 42px
+    line-height: 1.15
+    color: $text-white
+    margin-bottom: 24px
+    letter-spacing: -0.02em
+
+    @media (max-width: 768px)
+      font-size: 32px
+
+  // Section headings
+  h2
+    font-size: 28px
+    color: $text-white
+    margin-top: 56px
+    margin-bottom: 20px
+    padding-bottom: 12px
+    border-bottom: 1px solid $dark-border
+
+    @media (max-width: 768px)
+      font-size: 24px
+
+  h3
+    font-size: 22px
+    color: $text-white
+    margin-top: 40px
+    margin-bottom: 16px
+    text-align: left
+    padding: 0
+
+    @media (max-width: 768px)
+      font-size: 20px
+
+  h4
+    font-size: 18px
+    color: $text-white
+    margin-top: 32px
+    margin-bottom: 12px
+
+  // Body text
+  p
+    font-size: 17px
+    line-height: 1.75
+    color: $text-light
+    margin-bottom: 24px
+
+  // Lists
+  ul, ol
+    margin-bottom: 24px
+    color: $text-light
+
+    li
+      font-size: 17px
+      line-height: 1.7
+      margin-bottom: 10px
+
+  // Strong text
+  strong
+    color: $text-white
+    font-weight: 600
+
+  // Links
+  a
+    color: $primary
+    text-decoration: none
+    transition: color 0.2s ease
+
+    &:hover
+      color: $primary-light
+
+  // Images
+  img
+    margin: 40px 0
+    border-radius: 12px
+    border: 1px solid $dark-border
+
+  // Horizontal rule
+  hr
+    border: none
+    border-top: 1px solid $dark-border
+    margin: 48px 0
+
+  // Blockquotes
+  blockquote
+    margin: 40px 0
+    padding: 24px 28px
+    border-left: 4px solid $primary
+    background: $dark-bg-card
+    border-radius: 0 12px 12px 0
+
+    p
+      margin: 0
+      font-size: 18px
+      font-style: italic
+      color: $text-light
+
+  // Code
+  code
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace
+    font-size: 14px
+    background: $dark-bg-card
+    padding: 3px 8px
+    border-radius: 4px
+    color: $primary-light
+    border: 1px solid $dark-border
+
+  pre
+    background: $dark-bg-lighter
+    border: 1px solid $dark-border
+    padding: 24px
+    border-radius: 12px
+    overflow-x: auto
+    margin: 32px 0
+
+    code
+      background: none
+      padding: 0
+      border: none
+      color: $text-light
+
+  // Tables
+  table
+    width: 100%
+    border-collapse: collapse
+    margin: 32px 0
+    font-size: 15px
+
+    th, td
+      padding: 14px 16px
+      text-align: left
+      border-bottom: 1px solid $dark-border
+
+    th
+      font-weight: 600
+      color: $text-white
+      background: $dark-bg-card
+
+    td
+      color: $text-light
+
+    tr:hover td
+      background: $dark-bg-card

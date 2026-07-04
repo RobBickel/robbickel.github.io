@@ -2,7 +2,7 @@
 ---
 
 <!DOCTYPE html>
-<html class="">
+<html class="dark-theme">
   <head>
     <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,7 +19,9 @@
     </title>
     <link rel="stylesheet" href="{{ site.github.url }}/assets/css/all.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <!-- Use Atom -->
     {% feed_meta %}
@@ -31,11 +33,36 @@
     {% seo %}
   </head>
   <body>
-    <div class="site-container">
-      {% include header.html %}
-      {{ content }}
-      {% include footer.html %}
+    <div class="site-wrapper">
+      {% include sidebar.html %}
+      <main class="main-content">
+        <div class="content-inner">
+          {{ content }}
+        </div>
+        {% include footer.html %}
+      </main>
     </div>
+
+    <!-- Mobile menu toggle -->
+    <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      // Mobile menu toggle
+      document.getElementById('menuToggle').addEventListener('click', function() {
+        document.body.classList.toggle('sidebar-open');
+      });
+
+      // Close sidebar when clicking on main content (mobile)
+      document.querySelector('.main-content').addEventListener('click', function() {
+        if (window.innerWidth <= 1024) {
+          document.body.classList.remove('sidebar-open');
+        }
+      });
+    </script>
   </body>
 </html>

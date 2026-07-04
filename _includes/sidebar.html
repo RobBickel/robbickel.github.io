@@ -1,0 +1,50 @@
+<aside class="sidebar">
+  <div class="sidebar-inner">
+    <!-- Logo / Brand -->
+    <div class="sidebar-logo">
+      <a href="{{ site.github.url }}/">
+        <span class="logo-text">{{ site.title }}</span>
+      </a>
+    </div>
+
+    <!-- Tagline -->
+    <div class="sidebar-tagline">
+      <p>Software Development & Marketing Agency</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+      {% for item in site.data.settings.menu %}
+        <a href="{{ site.github.url }}/{{ item.url }}" class="{% if page.url == item.url or page.url contains item.url %}active{% endif %}">
+          {{ item.name }}
+        </a>
+      {% endfor %}
+    </nav>
+
+    <!-- Social Links -->
+    <div class="sidebar-social">
+      {% for item in site.data.settings.social %}
+        <a href="{{ item.link }}" target="_blank" rel="noopener" aria-label="{{ item.icon }}">
+          <i class="fa fa-{{ item.icon }}" aria-hidden="true"></i>
+        </a>
+      {% endfor %}
+    </div>
+
+    <!-- Contact Info -->
+    <div class="sidebar-contact">
+      <a href="mailto:bickel.rob@gmail.com" class="contact-item">
+        <i class="fa fa-envelope"></i>
+        <span>bickel.rob@gmail.com</span>
+      </a>
+      <a href="tel:5412129788" class="contact-item">
+        <i class="fa fa-phone"></i>
+        <span>(541) 212-9788</span>
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="sidebar-footer">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}</p>
+    </div>
+  </div>
+</aside>

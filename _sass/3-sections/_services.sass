@@ -1,120 +1,178 @@
-// Services Grid
+// Dark Theme Services Grid
+
 .services-grid
   display: grid
   grid-template-columns: repeat(2, 1fr)
-  gap: 24px
-  margin: 30px 0
+  gap: 20px
+  margin: 40px 0
 
   @media (max-width: 768px)
     grid-template-columns: 1fr
+    gap: 16px
 
 .service-card
-  background: #f8f9fa
-  border: 1px solid #e9ecef
-  border-radius: 8px
-  padding: 24px
-  transition: border-color 0.2s ease, box-shadow 0.2s ease
+  background: $dark-bg-card
+  border: 1px solid $dark-border
+  border-radius: 12px
+  padding: 28px
+  transition: all 0.2s ease
 
   &:hover
-    border-color: $accent
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08)
+    border-color: $primary
+    transform: translateY(-2px)
+    box-shadow: 0 8px 32px rgba($primary, 0.15)
 
   h3
     margin: 0 0 12px 0
     font-size: 20px
+    font-weight: 600
+    text-align: left
+    padding: 0
+    color: $text-white
 
     a
-      color: $headlineColor
-      text-decoration: none
+      color: $text-white
+      transition: color 0.15s ease
 
       &:hover
-        color: $accent
+        color: $primary
 
   p
-    color: $textColor
-    font-size: 14px
+    color: $text-muted
+    font-size: 15px
     line-height: 1.6
     margin: 0 0 16px 0
 
   .service-link
-    color: $accent
+    color: $primary
     font-size: 14px
     font-weight: 500
-    text-decoration: none
+    display: inline-flex
+    align-items: center
+    gap: 6px
+    transition: gap 0.15s ease
 
     &:hover
-      text-decoration: underline
+      gap: 10px
+      color: $primary-light
 
-// Contact Form
+// Contact Form - Dark Theme
 .contact-form-wrapper
-  margin: 30px 0
+  margin: 48px 0
   max-width: 600px
 
 .contact-form
-  background: #f8f9fa
-  border: 1px solid #e9ecef
-  border-radius: 8px
-  padding: 24px
+  background: $dark-bg-card
+  border: 1px solid $dark-border
+  border-radius: 16px
+  padding: 32px
 
 .form-row
   display: grid
   grid-template-columns: 1fr 1fr
-  gap: 16px
+  gap: 20px
 
   @media (max-width: 480px)
     grid-template-columns: 1fr
 
 .form-group
-  margin-bottom: 16px
+  margin-bottom: 20px
 
   label
     display: block
     font-size: 14px
     font-weight: 500
-    color: $headlineColor
-    margin-bottom: 6px
+    color: $text-white
+    margin-bottom: 8px
 
   input,
   textarea
     width: 100%
-    padding: 10px 12px
-    border: 1px solid #ddd
-    border-radius: 4px
-    font-size: 14px
+    padding: 14px 16px
+    border: 1px solid $dark-border
+    border-radius: 8px
+    font-size: 15px
     font-family: inherit
-    transition: border-color 0.2s ease, box-shadow 0.2s ease
+    transition: all 0.15s ease
     box-sizing: border-box
+    background: $dark-bg
+    color: $text-white
 
     &:focus
       outline: none
-      border-color: $accent
-      box-shadow: 0 0 0 3px rgba($accent, 0.1)
+      border-color: $primary
+      box-shadow: 0 0 0 3px rgba($primary, 0.15)
 
     &::placeholder
-      color: #999
+      color: $text-dark-muted
 
   textarea
     resize: vertical
-    min-height: 100px
+    min-height: 120px
 
 .btn-submit
-  background: $accent
-  color: white
+  background: $primary
+  color: $text-white
   border: none
-  padding: 12px 24px
-  font-size: 14px
-  font-weight: 500
-  border-radius: 4px
+  padding: 16px 32px
+  font-size: 15px
+  font-weight: 600
+  border-radius: 8px
   cursor: pointer
-  transition: background 0.2s ease
+  transition: all 0.2s ease
 
   &:hover
-    background: darken($accent, 10%)
+    background: $primary-dark
+    transform: translateY(-2px)
+    box-shadow: 0 8px 24px rgba($primary, 0.3)
+
+  &:active
+    transform: translateY(0)
 
 .form-note
-  margin-top: 16px
-  font-size: 13px
-  color: $textColor
+  margin-top: 20px
+  font-size: 14px
+  color: $text-muted
+  text-align: center
 
   a
-    color: $accent
+    color: $primary
+    font-weight: 500
+
+// CTA Button styles
+.cta-button
+  display: inline-flex
+  align-items: center
+  gap: 8px
+  background: $primary
+  color: $text-white
+  padding: 16px 32px
+  border-radius: 8px
+  font-size: 15px
+  font-weight: 600
+  transition: all 0.2s ease
+  text-decoration: none
+
+  &:hover
+    background: $primary-dark
+    color: $text-white
+    transform: translateY(-2px)
+    box-shadow: 0 8px 24px rgba($primary, 0.3)
+
+.cta-button-secondary
+  display: inline-flex
+  align-items: center
+  gap: 8px
+  background: transparent
+  color: $text-white
+  padding: 16px 32px
+  border: 2px solid $dark-border
+  border-radius: 8px
+  font-size: 15px
+  font-weight: 600
+  transition: all 0.2s ease
+  text-decoration: none
+
+  &:hover
+    border-color: $text-white
+    background: rgba($text-white, 0.05)
