@@ -3,8 +3,9 @@
 
 menu:
 - {name: 'Projects', url: ''}
+- {name: 'Services', url: '/services'}
+- {name: 'What We Do', url: '/what-we-do'}
 #- {name: 'Blog',     url: 'blog'}
-- { name: "What We Do", url: "/what-we-do" }
 - {name: 'About',    url: 'about'}
 - {name: 'Contact',  url: 'contact'}
 
