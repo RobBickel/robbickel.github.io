@@ -1,115 +1,146 @@
 ---
 layout: page
-title: Cybersecurity Scanning
+title: Security & Compliance
 permalink: /services/security-scanning/
+description: Repository security scanning, secrets detection, and vulnerability assessment. Find exposed credentials and security gaps before they become incidents.
 ---
 
-# Cybersecurity Scanning
+# Security & Compliance
 
-Find vulnerabilities in your GitHub repositories before attackers do.
+The fastest way to end up in the news is to leave credentials in a public repository. The second fastest is to ignore known vulnerabilities until someone exploits them.
+
+We scan your codebase for the things that cause breaches: exposed secrets, vulnerable dependencies, insecure configurations, and the compliance gaps that auditors will eventually find anyway.
 
 ---
 
-## What We Scan
+## What We Find
 
-### Secrets Detection
-Scan your codebase for accidentally committed secrets that could expose your systems.
+### Exposed Secrets
 
-- API keys and tokens
-- Database credentials
+Credentials that shouldn't be in your codebase but are:
+
+- API keys and access tokens
+- Database connection strings
 - Private keys and certificates
-- OAuth secrets
-- Environment variables in code
-- Historical commits (secrets in git history)
+- OAuth secrets and client credentials
+- Environment variables committed by accident
+- Secrets buried in git history (deleted but not gone)
 
-### Dependency Vulnerabilities
-Identify known vulnerabilities in your dependencies before they become attack vectors.
+One in eight repositories contains exposed secrets. Most of them are still valid.
 
-- CVE database matching
-- Dependency tree analysis
-- Transitive vulnerability detection
-- Severity scoring and prioritization
-- Remediation guidance
+### Vulnerable Dependencies
 
-### Code Security Analysis
-Static analysis to find security issues in your code.
+Known security issues in the packages you depend on:
 
-- OWASP Top 10 vulnerabilities
-- SQL injection patterns
-- XSS vulnerabilities
-- Authentication/authorization flaws
-- Insecure cryptography usage
-- Input validation issues
+- CVE matches against your dependency tree
+- Transitive vulnerabilities (the packages your packages use)
+- Severity scoring and exploitability assessment
+- Upgrade paths and remediation guidance
 
-### Configuration Audits
-Review infrastructure-as-code and configuration files for security misconfigurations.
+Your code might be secure. Your dependencies might not be.
 
-- Terraform/CloudFormation security
-- Docker/container security
-- CI/CD pipeline security
-- Access control configurations
-- Exposed services and ports
+### Code Security Issues
 
----
+Static analysis for common vulnerability patterns:
 
-## Scan Types
+- OWASP Top 10 coverage
+- SQL injection and command injection
+- Cross-site scripting (XSS)
+- Authentication and authorization flaws
+- Insecure cryptography
+- Input validation gaps
 
-| Scan Type | Scope | Deliverable |
-|-----------|-------|-------------|
-| **Quick Scan** | Single repository, current state | Summary report with critical findings |
-| **Deep Scan** | Single repo, full git history | Detailed report with all historical secrets |
-| **Organization Scan** | All org repositories | Executive summary + per-repo findings |
-| **Continuous Monitoring** | Ongoing scanning on push/PR | Alerts and dashboard access |
+### Configuration Problems
+
+Infrastructure-as-code and configuration file review:
+
+- Terraform and CloudFormation security
+- Container and Docker security
+- CI/CD pipeline exposure
+- Overly permissive access controls
+- Publicly exposed services
 
 ---
 
-## What You Get
+## Scan Options
+
+| Scan Type | Scope | What You Get |
+|-----------|-------|--------------|
+| **Quick scan** | Single repo, current state | Summary of critical findings |
+| **Deep scan** | Single repo, full history | Every secret ever committed |
+| **Organization scan** | All repositories | Executive summary + per-repo details |
+| **Continuous monitoring** | Ongoing, on every push | Alerts before problems merge |
+
+Most organizations start with an organization scan to establish baseline, then move to continuous monitoring.
+
+---
+
+## What You Receive
 
 ### Findings Report
-- Severity-ranked list of all discovered issues
-- File locations and line numbers
-- Remediation recommendations
-- False positive analysis
+
+- Every issue ranked by severity
+- Exact file locations and line numbers
+- Remediation steps for each finding
+- False positive analysis (we filter the noise)
 
 ### Executive Summary
-- Risk score for your codebase
-- Comparison to industry benchmarks
-- Prioritized action items
-- Cost of remediation estimates
+
+- Overall risk score for your codebase
+- Industry benchmark comparison
+- Prioritized action list
+- Estimated remediation effort
 
 ### Remediation Support
-- Guidance on rotating exposed credentials
-- Pull requests to fix vulnerabilities
-- Dependency upgrade paths
+
+If you want help fixing what we find:
+
+- Credential rotation guidance
+- Pull requests for dependency updates
 - Security hardening recommendations
+- Compliance documentation support
 
 ---
 
 ## Why This Matters
 
-**Secrets in repositories are a leading cause of breaches.** Studies show:
+Attackers actively scan public repositories for credentials. Automated tools check every commit within minutes of being pushed. Historical commits are not safe — git history is searchable.
 
-- 1 in 8 repositories contains exposed secrets
-- Most secrets remain valid for months after exposure
-- Attackers actively scan public repos for credentials
-- Historical commits are often overlooked (but still accessible)
+The breaches you read about often start with something simple: an API key that was "only committed for testing" and never rotated.
 
----
-
-## Compliance
-
-Security scanning helps meet requirements for:
-
-- SOC 2 Type II
-- HIPAA
-- PCI-DSS
-- ISO 27001
-- GDPR (technical measures)
+We find these issues before someone else does.
 
 ---
 
-## Get Started
+## Compliance Coverage
 
-Request a scan of your repositories. We'll provide an initial assessment within 48 hours.
+Security scanning supports requirements for:
 
-{% include contact-form.html service="Cybersecurity Scanning" %}
+- **SOC 2** — vulnerability management, access control evidence
+- **HIPAA** — technical safeguards, risk assessment
+- **PCI-DSS** — secure development, vulnerability scanning
+- **ISO 27001** — asset management, operations security
+- **GDPR** — technical measures for data protection
+
+We can provide documentation formatted for audit evidence.
+
+---
+
+## Pricing
+
+| Scan Type | Typical Price Range |
+|-----------|---------------------|
+| Quick scan | $500 - $1,500 |
+| Deep scan | $2,000 - $5,000 |
+| Organization scan | $5,000 - $15,000 |
+| Continuous monitoring | Monthly retainer |
+
+Final pricing depends on repository count and size. We'll scope it precisely after an initial conversation.
+
+---
+
+## Request a Scan
+
+Tell us about your environment. We'll provide a specific quote and can usually deliver initial findings within 48 hours.
+
+{% include contact-form.html service="Security Scanning" %}

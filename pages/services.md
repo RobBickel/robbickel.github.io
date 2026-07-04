@@ -2,37 +2,40 @@
 layout: page
 title: Services
 permalink: /services/
+description: Software portfolio management, technical due diligence, and stewardship operations. We simplify your software estate and keep it running.
 ---
 
-# Our Services
+# Software Portfolio Services
 
-We help companies build, scale, and secure their software — while turning internal tools into competitive advantages.
+Every company we've worked with has the same problem: too many systems, not enough clarity, and the one person who understood how it all fit together just left.
+
+We fix that.
 
 ---
 
 <div class="services-grid">
 
 <div class="service-card">
+<h3><a href="/services/portfolio-management/">Portfolio Management</a></h3>
+<p>Audit, consolidate, and rationalize your software estate. We map what you have, identify what's costing you money, and recommend what to keep, retire, or rebuild.</p>
+<a href="/services/portfolio-management/" class="service-link">Learn more →</a>
+</div>
+
+<div class="service-card">
 <h3><a href="/services/software-development/">Software Development</a></h3>
-<p>Custom web applications, SaaS products, API development, and mobile apps. We build software that scales with your business.</p>
+<p>Custom applications built to consolidate — not add to — your existing portfolio. We extend what works instead of creating new dependencies.</p>
 <a href="/services/software-development/" class="service-link">Learn more →</a>
 </div>
 
 <div class="service-card">
-<h3><a href="/services/marketing/">Marketing Services</a></h3>
-<p>SEO, paid advertising, content marketing, and conversion optimization. Data-driven strategies that generate measurable ROI.</p>
-<a href="/services/marketing/" class="service-link">Learn more →</a>
-</div>
-
-<div class="service-card">
-<h3><a href="/services/consulting/">Consulting & Advisory</a></h3>
-<p>Fractional CTO services, technical due diligence, architecture reviews, and strategic planning. Executive-level guidance without the full-time cost.</p>
+<h3><a href="/services/consulting/">Technical Advisory</a></h3>
+<p>Fractional CTO services, due diligence for acquisitions, and architecture reviews. Objective technical guidance without the overhead of a full-time executive.</p>
 <a href="/services/consulting/" class="service-link">Learn more →</a>
 </div>
 
 <div class="service-card">
-<h3><a href="/services/security-scanning/">Cybersecurity Scanning</a></h3>
-<p>GitHub repository security audits, vulnerability scanning, dependency analysis, and secrets detection. Find risks before attackers do.</p>
+<h3><a href="/services/security-scanning/">Security & Compliance</a></h3>
+<p>Repository scanning, secrets detection, and vulnerability assessment. We find what's exposed before someone else does.</p>
 <a href="/services/security-scanning/" class="service-link">Learn more →</a>
 </div>
 
@@ -40,19 +43,37 @@ We help companies build, scale, and secure their software — while turning inte
 
 ---
 
-## How We Work
+## The Problem We Solve
 
-Our [6-step engagement model](/what-we-do/) ensures we understand your software estate before building anything new:
+Software sprawl is expensive. Not just in licensing fees — in coordination overhead, in duplicated effort, in the institutional knowledge that walks out the door every time someone leaves.
 
-1. **Audit** — Map what exists, what it costs, and what breaks
-2. **Stabilize** — Eliminate silent drains before adding features
-3. **Decide** — Refactor, rebuild, or retire with clear decision rules
-4. **Productize** — Turn repeatable patterns into reusable assets
-5. **Steward** — Continuous improvement, not project abandonment
-6. **Continuity** — Survive turnover with proper documentation and key custody
+Most organizations respond by building more software. Another dashboard. Another integration. Another "quick tool" that becomes load-bearing infrastructure by accident.
+
+We take the opposite approach: **fewer systems, better maintained, properly documented.**
+
+The result is a software portfolio that your team can actually understand, operate, and evolve — without depending on any single person (including us).
 
 ---
 
-## Ready to Start?
+## Why Companies Work With Us
+
+| What You Get | What That Means |
+|--------------|-----------------|
+| **Portfolio clarity** | A single view of every system, what it costs, and who depends on it |
+| **Reduced complexity** | Fewer tools doing more work, with less coordination overhead |
+| **Continuity** | Documentation and processes that survive turnover |
+| **No lock-in** | Month-to-month engagements, full source access, your infrastructure |
+
+---
+
+## How We Engage
+
+We don't do annual contracts or retainer minimums. Most engagements start with a [Software Portfolio Audit](/what-we-do/) — a 30-45 day assessment that gives you a clear picture of what you own and what to do about it.
+
+From there, we can help you execute: consolidating systems, building replacements, or providing ongoing stewardship. Or you can take the audit and run with it internally. Either way, you'll have clarity you didn't have before.
+
+---
+
+## Ready to Simplify?
 
 {% include contact-form.html service="General Inquiry" %}

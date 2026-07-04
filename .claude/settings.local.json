@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:nogood.io)",
+      "WebFetch(domain:invisibly.io)",
+      "WebFetch(domain:invisibly.com)",
+      "Bash(bundle exec jekyll:*)",
+      "Bash(bundle install:*)",
+      "Bash(cat:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

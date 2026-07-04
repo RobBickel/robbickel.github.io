@@ -2,81 +2,111 @@
 layout: page
 title: Software Development
 permalink: /services/software-development/
+description: Custom software that consolidates your portfolio — not another system to maintain. We build applications designed to replace complexity, not add to it.
 ---
 
 # Software Development
 
-We build custom software that scales with your business — not throwaway prototypes that become liabilities.
+We build custom software. But more importantly, we build software that **reduces** your total system count — not software that becomes another line item on the maintenance spreadsheet.
+
+The difference matters. Most development shops optimize for shipping features. We optimize for long-term operational simplicity. That means fewer moving parts, cleaner integrations, and documentation that someone other than us can actually use.
 
 ---
 
 ## What We Build
 
-### Web Applications
-Full-stack web applications using modern frameworks. From internal tools to customer-facing platforms, we build for maintainability and scale.
+### Consolidation Platforms
 
-- **Frontend:** React, Vue, Next.js, responsive design
-- **Backend:** Node.js, Python, Go, REST & GraphQL APIs
-- **Database:** PostgreSQL, MongoDB, Redis, data modeling
-- **Infrastructure:** AWS, GCP, Vercel, containerization
+The most valuable software we build replaces three or four existing tools with one. We specialize in:
+
+- **Internal tools** that unify fragmented workflows
+- **Admin systems** that replace spreadsheet chaos
+- **Integration layers** that eliminate point-to-point connections
+- **Reporting platforms** that pull from multiple sources
+
+If you're currently duct-taping data between systems, we can build the thing that makes that unnecessary.
+
+### Custom Web Applications
+
+Full-stack applications built for maintainability, not just launch day:
+
+- Modern frontends (React, Vue, Next.js)
+- APIs designed for internal and external consumption
+- Database architecture that scales without heroics
+- Infrastructure that runs on your cloud, not ours
 
 ### SaaS Products
-End-to-end SaaS development — from MVP to production. We've built and operated our own SaaS products, so we understand the full lifecycle.
+
+We've built and operated our own SaaS products. We understand the full lifecycle — not just getting to launch, but surviving the next three years of feature requests, scaling challenges, and customer support.
 
 - Multi-tenant architecture
-- Subscription billing integration (Stripe, etc.)
-- User management & access control
-- Analytics and usage tracking
-- Scalable infrastructure
-
-### API Development & Integrations
-Connect your systems or expose your data to partners. We build APIs that are documented, versioned, and reliable.
-
-- RESTful and GraphQL API design
-- Third-party integrations (payment, CRM, ERP, etc.)
-- Webhook systems
-- API documentation and developer experience
-
-### Mobile Applications
-Cross-platform mobile apps that share code with your web application where it makes sense.
-
-- React Native for iOS and Android
-- Native integrations when needed
-- Offline-first architecture
-- Push notifications and background sync
+- Subscription billing (Stripe, usage-based models)
+- User management and access control
+- Analytics that actually inform product decisions
 
 ---
 
 ## How We're Different
 
-**We don't just build and leave.** Most agencies deliver code and disappear. We operate like stewards:
+### We Start With the Audit
 
-- **Audit first:** We understand your existing systems before writing new code
-- **Reuse over rebuild:** We productize common patterns instead of rebuilding them
-- **Documentation that works:** Runbooks and architecture docs stay current
-- **Long-term support:** Stewardship operations keep software valuable after launch
+Before writing code, we understand what you already have. New development should reduce complexity, not add to it. If the right answer is "don't build this," we'll tell you.
+
+### We Build for Handoff
+
+Every system we build includes:
+
+- Architecture documentation (current, not aspirational)
+- Runbooks for common operations
+- Onboarding guides for new developers
+- Dependency maps and integration specs
+
+You should be able to operate — or replace us — without a knowledge transfer hostage situation.
+
+### We Don't Disappear
+
+Most agencies deliver code and move on. We offer ongoing stewardship: maintenance, monitoring, incremental improvements, and the institutional knowledge that makes those things possible.
+
+The software stays valuable after launch because someone is still paying attention.
 
 ---
 
-## Technologies We Use
+## Technology Choices
 
-| Category | Technologies |
-|----------|--------------|
-| Frontend | React, Vue, Next.js, TypeScript, Tailwind |
-| Backend | Node.js, Python, Go, PostgreSQL, Redis |
-| Cloud | AWS, GCP, Vercel, Docker, Kubernetes |
-| DevOps | GitHub Actions, Terraform, monitoring |
+We're pragmatic about technology. We use what's appropriate for the problem, not what's trendy this quarter.
+
+| Layer | Our Defaults | When We Deviate |
+|-------|--------------|-----------------|
+| Frontend | React, TypeScript | Vue for simpler apps, Next.js for SEO-critical |
+| Backend | Node.js, Python | Go for performance-critical services |
+| Database | PostgreSQL | MongoDB for document-heavy, Redis for caching |
+| Infrastructure | AWS, Vercel | GCP if you're already there |
+| DevOps | GitHub Actions, Terraform | Whatever you're already using |
+
+We don't force a stack. If you have existing infrastructure, we work with it.
+
+---
+
+## Engagement Models
+
+| Model | Best For | Typical Duration |
+|-------|----------|------------------|
+| **Fixed scope** | Well-defined projects with clear requirements | 2-6 months |
+| **Time & materials** | Evolving requirements, ongoing development | Open-ended |
+| **Stewardship retainer** | Maintenance, monitoring, incremental work | Monthly |
+
+We don't require long-term contracts. If the work isn't valuable, you should be able to stop.
 
 ---
 
 ## Recent Work
 
-Check out our [portfolio](/projects) to see examples of software we've built.
+We've built internal tools, customer-facing platforms, and SaaS products across industries. [See our portfolio](/projects) for examples, or [schedule a call](/contact/) to discuss your specific situation.
 
 ---
 
-## Get Started
+## Start a Conversation
 
-Tell us about your project. We'll follow up within 24 hours.
+Tell us what you're trying to accomplish. We'll be honest about whether we're the right fit.
 
 {% include contact-form.html service="Software Development" %}

@@ -1,124 +1,114 @@
 ---
 layout: page
-title: What We Do
+title: Software Portfolio Audit
 permalink: /what-we-do/
+description: A 30-45 day assessment that maps your software estate, identifies hidden costs, and delivers a prioritized action plan. No more software sprawl.
 ---
 
-![Whiteboard planning session](/assets/img/what-we-do/hero.png)
+# The Software Portfolio Audit
 
-#### Step 1 — Software Estate Audit (30–45 days)
-Most companies don’t have a “software problem.” They have a **software sprawl problem**: one-off tools, duplicated logic, brittle integrations, and tribal knowledge.
+Most companies don't have a software problem. They have a **visibility problem**.
 
-We map your software estate into a single, CEO-readable view:
-- **What exists** (apps, scripts, automations, dashboards, spreadsheets-with-a-budget)
-- **What it costs** (cash, time, risk, delays, opportunity)
-- **What breaks** (where work stops when one person is out)
-- **What repeats** (the “same 95%” built again and again)
+Somewhere between the third internal tool and the fifth "temporary" integration, you lost track of what you actually own. Now you're paying for systems no one uses, maintaining code no one understands, and hoping the one person who knows how the billing integration works doesn't quit.
 
-**Deliverable:** an executive brief + a prioritized backlog with ROI and risk.
+The Software Portfolio Audit fixes that. In 30-45 days, we deliver a complete inventory of your software estate — what exists, what it costs, what depends on it, and what to do next.
 
 ---
 
-![Diagram: inventory + dependency map](/assets/img/what-we-do/audit-map.png)
+## What You Get
 
-#### Step 2 — Stabilize the Foundation (Stop the bleeding)
-Before building “new,” we eliminate the silent drains:
-- unreliable deployments
-- missing environments
-- no ownership model
-- mystery integrations
-- unknown data flows
+### A Complete Inventory
 
-We add the basics that prevent rework:
-- environments you can trust (staging/preview where it matters)
-- monitoring and failure signals
-- a “known-good” release process
-- a decision log (so future teams understand *why*)
+Every application, script, automation, dashboard, and spreadsheet-with-delusions-of-grandeur. We document:
 
-**Outcome:** fewer emergencies, fewer regressions, fewer “we’re afraid to touch it” systems.
+- **What it does** (stated purpose vs. actual usage)
+- **Who depends on it** (users, downstream systems, business processes)
+- **What it costs** (hosting, licensing, maintenance hours, opportunity cost)
+- **Who maintains it** (or doesn't)
 
----
+### A Dependency Map
 
-![Diagram: cleanup vs rebuild decision](/assets/img/what-we-do/refactor-rebuild.png)
+Systems don't exist in isolation. We trace the connections:
 
-#### Step 3 — Refactor, Rebuild, or Retire (with clear decision rules)
-One-off systems usually die in one of three ways:
-1) they get endlessly patched  
-2) they get rewritten from scratch (again)  
-3) they become an accidental product no one owns
+- Data flows between systems
+- Integration points and failure modes
+- Shared credentials and access patterns
+- Single points of failure
 
-We run a simple decision framework:
-- **Refactor** if the system is structurally sound but messy
-- **Rebuild** if the system can’t be safely evolved
-- **Retire** if the system never produced ROI (or no longer needs to exist)
+### A Risk Assessment
 
-**Deliverable:** a documented call with cost/risk/benefit, not opinions.
+Not all technical debt is created equal. We identify:
 
----
+- **Key-person dependencies** — systems that stop working when specific people leave
+- **Undocumented logic** — business rules buried in code no one reads
+- **Security exposure** — credentials in repos, outdated dependencies, missing access controls
+- **Compliance gaps** — what would fail an audit tomorrow
 
-![Diagram: “common 95%” extraction](/assets/img/what-we-do/productize.png)
+### A Prioritized Action Plan
 
-#### Step 4 — Productize the “Common 95%” (Reuse instead of re-building)
-A surprising amount of internal software is the same ingredients:
-- identity + roles
-- approvals + audit trails
-- CRUD + search + export
-- reporting + scheduled jobs
-- integrations + pipelines
-- admin panels + ops tooling
+We don't just hand you a list of problems. We deliver recommendations ranked by ROI and risk:
 
-Instead of recreating these every time, we turn repeatable patterns into **reusable building blocks** (and, when appropriate, **marketable tech**).
-
-**Outcome:** your next internal tool is 30–60% faster to deliver *because the last one wasn’t wasted.*
+- What to **keep** (it's working, leave it alone)
+- What to **consolidate** (three tools doing one job)
+- What to **rebuild** (the core is rotten)
+- What to **retire** (no one will miss it)
 
 ---
 
-![Diagram: stewardship lifecycle loop](/assets/img/what-we-do/stewardship-loop.png)
+## How It Works
 
-#### Step 5 — Stewardship Operations (Continuous improvement, not “project completion”)
-Most agencies deliver code and disappear. That’s how one-off tools become liabilities.
+#### Week 1-2: Discovery
 
-We operate like a long-term steward:
-- roadmap alignment (what matters this quarter)
-- reliability and performance tuning
-- cost control (especially repeat infra/token waste)
-- documentation upkeep (kept current, not ceremonial)
-- incident response + postmortems + prevention
+We interview stakeholders, review documentation (what exists of it), and gain access to systems. We're looking for the full picture — not just what's in your org chart, but what's actually running.
 
-**Outcome:** the tool stays valuable after launch — and improves over time.
+#### Week 2-4: Analysis
 
----
+We inventory systems, trace dependencies, assess risk, and identify redundancies. This is where the map comes together.
 
-![Diagram: key-person risk + keeper-of-keys](/assets/img/what-we-do/continuity.png)
+#### Week 4-6: Synthesis
 
-#### Step 6 — Continuity & “Keeper of Keys” (Survive turnover and layoffs)
-Layoffs don’t just remove headcount — they remove:
-- system context
-- undocumented decisions
-- access keys
-- integration knowledge
-- the “one person who knows why it’s like that”
+We develop recommendations, estimate costs, and prioritize by impact. The output is an executive brief you can present to leadership, plus a detailed technical appendix.
 
-We become the continuity layer:
-- a maintained architecture repository
-- controlled access & key custody procedures
-- onboarding documentation for new teams
-- dependency maps and runbooks that actually work
+#### Delivery: Executive Readout
 
-**Outcome:** your software remains operable and understandable through org churn.
+We present findings to your leadership team, answer questions, and discuss next steps. You walk away with a clear picture and a concrete plan.
 
 ---
 
-## What you get when the systems are stable and understood
-- Less rework and fewer repeated builds
-- Faster delivery without “mystery risk”
-- Lower key-person dependency
-- Better ROI from the software you already paid for
-- A clear path to turn internal capability into reusable assets
+## What Happens After
+
+You have options:
+
+**Execute internally.** Take the audit and run with it. The documentation is yours; we've structured it for handoff.
+
+**Engage us to execute.** We can consolidate systems, build replacements, retire deadweight, and provide ongoing stewardship. Most clients start here after seeing the audit results.
+
+**Do nothing.** At minimum, you now know what you're carrying. That's more than most companies can say.
 
 ---
 
-### If you want a starting point:
-**Start with the Software Estate Audit.** It’s the fastest way to turn “we have a lot of code” into “we know what we own, what it costs, and what to do next.”
+## Who This Is For
 
-[Contact us](/contact)
+The Software Portfolio Audit is designed for organizations that have:
+
+- Accumulated internal tools over years without a rationalization strategy
+- Experienced turnover that took institutional knowledge with it
+- Inherited systems through acquisitions or reorgs
+- Grown faster than their documentation practices
+- Started asking "what would happen if this person quit?"
+
+If you're already running lean with full visibility into your systems, you probably don't need this. But if you're reading this page, that's probably not your situation.
+
+---
+
+## Pricing
+
+The audit is a fixed-scope engagement. Pricing depends on the size and complexity of your environment, but most audits fall between $15,000 and $40,000.
+
+We'll scope it precisely after an initial conversation. No surprises.
+
+---
+
+## Start With Clarity
+
+{% include contact-form.html service="Software Portfolio Audit" %}
