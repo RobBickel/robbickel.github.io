@@ -13,3 +13,7 @@ author:      "Rob Bickel"
 url:         "https://robbickel.com"
 
 exclude: [README.md, LICENSE.md, Gemfile, Gemfile.lock, portfolio-jekyll-theme.gemspec, collateral, vendor, .claude]
+
+defaults:
+  - scope: {path: "", type: posts}
+    values: {layout: post, permalink: "/blog/:title/", author: "Rob Bickel"}

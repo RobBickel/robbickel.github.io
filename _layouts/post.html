@@ -2,9 +2,21 @@
 layout: default
 ---
 
-<article class="wrap prose">
+{% assign words = content | number_of_words %}
+<article class="wrap prose post">
+  <p class="post-meta">
+    <a href="{{ site.github.url }}/blog/">Blog</a> ·
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time> ·
+    {{ words | divided_by: 220 | plus: 1 }} min read
+  </p>
   <h1>{{ page.title }}</h1>
   {{ content }}
+
+  <hr>
+  <p class="post-author"><strong>Rob Bickel</strong> provides managed software services: ongoing ownership of the custom applications, integrations, and internal tools businesses depend on. <a href="{{ site.github.url }}/about/">More about Rob</a>.</p>
+
+  {% include contact-form.html service="Managed software" %}
+
   {% if site.data.settings.disqus.comments %}
     {% include disqus.html %}
   {% endif %}

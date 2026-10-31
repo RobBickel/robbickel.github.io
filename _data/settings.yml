@@ -7,6 +7,7 @@ menu:
 - {name: 'Managed Software', url: '/'}
 - {name: 'Portfolio Audit',  url: '/portfolio-audit/'}
 - {name: 'Services',         url: '/services/'}
+- {name: 'Blog',             url: '/blog/'}
 - {name: 'About',            url: '/about/'}
 
 #-------------------------------

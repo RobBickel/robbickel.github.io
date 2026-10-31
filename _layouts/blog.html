@@ -2,22 +2,21 @@
 layout: default
 ---
 
-<section>
-  <div class="blog-container">
+<section class="wrap blog-index">
+  <div class="section-head">
+    <p class="eyebrow">Blog</p>
+    <h1>Keeping business software healthy.</h1>
+    <p>Practical writing for leaders responsible for software they didn't build: ownership, maintenance, security, and making better software decisions.</p>
+  </div>
+
+  <div class="post-list">
     {% for post in site.posts %}
-      <div class="blog-unit">
-        <h1><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h1>
-        <span class="blog-date">
-          {% assign d = post.date | date: "%-d"  %}
-          {{ post.date | date: "%B" }}
-          {% case d %}
-            {% when '1' or '21' or '31' %}{{ d }}st
-            {% when '2' or '22' %}{{ d }}nd
-            {% when '3' or '23' %}{{ d }}rd
-            {% else %}{{ d }}th{% endcase %},
-          {{ post.date | date: "%Y" }}
-        </span>
-      </div>
+      <a class="post-card" href="{{ site.github.url }}{{ post.url }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 40 }}</p>
+        <span class="text-link">Read more <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
     {% endfor %}
   </div>
 </section>
