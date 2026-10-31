@@ -20,7 +20,7 @@
     <p class="cta-alt">Prefer email? <a href="{{ mailto }}">{{ s.email }}</a></p>
   </div>
 
-  <form class="intake" action="https://formspree.io/f/{{ s.formspree-id }}" method="POST" data-service="{{ service }}" novalidate>
+  <form class="intake" data-page-persona="{{ include.persona | default: 'none' }}" action="https://formspree.io/f/{{ s.formspree-id }}" method="POST" data-service="{{ service }}" novalidate>
     <input type="hidden" name="service" value="{{ service }}">
     <input type="hidden" name="page" value="{{ page.url }}">
     <input type="hidden" name="_subject" value="{{ service }} inquiry from robbickel.com">
@@ -29,6 +29,14 @@
     <p class="intake-progress"><span class="intake-step-label">Step 1 of 2</span><span class="intake-bar"><span></span></span></p>
 
     <fieldset class="intake-step" data-step="1">
+      <legend>Which sounds most like you?</legend>
+      <div class="chips-select chips-persona">
+        <label><input type="radio" name="persona" value="corporate"{% if include.persona == 'corporate' %} checked{% endif %}><span>I've seen portfolio management at a big company and want it here</span></label>
+        <label><input type="radio" name="persona" value="ai-sprawl"{% if include.persona == 'ai-sprawl' %} checked{% endif %}><span>We're piling up AI-built or unfinished software</span></label>
+        <label><input type="radio" name="persona" value="production"{% if include.persona == 'production' %} checked{% endif %}><span>I launched with AI and need it production-ready</span></label>
+        <label><input type="radio" name="persona" value="other"><span>Something else</span></label>
+      </div>
+
       <legend>What's prompting this? <span>Pick any that apply</span></legend>
       <div class="chips-select">
         <label><input type="checkbox" name="situation" value="The developer who built it left"><span>The developer who built it left</span></label>
@@ -36,6 +44,7 @@
         <label><input type="checkbox" name="situation" value="Security questionnaire or audit coming up"><span>Security questionnaire or audit coming up</span></label>
         <label><input type="checkbox" name="situation" value="Small changes take months"><span>Small changes take months</span></label>
         <label><input type="checkbox" name="situation" value="Too many overlapping tools"><span>Too many overlapping tools</span></label>
+        <label><input type="checkbox" name="situation" value="No tests, monitoring, or deployment pipeline"><span>No tests, monitoring, or deploy pipeline</span></label>
         <label><input type="checkbox" name="situation" value="Planning a build or replacement"><span>Planning a build or replacement</span></label>
       </div>
 

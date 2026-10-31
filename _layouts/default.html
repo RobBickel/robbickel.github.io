@@ -40,10 +40,13 @@
 
         function track(name, params) {
           if (!window.gtag) return;
+          var picked = form.querySelector('input[name="persona"]:checked');
           var base = {
             form_service: form.dataset.service,
             page_path: location.pathname,
-            form_step: Number(form.dataset.step || 1)
+            form_step: Number(form.dataset.step || 1),
+            persona: picked ? picked.value : '(none)',
+            page_persona: form.dataset.pagePersona || 'none'
           };
           for (var k in params) base[k] = params[k];
           gtag('event', name, base);
@@ -131,7 +134,10 @@
           data.delete('situation');
           data.append('situation', situations.join('; ') || 'Not specified');
           var details = [data.get('timeline'), data.get('systems') && data.get('systems') + ' systems'].filter(Boolean).join(', ');
-          data.set('_subject', form.dataset.service + ' inquiry: ' + data.get('company') + (details ? ' (' + details + ')' : ''));
+          var personaLabels = { corporate: 'Portfolio governance', 'ai-sprawl': 'AI sprawl', production: 'Production readiness', other: 'Other' };
+          var personaLabel = personaLabels[data.get('persona')] || form.dataset.service;
+          data.set('_subject', personaLabel + ' inquiry: ' + data.get('company') + (details ? ' (' + details + ')' : ''));
+          data.set('persona_page', form.dataset.pagePersona || 'none');
           var snap = snapshot();
 
           var button = form.querySelector('button[type="submit"]');

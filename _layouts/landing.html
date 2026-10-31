@@ -1,0 +1,111 @@
+---
+layout: default
+---
+{% comment %}
+  Persona landing page. Content comes from front matter:
+  persona, service, eyebrow, title, lede, cta, pains[], approach_title, steps[], deliverables_title,
+  deliverables[] (icon/title/text), fit[], faq[] (q/a).
+{% endcomment %}
+{% assign s = site.data.settings %}
+
+<section class="hero landing-hero">
+  <div class="wrap">
+    <p class="eyebrow">{{ page.eyebrow }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="lede">{{ page.lede }}</p>
+    <div class="actions">
+      <a class="btn" href="#start">{{ page.cta | default: "Tell me what you're running" }} <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+      <a class="btn btn-ghost" href="#approach">How it works</a>
+    </div>
+    <ul class="chips">
+      <li>Enterprise service agreement</li>
+      <li>Flexible scopes of work</li>
+      <li>Invoiced monthly</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Sound familiar?</p>
+      <h2>{{ page.pains_title | default: "What this usually looks like" }}</h2>
+    </div>
+    <div class="grid grid-3">
+      {% for pain in page.pains %}
+        <div class="card"><h3>{{ pain.title }}</h3><p>{{ pain.text }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="approach">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How it works</p>
+      <h2>{{ page.approach_title }}</h2>
+    </div>
+    <ol class="steps">
+      {% for step in page.steps %}
+        <li>
+          <span class="step-num">{{ forloop.index | prepend: '0' }}</span>
+          <h3>{{ step.name }}</h3>
+          <p>{{ step.text }}</p>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What you get</p>
+      <h2>{{ page.deliverables_title }}</h2>
+    </div>
+    <div class="grid grid-4 features">
+      {% for d in page.deliverables %}
+        <div><i class="fa fa-{{ d.icon }}" aria-hidden="true"></i><h3>{{ d.title }}</h3><p>{{ d.text }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include terms.html %}
+
+{% include about-rob.html %}
+
+<section class="section section-alt">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Is this you?</p>
+      <h2>{{ page.fit_title | default: "A good fit if…" }}</h2>
+    </div>
+    <ul class="checklist">
+      {% for f in page.fit %}<li>{{ f }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% if page.faq %}
+<section class="section">
+  <div class="wrap faq">
+    <div class="section-head">
+      <p class="eyebrow">Questions</p>
+      <h2>Common questions</h2>
+    </div>
+    {% for item in page.faq %}
+      <details>
+        <summary>{{ item.q }}</summary>
+        <p>{{ item.a }}</p>
+      </details>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="section" id="start">
+  <div class="wrap">
+    {% include contact-form.html service=page.service persona=page.persona %}
+  </div>
+</section>

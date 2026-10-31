@@ -38,6 +38,35 @@ layout: default
   </div>
 </section>
 
+<section class="section paths-section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Which sounds like you?</p>
+      <h2>Three ways companies end up needing this.</h2>
+    </div>
+    <div class="grid grid-3">
+      <a class="card card-link path-card" href="{{ site.github.url }}/portfolio-governance/">
+        <span class="path-icon"><i class="fa fa-sitemap" aria-hidden="true"></i></span>
+        <h3>"We need real portfolio management."</h3>
+        <p>You've seen how large organizations manage their applications, with inventories, owners, and lifecycle decisions. You want that discipline without building a portfolio team.</p>
+        <span class="text-link">Portfolio governance <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+      <a class="card card-link path-card" href="{{ site.github.url }}/ai-sprawl/">
+        <span class="path-icon"><i class="fa fa-magic" aria-hidden="true"></i></span>
+        <h3>"AI tools are piling up everywhere."</h3>
+        <p>Your teams are building with AI, and now there are half-finished apps, abandoned prototypes, and scripts running real processes that nobody owns.</p>
+        <span class="text-link">AI sprawl cleanup <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+      <a class="card card-link path-card" href="{{ site.github.url }}/production-ready/">
+        <span class="path-icon"><i class="fa fa-rocket" aria-hidden="true"></i></span>
+        <h3>"I launched with AI. Now what?"</h3>
+        <p>Your AI-built product has customers, but no monitoring, tests, or deployment pipeline, and you can't stop selling to fix it.</p>
+        <span class="text-link">Production readiness <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap">
     <div class="section-head">
@@ -119,49 +148,9 @@ layout: default
   </div>
 </section>
 
-<section class="section section-dark" id="terms">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Commercial terms</p>
-      <h2>Built for how established companies buy.</h2>
-    </div>
-    <div class="grid grid-3">
-      <div class="card card-dark">
-        <h3>Enterprise service agreement</h3>
-        <p>One master agreement covers terms, confidentiality, security, and IP. It's negotiated once, so new work starts without restarting legal review.</p>
-      </div>
-      <div class="card card-dark">
-        <h3>Flexible scopes of work</h3>
-        <p>Each application, project, or service level gets its own statement of work. Add, change, or retire scopes as your portfolio changes.</p>
-      </div>
-      <div class="card card-dark">
-        <h3>An invoiceable relationship</h3>
-        <p>Monthly invoices on standard terms, purchase-order friendly, with itemized reporting your finance team can reconcile. Vendor onboarding and security reviews welcome.</p>
-      </div>
-    </div>
-    <p class="terms-note">No lock-in: your code, your infrastructure, your documentation. Everything is built so you could hand it to someone else.</p>
-  </div>
-</section>
+{% include terms.html %}
 
-<section class="section">
-  <div class="wrap split">
-    <div>
-      <p class="eyebrow">Who you work with</p>
-      <h2>A senior engineer, not an account manager.</h2>
-      <p>
-        I'm Rob Bickel. I've spent more than 20 years building and running production systems in fintech, SaaS,
-        and high-growth startups, leading engineering teams and modernizing enterprise platforms. You get direct
-        access to the person doing the work.
-      </p>
-      <a class="text-link" href="{{ site.github.url }}/about/">More about Rob <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-    </div>
-    <ul class="principles">
-      <li><strong>Fewer systems, better maintained.</strong> The goal is a smaller portfolio, not more software.</li>
-      <li><strong>Built for handoff.</strong> You can operate it, or replace us, without a hostage situation.</li>
-      <li><strong>Plain-English reporting.</strong> Leadership sees status, risk, and cost without decoding jargon.</li>
-    </ul>
-  </div>
-</section>
+{% include about-rob.html %}
 
 <section class="section section-alt" id="products">
   <div class="wrap">
