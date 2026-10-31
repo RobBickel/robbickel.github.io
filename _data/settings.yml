@@ -1,63 +1,48 @@
 #-------------------------------
 # General Site Settings
 
+tagline: 'Managed Software Services'
+
 menu:
-- {name: 'Home', url: ''}
-- {name: 'Services', url: '/services'}
-- {name: 'Portfolio Audit', url: '/what-we-do'}
-- {name: 'About',    url: 'about'}
-- {name: 'Contact',  url: 'contact'}
-
-#-------------------------------
-# Projects Section
-
-projects:
-- {name: 'M2M Gateway',   url: 'm2mgateway_net'}
-- {name: 'Mo Drones',   url: 'modrones_com'}
-- {name: 'Fractional Pipe',   url: 'fractionalpip_com'}
-- {name: 'Kyooret',   url: 'kyooret_com'}
-- {name: 'Traffik Co',   url: 'traffikco_com'}
+- {name: 'Managed Software', url: '/'}
+- {name: 'Portfolio Audit',  url: '/portfolio-audit/'}
+- {name: 'Services',         url: '/services/'}
+- {name: 'About',            url: '/about/'}
 
 #-------------------------------
 # Contact Section
 
-social:
-- {icon: 'twitter',   link: 'https://twitter.com/robbickel'}
-- {icon: 'facebook',   link: 'https://www.facebook.com/rob.bickel.39'}
-- {icon: 'youtube',   link: 'https://www.youtube.com/@RobBickel'}
-- {icon: 'instagram', link: 'https://instagram.com/robbickel165'}
-- {icon: 'github',    link: 'https://github.com/robbickel'}
-- {icon: 'linkedin',  link: 'https://linkedin.com/in/robbickel'}
-- {icon: 'envelope',  link: 'mailto:bickel.rob@gmail.com'}
+email: 'bickel.rob@gmail.com'
+# Prefilled mailto subject/body (already percent-encoded for mail clients)
+email-subject: 'Managed%20software%20inquiry'
+email-body: 'Company%3A%0D%0A%0D%0AThe%20systems%20we%20depend%20on%3A%0D%0A%0D%0AWhat%27s%20prompting%20this%20now%3A%0D%0A'
 
-# social network icons available: 'twitter' / 'facebook' / 'github' / 'pinterest' 'google-plus' / 'linkedin' / 'youtube' / 'instagram' / 'dribbble' / 'behance' / 'soundcloud' / 'vine'
+social:
+- {icon: 'linkedin',  link: 'https://linkedin.com/in/robbickel'}
+- {icon: 'github',    link: 'https://github.com/robbickel'}
+- {icon: 'youtube',   link: 'https://www.youtube.com/@RobBickel'}
 
 #-------------------------------
 # SEO Section
 
-# NOTE: Providing SEO information will make this website more searchable on the internet.
-
 seo:
-  description: 'Software portfolio management, technical advisory, and stewardship operations. We audit, simplify, and maintain your software estate.'
+  description: 'Managed software services for the custom applications, integrations, and internal tools your business depends on. Monitored, patched, documented, and improved under one enterprise service agreement.'
   rel-author: 'https://linkedin.com/in/robbickel'
   rel-publisher: 'https://linkedin.com/in/robbickel'
 
 #-------------------------------
-# Google Analytics Section
+# Analytics
 
-# Analytics helps you understand who visits your website.
-# Learn more at: http://support.google.com/analytics/answer/1008065
-
-# NOTE: If you want to use Google Analytics for basic web tracking: Just uncomment and enter your UA-Code here.
-
-# If you are not using Google Analytics, please change 'google-ID' to an empty string
 google-analytics-ua: ''
 google-analytics-ga4: 'G-DF02EVXTK4'
+
+# LinkedIn Insight Tag partner ID (Campaign Manager > Analyze > Insight Tag).
+# Leave empty to disable.
+linkedin-partner-id: '10341628'
 
 #-------------------------------
 # Disqus Section
 
-# Change to true for Disqus comments
 disqus:
   comments: false
   disqus_shortname: ''

@@ -1,14 +1,207 @@
 ---
 layout: default
 ---
+{% assign s = site.data.settings %}
+{% capture mailto %}mailto:{{ s.email }}?subject={{ s.email-subject }}&amp;body={{ s.email-body }}{% endcapture %}
 
-{% include hero.html %}
-{% include clients.html %}
-
-<section class="home-projects">
-  <div class="section-header">
-    <h2>Recent Work</h2>
-    <p>Software products and tools we've built</p>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Managed software services</p>
+      <h1>The software your business runs on deserves an owner.</h1>
+      <p class="lede">
+        We take over the custom applications, integrations, and internal tools your company depends on,
+        and keep them monitored, patched, documented, and improving. It's what your IT provider does for
+        your laptops, applied to the software behind your operations.
+      </p>
+      <div class="actions">
+        <a class="btn" href="{{ mailto }}">Email Rob about your systems <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+        <a class="btn btn-ghost" href="#coverage">See what's covered</a>
+      </div>
+      <ul class="chips">
+        <li>Enterprise service agreement</li>
+        <li>Flexible scopes of work</li>
+        <li>Invoiced monthly</li>
+      </ul>
+    </div>
+    <aside class="hero-card" aria-label="Example service summary">
+      <p class="card-label">Your software estate, under management</p>
+      <ul class="status-list">
+        <li><span class="dot ok"></span>Billing integration <span class="tag">Monitored</span></li>
+        <li><span class="dot ok"></span>Customer portal <span class="tag">Patched</span></li>
+        <li><span class="dot ok"></span>Scheduling app <span class="tag">Documented</span></li>
+        <li><span class="dot warn"></span>Legacy reporting tool <span class="tag">Retiring</span></li>
+        <li><span class="dot ok"></span>API keys &amp; credentials <span class="tag">In custody</span></li>
+      </ul>
+      <p class="card-foot">One owner. One agreement. One monthly invoice.</p>
+    </aside>
   </div>
-  {% include projects.html %}
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Sound familiar?</p>
+      <h2>Most companies run on software nobody owns.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>The developer who built it left</h3>
+        <p>Nobody on staff can safely change the system that runs billing, scheduling, or fulfillment.</p>
+      </div>
+      <div class="card">
+        <h3>It works until it doesn't</h3>
+        <p>No monitoring and no alerts. You find out it's down when a customer calls.</p>
+      </div>
+      <div class="card">
+        <h3>Security questions with no good answer</h3>
+        <p>A customer, auditor, or insurer asks about patching, access, and backups, and nobody can answer with confidence.</p>
+      </div>
+      <div class="card">
+        <h3>Three tools doing one job</h3>
+        <p>Overlapping subscriptions and integrations nobody remembers buying, all still billing.</p>
+      </div>
+      <div class="card">
+        <h3>Every change becomes a project</h3>
+        <p>Small requests wait months because no one is accountable for the codebase.</p>
+      </div>
+      <div class="card">
+        <h3>AI experiments everywhere</h3>
+        <p>New scripts, API keys, and data pipelines appear across teams with no inventory and no governance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How it works</p>
+      <h2>Assess. Stabilize. Manage.</h2>
+      <p>The same model a managed IT provider uses for your network, applied to your applications.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <span class="step-num">01</span>
+        <h3>Assess</h3>
+        <p>A fixed-scope <a href="{{ site.github.url }}/portfolio-audit/">Software Portfolio Audit</a> inventories every application, integration, and dependency, then ranks risk and cost into a plan your leadership can act on.</p>
+      </li>
+      <li>
+        <span class="step-num">02</span>
+        <h3>Stabilize</h3>
+        <p>We take custody of access and credentials, add monitoring and backups, write the runbooks, apply critical patches, and retire what you no longer need.</p>
+      </li>
+      <li>
+        <span class="step-num">03</span>
+        <h3>Manage</h3>
+        <p>Under your service agreement we operate, maintain, and improve the portfolio, with a quarterly review so new sprawl doesn't creep back in.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="coverage">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What's covered</p>
+      <h2>Everything it takes to keep business software healthy.</h2>
+    </div>
+    <div class="grid grid-4 features">
+      <div><i class="fa fa-heartbeat" aria-hidden="true"></i><h3>Monitoring &amp; incident response</h3><p>Uptime and error alerts, with a named engineer who responds.</p></div>
+      <div><i class="fa fa-refresh" aria-hidden="true"></i><h3>Patching &amp; updates</h3><p>Dependencies, frameworks, and runtimes kept current on a schedule.</p></div>
+      <div><i class="fa fa-shield" aria-hidden="true"></i><h3>Security scanning</h3><p>Exposed secrets, vulnerable packages, and risky configuration caught early.</p></div>
+      <div><i class="fa fa-database" aria-hidden="true"></i><h3>Backups &amp; recovery</h3><p>Backups that are verified, with restores that are actually tested.</p></div>
+      <div><i class="fa fa-book" aria-hidden="true"></i><h3>Documentation &amp; runbooks</h3><p>Kept current, so the knowledge belongs to your company and not to one person.</p></div>
+      <div><i class="fa fa-wrench" aria-hidden="true"></i><h3>Changes &amp; enhancements</h3><p>Feature requests and fixes handled under your scope of work.</p></div>
+      <div><i class="fa fa-key" aria-hidden="true"></i><h3>Access &amp; key custody</h3><p>Credentials, domains, and vendor accounts inventoried and controlled.</p></div>
+      <div><i class="fa fa-line-chart" aria-hidden="true"></i><h3>Quarterly portfolio reviews</h3><p>What changed, what it costs, and what to consolidate next.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="terms">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Commercial terms</p>
+      <h2>Built for how established companies buy.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card card-dark">
+        <h3>Enterprise service agreement</h3>
+        <p>One master agreement covers terms, confidentiality, security, and IP. It's negotiated once, so new work starts without restarting legal review.</p>
+      </div>
+      <div class="card card-dark">
+        <h3>Flexible scopes of work</h3>
+        <p>Each application, project, or service level gets its own statement of work. Add, change, or retire scopes as your portfolio changes.</p>
+      </div>
+      <div class="card card-dark">
+        <h3>An invoiceable relationship</h3>
+        <p>Monthly invoices on standard terms, purchase-order friendly, with itemized reporting your finance team can reconcile. Vendor onboarding and security reviews welcome.</p>
+      </div>
+    </div>
+    <p class="terms-note">No lock-in: your code, your infrastructure, your documentation. Everything is built so you could hand it to someone else.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Who you work with</p>
+      <h2>A senior engineer, not an account manager.</h2>
+      <p>
+        I'm Rob Bickel. I've spent more than 20 years building and running production systems in fintech, SaaS,
+        and high-growth startups, leading engineering teams and modernizing enterprise platforms. You get direct
+        access to the person doing the work.
+      </p>
+      <a class="text-link" href="{{ site.github.url }}/about/">More about Rob <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <ul class="principles">
+      <li><strong>Fewer systems, better maintained.</strong> The goal is a smaller portfolio, not more software.</li>
+      <li><strong>Built for handoff.</strong> You can operate it, or replace us, without a hostage situation.</li>
+      <li><strong>Plain-English reporting.</strong> Leadership sees status, risk, and cost without decoding jargon.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Who it's for</p>
+      <h2>Companies that depend on software but don't build it for a living.</h2>
+    </div>
+    <ul class="checklist">
+      <li>Custom or legacy apps built by a contractor or employee who has moved on</li>
+      <li>No in-house engineering team, or one stretched too thin to cover maintenance</li>
+      <li>Systems inherited through acquisitions or reorganizations</li>
+      <li>Security questionnaires, audits, or insurance renewals on the horizon</li>
+      <li>Leadership asking, "What happens if this breaks, or this person quits?"</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Free guides</p>
+      <h2>Not ready to talk? Start here.</h2>
+    </div>
+    <div class="grid grid-2">
+      <a class="card card-link" href="{{ site.github.url }}/assets/pdf/orphaned-software-playbook.pdf">
+        <h3>The Orphaned Software Playbook</h3>
+        <p>Seven steps to regain control of the applications nobody owns anymore.</p>
+        <span class="text-link">Download PDF <i class="fa fa-download" aria-hidden="true"></i></span>
+      </a>
+      <a class="card card-link" href="{{ site.github.url }}/assets/pdf/software-estate-risk-scorecard.pdf">
+        <h3>Software Estate Risk Scorecard</h3>
+        <p>Twenty questions that show where your software is most likely to fail you.</p>
+        <span class="text-link">Download PDF <i class="fa fa-download" aria-hidden="true"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    {% include contact-form.html service="Managed software" %}
+  </div>
 </section>

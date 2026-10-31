@@ -16,6 +16,12 @@ We fix that.
 <div class="services-grid">
 
 <div class="service-card">
+<h3><a href="/">Managed Software Services</a></h3>
+<p>Ongoing ownership of the applications your business runs on: monitoring, patching, security, documentation, and enhancements under one service agreement.</p>
+<a href="/" class="service-link">Learn more →</a>
+</div>
+
+<div class="service-card">
 <h3><a href="/services/portfolio-management/">Portfolio Management</a></h3>
 <p>Audit, consolidate, and rationalize your software estate. We map what you have, identify what's costing you money, and recommend what to keep, retire, or rebuild.</p>
 <a href="/services/portfolio-management/" class="service-link">Learn more →</a>
@@ -37,6 +43,12 @@ We fix that.
 <h3><a href="/services/security-scanning/">Security & Compliance</a></h3>
 <p>Repository scanning, secrets detection, and vulnerability assessment. We find what's exposed before someone else does.</p>
 <a href="/services/security-scanning/" class="service-link">Learn more →</a>
+</div>
+
+<div class="service-card">
+<h3><a href="/portfolio-audit/">Software Portfolio Audit</a></h3>
+<p>A fixed-scope, 30-45 day assessment of every system you run, what it costs, what it risks, and what to do next.</p>
+<a href="/portfolio-audit/" class="service-link">Learn more →</a>
 </div>
 
 </div>
@@ -62,15 +74,15 @@ The result is a software portfolio that your team can actually understand, opera
 | **Portfolio clarity** | A single view of every system, what it costs, and who depends on it |
 | **Reduced complexity** | Fewer tools doing more work, with less coordination overhead |
 | **Continuity** | Documentation and processes that survive turnover |
-| **No lock-in** | Month-to-month engagements, full source access, your infrastructure |
+| **No lock-in** | Full source access, your infrastructure, documentation built for handoff |
 
 ---
 
 ## How We Engage
 
-We don't do annual contracts or retainer minimums. Most engagements start with a [Software Portfolio Audit](/what-we-do/) — a 30-45 day assessment that gives you a clear picture of what you own and what to do about it.
+Every engagement runs under a single **enterprise service agreement**: terms, confidentiality, security, and IP, negotiated once. Individual pieces of work are **flexible statements of work** you can add, change, or retire as your needs change, and everything is **invoiced** monthly with itemized reporting.
 
-From there, we can help you execute: consolidating systems, building replacements, or providing ongoing stewardship. Or you can take the audit and run with it internally. Either way, you'll have clarity you didn't have before.
+Most engagements start with a [Software Portfolio Audit](/portfolio-audit/), a 30-45 day assessment that gives you a clear picture of what you own and what to do about it. From there, we can execute the plan and take over day-to-day ownership as [managed software services](/). Or you can take the audit and run with it internally.
 
 ---
 

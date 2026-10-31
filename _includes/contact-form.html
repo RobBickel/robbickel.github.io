@@ -1,31 +1,15 @@
-<div class="contact-form-wrapper">
-  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
-    <input type="hidden" name="_subject" value="New inquiry: {{ include.service | default: 'Website Contact' }}">
-    <input type="hidden" name="service" value="{{ include.service | default: 'General' }}">
-
-    <div class="form-row">
-      <div class="form-group">
-        <label for="name">Name *</label>
-        <input type="text" id="name" name="name" required placeholder="Your name">
-      </div>
-      <div class="form-group">
-        <label for="email">Email *</label>
-        <input type="email" id="email" name="email" required placeholder="you@company.com">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="company">Company</label>
-      <input type="text" id="company" name="company" placeholder="Your company (optional)">
-    </div>
-
-    <div class="form-group">
-      <label for="message">How can we help? *</label>
-      <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project or question..."></textarea>
-    </div>
-
-    <button type="submit" class="btn-submit">Send Message</button>
-  </form>
-
-  <p class="form-note">Or reach out directly: <a href="mailto:bickel.rob@gmail.com">bickel.rob@gmail.com</a></p>
+{% comment %}
+  Email call-to-action used at the bottom of pages (replaces the old form).
+  Usage: {% include contact-form.html service="Software Portfolio Audit" %}
+{% endcomment %}
+{% assign s = site.data.settings %}
+{% assign topic = include.service | default: 'Managed software' | url_encode | replace: '+', '%20' %}
+<div class="cta-box">
+  <div>
+    <h3>Tell me what you're running.</h3>
+    <p>Send a short note about the systems your business depends on and what's prompting the question. I read and answer every message personally.</p>
+  </div>
+  <a class="btn" href="mailto:{{ s.email }}?subject={{ topic }}%20inquiry&amp;body={{ s.email-body }}">
+    Email Rob <i class="fa fa-arrow-right" aria-hidden="true"></i>
+  </a>
 </div>

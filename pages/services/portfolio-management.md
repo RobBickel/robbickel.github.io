@@ -39,7 +39,7 @@ The starting point for any rationalization effort. We document:
 
 Deliverable: A complete inventory with prioritized recommendations.
 
-[Learn more about the Portfolio Audit →](/what-we-do/)
+[Learn more about the Portfolio Audit →](/portfolio-audit/)
 
 ### System Consolidation
 
@@ -107,7 +107,7 @@ If you can confidently list every system your organization runs, what it costs, 
 
 Most engagements start with the audit. From there, we can help execute, or you can take the findings and run with them internally.
 
-No long-term contracts. Month-to-month stewardship. If we're not providing value, you can stop.
+Everything runs under one enterprise service agreement, with flexible statements of work for each phase and monthly itemized invoicing. Stewardship scopes can be adjusted or ended as your portfolio changes.
 
 ---
 

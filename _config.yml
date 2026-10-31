@@ -8,5 +8,8 @@ plugins:   [jekyll-sitemap, jekyll-feed,  jekyll-seo-tag]
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 
 title:		   "Rob Bickel"
-description: "Powered by Jekyll and GitHub Pages"
+description: "Managed software services for the applications your business runs on."
 author:      "Rob Bickel"
+url:         "https://robbickel.com"
+
+exclude: [README.md, LICENSE.md, Gemfile, Gemfile.lock, portfolio-jekyll-theme.gemspec, collateral, vendor, .claude]

@@ -95,13 +95,13 @@ We don't force a stack. If you have existing infrastructure, we work with it.
 | **Time & materials** | Evolving requirements, ongoing development | Open-ended |
 | **Stewardship retainer** | Maintenance, monitoring, incremental work | Monthly |
 
-We don't require long-term contracts. If the work isn't valuable, you should be able to stop.
+All models run under one enterprise service agreement, with flexible statements of work and monthly itemized invoicing.
 
 ---
 
 ## Recent Work
 
-We've built internal tools, customer-facing platforms, and SaaS products across industries. [See our portfolio](/projects) for examples, or [schedule a call](/contact/) to discuss your specific situation.
+We've built internal tools, customer-facing platforms, and SaaS products across fintech, IoT, and marketing technology. [Email Rob](mailto:bickel.rob@gmail.com) to discuss your specific situation.
 
 ---
 

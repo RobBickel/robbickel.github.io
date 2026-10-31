@@ -1,9 +1,13 @@
 ---
 layout: page
 title: Contact
-permalink: /contact
+permalink: /contact/
 ---
 
 # Contact
 
-You may contact me [through my email](mailto:bickel.rob@gmail.com), [message me on linkedin](https://linkedin.com/in/robbickel), or if you're brave, heres my number [(541) 212-9788](tel:5412129788).
+The fastest way to reach me is email: [{{ site.data.settings.email }}](mailto:{{ site.data.settings.email }}). You can also [message me on LinkedIn](https://linkedin.com/in/robbickel) or call [(541) 212-9788](tel:5412129788).
+
+A useful first note covers three things: what your company does, the systems you depend on, and what's prompting the question now.
+
+{% include contact-form.html service="Managed software" %}

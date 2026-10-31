@@ -26,7 +26,7 @@ Credentials that shouldn't be in your codebase but are:
 - Environment variables committed by accident
 - Secrets buried in git history (deleted but not gone)
 
-One in eight repositories contains exposed secrets. Most of them are still valid.
+Secrets committed by accident are common, and they often stay valid long after anyone remembers they exist.
 
 ### Vulnerable Dependencies
 
@@ -126,16 +126,11 @@ We can provide documentation formatted for audit evidence.
 
 ---
 
-## Pricing
+## Engagement Terms
 
-| Scan Type | Typical Price Range |
-|-----------|---------------------|
-| Quick scan | $500 - $1,500 |
-| Deep scan | $2,000 - $5,000 |
-| Organization scan | $5,000 - $15,000 |
-| Continuous monitoring | Monthly retainer |
+Scans are delivered as fixed-scope statements of work, sized by repository count and history depth. Continuous monitoring runs as an ongoing scope under your enterprise service agreement, invoiced monthly.
 
-Final pricing depends on repository count and size. We'll scope it precisely after an initial conversation.
+We'll scope it precisely after an initial conversation.
 
 ---
 

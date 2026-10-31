@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Managed Software Services Overview</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  @page { size: letter; margin: 0; }
+  body { font-size: 13.5px; line-height: 1.55; }
+  .page { width: 8.5in; height: 11in; padding: 0 0 52px; }
+  .inner { padding: 0 60px; }
+  .foot { padding: 0 60px 28px; }
+  .top { padding: 52px 60px 40px; }
+  .top h1 { font-size: 40px; margin: 12px 0 14px; max-width: 14em; }
+  .top p.lede { font-size: 16px; max-width: 38em; color: var(--night-text); }
+  h2 { font-size: 22px; margin: 28px 0 12px; }
+  .grid { display: grid; gap: 14px; }
+  .g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: repeat(3, 1fr); } .g4 { grid-template-columns: repeat(4, 1fr); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .card h3 { font-size: 15px; margin-bottom: 4px; }
+  .card p { font-size: 12.5px; }
+  .step .n { font-family: 'Inter Tight'; font-weight: 700; color: var(--accent); font-size: 22px; }
+  .feat h3 { font-size: 13.5px; } .feat p { font-size: 12px; color: var(--ink-2); }
+  .feat { border-left: 3px solid var(--accent); padding: 2px 0 2px 12px; }
+  ul.list { list-style: none; }
+  ul.list li { padding: 8px 0 8px 22px; border-bottom: 1px solid var(--line); position: relative; color: var(--ink); }
+  ul.list li::before { content: ''; position: absolute; left: 2px; top: 13px; width: 10px; height: 6px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
+  .terms { border-radius: 14px; padding: 22px 24px; margin-top: 26px; }
+  .terms h2 { margin-top: 0; }
+  .terms .card { background: var(--night-2); border-color: #2c3950; }
+  .terms .card h3 { color: #fff; } .terms .card p { color: var(--night-text); }
+  .contact { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; padding: 20px 24px; border-radius: 14px; }
+  .contact h3 { font-size: 20px; color: #fff; }
+  .contact .em { background: #fff; color: var(--accent); font-weight: 700; padding: 10px 18px; border-radius: 10px; font-size: 15px; }
+</style>
+</head>
+<body>
+
+<section class="page">
+  <div class="top dark">
+    <p class="brand">Rob Bickel · Managed Software Services</p>
+    <h1>The software your business runs on deserves an owner.</h1>
+    <p class="lede">Managed services for the custom applications, integrations, and internal tools your company depends on: monitored, patched, documented, and improved. It's what a managed IT provider does for your network, applied to your applications.</p>
+  </div>
+
+  <div class="inner">
+    <h2>The problem</h2>
+    <div class="grid g3">
+      <div class="card"><h3>The builder is gone</h3><p>A contractor or employee built it and moved on. Nobody can safely change it.</p></div>
+      <div class="card"><h3>No one is watching</h3><p>No monitoring, untested backups, and outages discovered by customers.</p></div>
+      <div class="card"><h3>Risk and cost you can't see</h3><p>Scattered credentials, unpatched dependencies, and overlapping tools still billing.</p></div>
+    </div>
+
+    <h2>How it works</h2>
+    <div class="grid g3">
+      <div class="card step"><div class="n">01 · Assess</div><p>A fixed-scope Software Portfolio Audit (30–45 days) inventories every system, maps dependencies, and ranks risk and cost into a plan leadership can act on.</p></div>
+      <div class="card step"><div class="n">02 · Stabilize</div><p>We take custody of access and credentials, add monitoring and backups, write runbooks, apply critical patches, and retire what you don't need.</p></div>
+      <div class="card step"><div class="n">03 · Manage</div><p>Ongoing operation, maintenance, and improvement under your service agreement, with a quarterly portfolio review.</p></div>
+    </div>
+
+    <h2>What's covered</h2>
+    <div class="grid g4">
+      <div class="feat"><h3>Monitoring &amp; response</h3><p>Uptime and error alerts with a named engineer.</p></div>
+      <div class="feat"><h3>Patching &amp; updates</h3><p>Dependencies and runtimes kept current.</p></div>
+      <div class="feat"><h3>Security scanning</h3><p>Secrets, vulnerable packages, risky config.</p></div>
+      <div class="feat"><h3>Backups &amp; recovery</h3><p>Verified backups, tested restores.</p></div>
+      <div class="feat"><h3>Documentation</h3><p>Runbooks and system summaries kept current.</p></div>
+      <div class="feat"><h3>Changes &amp; enhancements</h3><p>Fixes and features under your scope of work.</p></div>
+      <div class="feat"><h3>Access &amp; key custody</h3><p>Credentials, domains, vendor accounts.</p></div>
+      <div class="feat"><h3>Quarterly reviews</h3><p>Cost, risk, and what to consolidate next.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Managed Software Services · robbickel.com</span><span>1</span></div>
+</section>
+
+<section class="page">
+  <div class="inner" style="padding-top:52px">
+    <div class="grid g2" style="gap:36px">
+      <div>
+        <h2 style="margin-top:0">Who it's for</h2>
+        <ul class="list">
+          <li>Custom or legacy apps built by someone who has moved on</li>
+          <li>No in-house engineering team, or one stretched too thin for maintenance</li>
+          <li>Systems inherited through acquisitions or reorganizations</li>
+          <li>Security questionnaires, audits, or insurance renewals coming up</li>
+          <li>Leadership asking what happens if a system breaks or a person quits</li>
+        </ul>
+      </div>
+      <div>
+        <h2 style="margin-top:0">What you get</h2>
+        <ul class="list">
+          <li>One accountable owner for your business software</li>
+          <li>Visibility into status, risk, and cost in plain English</li>
+          <li>Fewer systems, better maintained</li>
+          <li>Documentation that belongs to your company</li>
+          <li>No lock-in: your code, your infrastructure</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="terms dark">
+      <p class="eyebrow">Commercial terms</p>
+      <h2 style="margin-top:6px">Built for how established companies buy</h2>
+      <div class="grid g3">
+        <div class="card"><h3>Enterprise service agreement</h3><p>One master agreement covering terms, confidentiality, security, and IP. It's negotiated once, so new work starts without restarting legal review.</p></div>
+        <div class="card"><h3>Flexible scopes of work</h3><p>Each application, project, or service level gets its own statement of work. Add, change, or retire scopes as needs change.</p></div>
+        <div class="card"><h3>An invoiceable relationship</h3><p>Monthly invoices on standard terms, purchase-order friendly, with itemized reporting. Vendor onboarding and security reviews welcome.</p></div>
+      </div>
+    </div>
+
+    <h2>Who you work with</h2>
+    <p style="font-size:14px;max-width:46em">Rob Bickel is a technologist and engineering leader with more than 20 years of experience building and operating production systems in fintech, SaaS, and high-growth startups. He has led global engineering teams and modernized enterprise platforms. Clients work with him directly, not through an account manager.</p>
+
+    <div class="contact accent-bg">
+      <div><h3>Start with a conversation.</h3><p>Tell me about the systems your business depends on.</p></div>
+      <span class="em">bickel.rob@gmail.com</span>
+    </div>
+  </div>
+  <div class="foot"><span>Managed Software Services · robbickel.com</span><span>2</span></div>
+</section>
+
+</body>
+</html>

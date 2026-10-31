@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Orphaned Software Playbook</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  @page { size: 8in 10in; margin: 0; }
+  body { font-size: 20px; line-height: 1.5; }
+  .page { width: 8in; height: 10in; padding: 64px 64px 56px; }
+  .foot { padding: 0 64px 32px; }
+  h1 { font-size: 64px; }
+  h2 { font-size: 46px; margin: 14px 0 22px; }
+  .lede { font-size: 23px; max-width: 30em; }
+  .num { font-family: 'Inter Tight'; font-weight: 700; font-size: 120px; line-height: 1; color: var(--accent); opacity: .9; }
+  .dark .num { color: var(--mint); }
+  ul.check { list-style: none; margin-top: 26px; }
+  ul.check li { position: relative; padding: 13px 0 13px 40px; border-top: 1px solid var(--line); color: var(--ink); }
+  ul.check li::before { content: ''; position: absolute; left: 4px; top: 20px; width: 18px; height: 10px; border-left: 3px solid var(--accent); border-bottom: 3px solid var(--accent); transform: rotate(-45deg); }
+  .win { margin-top: 26px; background: var(--accent-soft); border-radius: 14px; padding: 18px 22px; font-size: 18px; color: var(--ink); }
+  .win b { color: var(--accent); }
+  .cover h1 { margin-top: 150px; }
+  .cover .lede { margin-top: 26px; color: var(--night-text); }
+  .stamp { display: inline-block; margin-top: 44px; border: 1px solid #2c3950; border-radius: 99px; padding: 8px 18px; font-size: 16px; color: var(--mint); }
+  .signs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 26px; }
+  .signs div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; font-size: 18px; }
+  .signs b { display: block; color: var(--ink); margin-bottom: 4px; font-size: 19px; }
+  .steps-mini { list-style: none; margin-top: 26px; counter-reset: s; }
+  .steps-mini li { counter-increment: s; display: flex; gap: 18px; align-items: baseline; padding: 10px 0; border-top: 1px solid #2c3950; color: #fff; font-size: 21px; }
+  .steps-mini li::before { content: '0' counter(s); font-family: 'Inter Tight'; font-weight: 700; color: var(--mint); width: 36px; }
+  .cta-email { display: inline-block; margin-top: 34px; background: #fff; color: var(--accent); font-weight: 700; padding: 16px 26px; border-radius: 12px; font-size: 22px; }
+</style>
+</head>
+<body>
+
+<section class="page dark cover">
+  <p class="brand">Rob Bickel · Managed Software Services</p>
+  <h1>The Orphaned Software Playbook</h1>
+  <p class="lede">Seven steps to regain control of the applications your business depends on, but nobody owns anymore.</p>
+  <span class="stamp">For COOs, CFOs, and operations leaders</span>
+  <div class="foot"><span>robbickel.com</span><span>Swipe →</span></div>
+</section>
+
+<section class="page">
+  <p class="eyebrow">The problem</p>
+  <h2>Orphaned software is software your business runs on, with no one accountable for it.</h2>
+  <div class="signs">
+    <div><b>The builder is gone</b>A contractor or employee wrote it, then moved on.</div>
+    <div><b>Nobody will touch it</b>Changes feel risky, so requests wait for months.</div>
+    <div><b>No one is watching</b>Outages surface when a customer complains.</div>
+    <div><b>Keys are scattered</b>Logins and API keys live in inboxes and laptops.</div>
+    <div><b>It's still billing</b>Hosting and licenses renew whether it's used or not.</div>
+    <div><b>Audits get awkward</b>Security questionnaires stall on "we're not sure."</div>
+  </div>
+  <div class="foot"><span>The Orphaned Software Playbook</span><span>2</span></div>
+</section>
+
+<section class="page">
+  <div class="num">01</div>
+  <h2>Find everything</h2>
+  <p class="lede">You can't manage what you can't see. Start with a list, not a fix.</p>
+  <ul class="check">
+    <li>Pull every software line item from the last 12 months of card and AP statements</li>
+    <li>Ask each department head: "What would stop you working if it went down?"</li>
+    <li>Include scripts, spreadsheets with macros, and integrations, not just apps</li>
+    <li>Record for each: what it does, who uses it, what it costs</li>
+  </ul>
+  <div class="win"><b>Quick win:</b> the finance statement review alone usually surfaces tools nobody knew were still running.</div>
+  <div class="foot"><span>The Orphaned Software Playbook</span><span>3</span></div>
+</section>
+
+<section class="page">
+  <div class="num">02</div>
+  <h2>Name an owner for each system</h2>
+  <p class="lede">"IT" or "the vendor" isn't an owner. A named person is accountable for each system's health.</p>
+  <ul class="check">
+    <li>Assign a business owner (who decides) and a technical owner (who maintains)</li>
+    <li>Flag every system where the technical owner is "nobody" or has left</li>
+    <li>Rank those by business impact: revenue, customers, compliance</li>
+  </ul>
+  <div class="win"><b>Rule of thumb:</b> if one person leaving would leave a system with no one able to change it, that's your first priority.</div>
+  <div class="foot"><span>The Orphaned Software Playbook</span><span>4</span></div>
+</section>
+
+<section class="page">
+  <div class="num">03</div>
+  <h2>Secure the keys</h2>
+  <p class="lede">Access is the first thing lost when someone leaves, and the hardest to recover.</p>
+  <ul class="check">
+    <li>Move domains, hosting, code repositories, and vendor accounts into company-owned logins</li>
+    <li>Store credentials in a shared password manager, not inboxes or laptops</li>
+    <li>Rotate any API key or password a departed person had access to</li>
+    <li>Scan code repositories for secrets committed by accident</li>
+  </ul>
+  <div class="foot"><span>The Orphaned Software Playbook</span><span>5</span></div>
+</section>
+
+<section class="page">
+  <div class="num">04</div>
+  <h2>Turn the lights on</h2>
+  <p class="lede">Learn about problems before your customers do.</p>
+  <ul class="check">
+    <li>Add uptime monitoring with alerts that reach a real person</li>
+    <li>Capture application errors in one place</li>
+    <li>Confirm backups exist, then test a restore. An untested backup is a guess.</li>
+    <li>Write down what "down" costs per hour, so you know how fast to respond</li>
+  </ul>
+  <div class="foot"><span>The Orphaned Software Playbook</span><span>6</span></div>
+</section>
+
+<section class="page">
+  <div class="num">05</div>
+  <h2>Write it down</h2>
+  <p class="lede">Documentation turns personal knowledge into company property.</p>
+  <ul class="check">
+    <li>A one-page summary per system: purpose, users, dependencies, costs</li>
+    <li>Runbooks for the common tasks: deploy, restart, restore, rotate a key</li>
+    <li>A simple diagram of how systems pass data to each other</li>
+    <li>Keep it next to the code, and update it when things change</li>
+  </ul>
+  <div class="win"><b>Test:</b> could a competent engineer who has never seen this system deploy a fix using only what's written down?</div>
+  <div class="foot"><span>The Orphaned Software Playbook</span><span>7</span></div>
+</section>
+
+<section class="page">
+  <div class="num">06</div>
+  <h2>Cut what you don't need</h2>
+  <p class="lede">Every system you retire is one less thing to secure, patch, and pay for.</p>
+  <ul class="check">
+    <li><b>Keep:</b> it works and the business depends on it</li>
+    <li><b>Consolidate:</b> several tools doing one job</li>
+    <li><b>Rebuild:</b> it's critical but too fragile to maintain</li>
+    <li><b>Retire:</b> nobody will miss it. Export the data first.</li>
+  </ul>
+  <div class="foot"><span>The Orphaned Software Playbook</span><span>8</span></div>
+</section>
+
+<section class="page">
+  <div class="num">07</div>
+  <h2>Put it under management</h2>
+  <p class="lede">The first six steps restore control. Ongoing ownership keeps it.</p>
+  <ul class="check">
+    <li>Patch dependencies and runtimes on a schedule, not after an incident</li>
+    <li>Handle change requests through one accountable owner</li>
+    <li>Review the portfolio quarterly: cost, risk, and what to cut next</li>
+    <li>Decide who owns this long-term: an internal hire or a managed service</li>
+  </ul>
+  <div class="foot"><span>The Orphaned Software Playbook</span><span>9</span></div>
+</section>
+
+<section class="page accent-bg">
+  <p class="brand">Rob Bickel · Managed Software Services</p>
+  <h2 style="margin-top:110px">Want someone to own this for you?</h2>
+  <p class="lede">I provide managed services for the software your business runs on: monitored, patched, documented, and improved, under one enterprise service agreement with flexible scopes of work and monthly invoicing.</p>
+  <span class="cta-email">bickel.rob@gmail.com</span>
+  <p style="margin-top:22px;font-size:19px">robbickel.com</p>
+  <div class="foot"><span>The Orphaned Software Playbook</span><span>10</span></div>
+</section>
+
+</body>
+</html>

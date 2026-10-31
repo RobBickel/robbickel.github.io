@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Software Estate Risk Scorecard</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  @page { size: letter; margin: 0; }
+  body { font-size: 13.5px; line-height: 1.5; }
+  .page { width: 8.5in; height: 11in; padding: 56px 60px 52px; }
+  .foot { padding: 0 60px 28px; }
+  h1 { font-size: 46px; }
+  h2 { font-size: 24px; margin: 6px 0 10px; }
+  .intro { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; margin-top: 18px; }
+  .lede { font-size: 16px; }
+  .how { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+  .how ol { padding-left: 18px; margin-top: 6px; }
+  .how li { margin-bottom: 4px; }
+  .cat { margin-top: 22px; }
+  .cat-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
+  .cat-head h2 { margin: 0; }
+  .cat-head span { font-size: 12px; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 9px 4px; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink); }
+  td.n { width: 28px; color: var(--accent); font-weight: 700; }
+  td.box { width: 92px; text-align: right; white-space: nowrap; color: var(--muted); font-size: 12px; }
+  .b { display: inline-block; width: 14px; height: 14px; border: 1.5px solid var(--ink-2); border-radius: 3px; vertical-align: -3px; margin: 0 3px 0 10px; }
+  .score { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
+  .band { border-radius: 12px; padding: 18px; background: var(--surface); border: 1px solid var(--line); }
+  .band .r { font-family: 'Inter Tight'; font-weight: 700; font-size: 26px; color: var(--ink); }
+  .band h3 { font-size: 16px; margin: 4px 0 6px; }
+  .band.hi { border-top: 5px solid #b4322a; } .band.md { border-top: 5px solid #c2760c; } .band.lo { border-top: 5px solid #1f9d6f; }
+  .tally { margin-top: 16px; display: flex; gap: 12px; }
+  .tally div { flex: 1; border: 1px dashed var(--ink-2); border-radius: 10px; padding: 12px 14px; font-size: 12px; color: var(--muted); }
+  .tally b { display: block; height: 26px; }
+  .cta { margin-top: 26px; border-radius: 14px; padding: 26px 28px; }
+  .cta h2 { font-size: 26px; }
+  .cta p { font-size: 15px; max-width: 40em; }
+  .cta .em { display: inline-block; margin-top: 12px; background: #fff; color: var(--accent); font-weight: 700; padding: 10px 18px; border-radius: 10px; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<section class="page">
+  <p class="brand">Rob Bickel · Managed Software Services</p>
+  <div class="intro">
+    <div>
+      <p class="eyebrow" style="margin-top:34px">Free assessment</p>
+      <h1>Software Estate Risk Scorecard</h1>
+      <p class="lede" style="margin-top:14px">Twenty yes-or-no questions that show where the software your business depends on is most likely to fail you, and what to fix first.</p>
+    </div>
+    <div class="how" style="margin-top:34px">
+      <b style="color:var(--ink)">How to use it</b>
+      <ol>
+        <li>Answer for your most business-critical systems: billing, customer-facing apps, operations tools, and integrations.</li>
+        <li>Answer honestly. "Probably" counts as <b>No</b>.</li>
+        <li>Count your <b>No</b> answers per section and in total.</li>
+        <li>Use the scoring guide on page 3.</li>
+      </ol>
+      <p class="muted" style="margin-top:8px">Takes about 10 minutes.</p>
+    </div>
+  </div>
+
+  <div class="cat">
+    <div class="cat-head"><h2>1 · Ownership &amp; knowledge</h2><span>Count of No: ____ / 5</span></div>
+    <table>
+      <tr><td class="n">1</td><td>Every critical system has a named person accountable for keeping it healthy.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">2</td><td>At least two people (internal or a vendor) could safely change each critical system.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">3</td><td>Nothing critical was built by someone who has since left without a documented handoff.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">4</td><td>We have a current, written inventory of every application, integration, and script we rely on.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">5</td><td>Each critical system has documentation a new engineer could use to deploy a fix.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+    </table>
+  </div>
+
+  <div class="cat">
+    <div class="cat-head"><h2>2 · Operations &amp; reliability</h2><span>Count of No: ____ / 5</span></div>
+    <table>
+      <tr><td class="n">6</td><td>We'd know a critical system was down before a customer or employee told us.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">7</td><td>Backups exist for every critical system, and we've tested a restore in the last 12 months.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">8</td><td>Small change requests are completed in weeks, not months.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">9</td><td>Deploying a change follows a repeatable, written process.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">10</td><td>We know roughly what an hour of downtime costs for each critical system.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+    </table>
+  </div>
+  <div class="foot"><span>Software Estate Risk Scorecard · robbickel.com</span><span>1</span></div>
+</section>
+
+<section class="page">
+  <div class="cat" style="margin-top:0">
+    <div class="cat-head"><h2>3 · Security &amp; access</h2><span>Count of No: ____ / 5</span></div>
+    <table>
+      <tr><td class="n">11</td><td>Domains, hosting, code repositories, and vendor accounts are owned by company logins, not individuals.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">12</td><td>Credentials live in a shared password manager, not in inboxes, documents, or laptops.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">13</td><td>Access is removed, and shared keys rotated, when someone leaves.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">14</td><td>Software dependencies and frameworks are updated on a regular schedule.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">15</td><td>We could answer a customer's or insurer's security questionnaire about these systems with confidence.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+    </table>
+  </div>
+
+  <div class="cat">
+    <div class="cat-head"><h2>4 · Cost &amp; complexity</h2><span>Count of No: ____ / 5</span></div>
+    <table>
+      <tr><td class="n">16</td><td>We know the full annual cost of each system: licenses, hosting, and people's time.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">17</td><td>We don't pay for multiple tools that do the same job.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">18</td><td>Every subscription we pay for is actively used.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">19</td><td>New tools, including AI experiments, are reviewed before teams adopt them.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+      <tr><td class="n">20</td><td>Leadership reviews the software portfolio's cost and risk at least once a year.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
+    </table>
+  </div>
+
+  <div class="tally">
+    <div>Ownership<b></b></div><div>Operations<b></b></div><div>Security<b></b></div><div>Cost<b></b></div><div style="border-style:solid;color:var(--ink)"><strong>Total No answers</strong><b></b></div>
+  </div>
+  <div class="foot"><span>Software Estate Risk Scorecard · robbickel.com</span><span>2</span></div>
+</section>
+
+<section class="page">
+  <p class="eyebrow">Scoring guide</p>
+  <h1 style="font-size:36px;margin-top:8px">What your score means</h1>
+  <div class="score">
+    <div class="band lo"><div class="r">0–4</div><h3>Under control</h3><p>Your software has owners, visibility, and basic safeguards. Focus on keeping it that way with a quarterly portfolio review.</p></div>
+    <div class="band md"><div class="r">5–10</div><h3>Exposed</h3><p>Things work today, but you're relying on luck in places. One departure or outage could become expensive. Fix your weakest section first.</p></div>
+    <div class="band hi"><div class="r">11–20</div><h3>At risk</h3><p>Critical systems lack an owner, visibility, or protection. Treat this as a business risk, not an IT task. Start with a full inventory.</p></div>
+  </div>
+
+  <h2 style="margin-top:30px">Where to start, by section</h2>
+  <table style="margin-top:6px">
+    <tr><td class="n">1</td><td><b>Ownership:</b> name an accountable owner for each critical system, and document anything only one person understands.</td></tr>
+    <tr><td class="n">2</td><td><b>Operations:</b> add uptime monitoring and alerts, then test one backup restore this month.</td></tr>
+    <tr><td class="n">3</td><td><b>Security:</b> move accounts to company ownership, adopt a password manager, and rotate keys former staff could reach.</td></tr>
+    <tr><td class="n">4</td><td><b>Cost:</b> review 12 months of software spend line by line and cancel what nobody uses.</td></tr>
+  </table>
+  <p class="muted" style="margin-top:12px">A section with 3 or more No answers is usually where the next incident comes from.</p>
+
+  <div class="cta accent-bg">
+    <h2>Scored 5 or higher? Let's talk it through.</h2>
+    <p>Send me your score and the systems you're worried about. I'll reply with the two or three changes that would reduce your risk the most. If you'd like ongoing help, I provide managed services for business software under one enterprise service agreement, with flexible scopes of work and monthly invoicing.</p>
+    <span class="em">bickel.rob@gmail.com</span>
+  </div>
+  <div class="foot"><span>Software Estate Risk Scorecard · robbickel.com</span><span>3</span></div>
+</section>
+
+</body>
+</html>

@@ -1,10 +1,18 @@
-<header>
-  <div class="logo">
-    <a href="{{ site.github.url }}/">{{ site.title }}</a>
+{% assign s = site.data.settings %}
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ site.github.url }}/">
+      <span class="brand-name">{{ site.title }}</span>
+      <span class="brand-tag">{{ s.tagline }}</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span>
+    </button>
+    <nav class="site-nav" id="siteNav">
+      {% for item in s.menu %}
+        <a href="{{ site.github.url }}{{ item.url }}" class="{% if page.url == item.url %}active{% endif %}">{{ item.name }}</a>
+      {% endfor %}
+      <a class="btn btn-small" href="mailto:{{ s.email }}?subject={{ s.email-subject }}&amp;body={{ s.email-body }}">Email Rob</a>
+    </nav>
   </div>
-  <nav>
-    {% for item in site.data.settings.menu %}
-      <a href="{{ site.github.url }}/{{ item.url }}">{{ item.name }}</a>
-    {% endfor %}
-  </nav>
 </header>

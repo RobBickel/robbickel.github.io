@@ -2,66 +2,33 @@
 ---
 
 <!DOCTYPE html>
-<html class="dark-theme">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ site.data.settings.seo.description }}">
-    <meta rel="author" href="{{ site.data.settings.seo.rel-author }}">
-    <meta rel="publisher" href="{{ site.data.settings.seo.rel-publisher }}">
-    <title>
-      {% if page.title == "Home" %}
-        {{ site.title }}
-      {% else %}
-        {{ page.title }} | {{ site.title }}
-      {% endif %}
-    </title>
-    <link rel="stylesheet" href="{{ site.github.url }}/assets/css/all.css">
+    <meta name="description" content="{{ page.description | default: site.data.settings.seo.description }}">
+    <link rel="author" href="{{ site.data.settings.seo.rel-author }}">
+    <link rel="stylesheet" href="{{ site.github.url }}/assets/css/site.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <!-- Use Atom -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap" rel="stylesheet">
     {% feed_meta %}
-    <script type="text/javascript" async
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
     {% include analytics.html %}
-    <!-- Use Jekyll SEO plugin -->
+    <!-- Use Jekyll SEO plugin (also renders <title>) -->
     {% seo %}
   </head>
-  <body>
-    <div class="site-wrapper">
-      {% include sidebar.html %}
-      <main class="main-content">
-        <div class="content-inner">
-          {{ content }}
-        </div>
-        {% include footer.html %}
-      </main>
-    </div>
+  <body class="{{ page.layout }}">
+    {% include header.html %}
+    <main>
+      {{ content }}
+    </main>
+    {% include footer.html %}
 
-    <!-- Mobile menu toggle -->
-    <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
-      // Mobile menu toggle
-      document.getElementById('menuToggle').addEventListener('click', function() {
-        document.body.classList.toggle('sidebar-open');
-      });
-
-      // Close sidebar when clicking on main content (mobile)
-      document.querySelector('.main-content').addEventListener('click', function() {
-        if (window.innerWidth <= 1024) {
-          document.body.classList.remove('sidebar-open');
-        }
+      document.getElementById('navToggle').addEventListener('click', function () {
+        var open = document.body.classList.toggle('nav-open');
+        this.setAttribute('aria-expanded', open);
       });
     </script>
   </body>

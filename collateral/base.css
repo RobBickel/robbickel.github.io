@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700&display=swap');
+
+:root {
+  --bg: #f7f6f2; --surface: #fff; --alt: #efede6;
+  --ink: #111a2b; --ink-2: #3a4556; --muted: #6b7280; --line: #e2dfd5;
+  --accent: #0f5c4d; --accent-soft: #e2efe9; --mint: #6fd3b4;
+  --night: #111a2b; --night-2: #1b2639; --night-text: #c9d1de;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: 'Inter', sans-serif; color: var(--ink-2); background: var(--bg); }
+h1, h2, h3 { font-family: 'Inter Tight', 'Inter', sans-serif; color: var(--ink); letter-spacing: -0.02em; line-height: 1.1; }
+.page { position: relative; overflow: hidden; break-after: page; background: var(--bg); }
+.page:last-child { break-after: auto; }
+.dark { background: var(--night); color: var(--night-text); }
+.dark h1, .dark h2, .dark h3 { color: #fff; }
+.accent-bg { background: var(--accent); color: #dcefe8; }
+.accent-bg h1, .accent-bg h2 { color: #fff; }
+.eyebrow { font-size: .78em; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.dark .eyebrow { color: var(--mint); }
+.brand { font-family: 'Inter Tight', sans-serif; font-weight: 700; color: var(--ink); }
+.dark .brand, .accent-bg .brand { color: #fff; }
+.muted { color: var(--muted); }
+.foot {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: .72em; color: var(--muted);
+}
+.dark .foot, .accent-bg .foot { color: #9fb0c4; }

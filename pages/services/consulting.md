@@ -98,14 +98,14 @@ Organizations hitting inflection points: scaling challenges, platform migrations
 
 ## Engagement Terms
 
-| Engagement | Duration | Pricing |
-|------------|----------|---------|
-| Fractional CTO | Monthly retainer | Based on hours/month |
-| Due diligence | 1-3 weeks | Fixed scope |
-| Architecture review | 2-4 weeks | Fixed scope |
-| Strategy workshop | 1-2 days | Day rate |
+| Engagement | Duration | Structure |
+|------------|----------|-----------|
+| Fractional CTO | Ongoing | Monthly statement of work |
+| Due diligence | 1-3 weeks | Fixed-scope statement of work |
+| Architecture review | 2-4 weeks | Fixed-scope statement of work |
+| Strategy workshop | 1-2 days | Fixed-scope statement of work |
 
-No long-term contracts required. If the engagement isn't delivering value, you can stop.
+All advisory work runs under one enterprise service agreement and is invoiced with itemized reporting. Scopes can be adjusted or ended as your needs change.
 
 ---
 
