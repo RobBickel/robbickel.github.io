@@ -16,3 +16,4 @@ render() {
 render playbook.html  orphaned-software-playbook.pdf
 render scorecard.html software-estate-risk-scorecard.pdf
 render overview.html  managed-software-services-overview.pdf
+render checklist.html production-readiness-checklist.pdf

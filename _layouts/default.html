@@ -33,6 +33,17 @@
 
       // Two-step intake form: step through, submit to Formspree in place, and report the
       // funnel to GA4: intake_view > intake_start > intake_step > intake_submit, or intake_abandon.
+      // Remember ad UTM tags for the visit, so a lead on a later page still traces back to its ad.
+      var utm = {};
+      try {
+        var q = new URLSearchParams(location.search);
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+          if (q.get(k)) utm[k] = q.get(k);
+        });
+        if (Object.keys(utm).length) sessionStorage.setItem('utm', JSON.stringify(utm));
+        else utm = JSON.parse(sessionStorage.getItem('utm') || '{}');
+      } catch (err) { /* storage blocked: use whatever was on this URL */ }
+
       document.querySelectorAll('.intake').forEach(function (form) {
         var status = form.querySelector('.form-status');
         var label = form.querySelector('.intake-step-label');
@@ -46,7 +57,9 @@
             page_path: location.pathname,
             form_step: Number(form.dataset.step || 1),
             persona: picked ? picked.value : '(none)',
-            page_persona: form.dataset.pagePersona || 'none'
+            page_persona: form.dataset.pagePersona || 'none',
+            utm_campaign: utm.utm_campaign || '(none)',
+            utm_content: utm.utm_content || '(none)'
           };
           for (var k in params) base[k] = params[k];
           gtag('event', name, base);
@@ -138,6 +151,7 @@
           var personaLabel = personaLabels[data.get('persona')] || form.dataset.service;
           data.set('_subject', personaLabel + ' inquiry: ' + data.get('company') + (details ? ' (' + details + ')' : ''));
           data.set('persona_page', form.dataset.pagePersona || 'none');
+          for (var u in utm) data.set(u, utm[u]);
           var snap = snapshot();
 
           var button = form.querySelector('button[type="submit"]');

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Production-Readiness Checklist for AI-Built Products</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  @page { size: 8in 10in; margin: 0; }
+  body { font-size: 20px; line-height: 1.45; }
+  .page { width: 8in; height: 10in; padding: 60px 64px 56px; }
+  .foot { padding: 0 64px 32px; }
+  h1 { font-size: 60px; }
+  h2 { font-size: 42px; margin: 10px 0 18px; }
+  .lede { font-size: 22px; max-width: 30em; }
+  .cover h1 { margin-top: 130px; }
+  .cover .lede { margin-top: 24px; color: var(--night-text); }
+  .stamp { display: inline-block; margin-top: 40px; border: 1px solid #2c3950; border-radius: 99px; padding: 8px 18px; font-size: 16px; color: var(--mint); }
+  .tag { display: inline-block; font-family: 'Inter Tight'; font-weight: 700; color: var(--accent); font-size: 22px; }
+  ul.box { list-style: none; margin-top: 14px; }
+  ul.box li { position: relative; padding: 12px 0 12px 44px; border-top: 1px solid var(--line); color: var(--ink); font-size: 19px; }
+  ul.box li::before { content: ''; position: absolute; left: 2px; top: 15px; width: 22px; height: 22px; border: 2px solid var(--ink-2); border-radius: 5px; }
+  ul.box li small { display: block; color: var(--muted); font-size: 15.5px; margin-top: 2px; }
+  .why { margin-top: 18px; background: var(--accent-soft); border-radius: 14px; padding: 16px 20px; font-size: 17px; color: var(--ink); }
+  .why b { color: var(--accent); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+  .grid2 div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; font-size: 17px; }
+  .grid2 b { display: block; color: var(--ink); margin-bottom: 4px; font-size: 18px; }
+  .score { margin-top: 20px; display: grid; gap: 12px; }
+  .score div { border-radius: 14px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--line); font-size: 18px; }
+  .score b { font-family: 'Inter Tight'; font-size: 24px; color: var(--ink); margin-right: 10px; }
+  .score .g { border-left: 7px solid #1f9d6f; } .score .y { border-left: 7px solid #c2760c; } .score .r { border-left: 7px solid #b4322a; }
+  .cta-email { display: inline-block; margin-top: 30px; background: #fff; color: var(--accent); font-weight: 700; padding: 16px 26px; border-radius: 12px; font-size: 22px; }
+</style>
+</head>
+<body>
+
+<section class="page dark cover">
+  <p class="brand">Rob Bickel · Managed Software Services</p>
+  <h1>The Production-Readiness Checklist</h1>
+  <p class="lede">For products built fast with AI. 36 checks across monitoring, deployment, testing, security, data, and scale, so you can keep selling without the foundation giving way.</p>
+  <span class="stamp">For founders and small product teams</span>
+  <div class="foot"><span>robbickel.com</span><span>Swipe →</span></div>
+</section>
+
+<section class="page">
+  <p class="eyebrow">Why this matters</p>
+  <h2>AI got you to launch. It usually skips what keeps you there.</h2>
+  <p class="lede">AI coding tools are excellent at producing working features. They rarely produce the operational layer around them, and that gap shows up right when customers arrive.</p>
+  <div class="grid2">
+    <div><b>Outages you hear about last</b>No monitoring, so customers find problems before you do.</div>
+    <div><b>Risky releases</b>No tests or rollback, so every deploy might break sign-up or billing.</div>
+    <div><b>Security questions</b>Bigger prospects ask about auth, data, and access, and you need real answers.</div>
+    <div><b>Costs that scale badly</b>Inefficient queries and services get expensive as usage grows.</div>
+  </div>
+  <div class="why"><b>How to use this:</b> check each item that's true today. Count the unchecked items in each section, then use the scoring guide at the end.</div>
+  <div class="foot"><span>Production-Readiness Checklist</span><span>2</span></div>
+</section>
+
+<section class="page">
+  <span class="tag">01 · Monitoring</span>
+  <h2>Will you know before your customers do?</h2>
+  <ul class="box">
+    <li>Uptime checks on the app and key endpoints<small>Login, sign-up, checkout, and API, not just the home page</small></li>
+    <li>Errors are captured and grouped in one place</li>
+    <li>Alerts reach a named person, not a shared inbox</li>
+    <li>Logs are searchable for at least 14 days</li>
+    <li>Scheduled jobs report when they fail or don't run</li>
+    <li>SSL and domain expiry dates are monitored</li>
+  </ul>
+  <div class="foot"><span>Production-Readiness Checklist</span><span>3</span></div>
+</section>
+
+<section class="page">
+  <span class="tag">02 · Deployment</span>
+  <h2>Can you ship without holding your breath?</h2>
+  <ul class="box">
+    <li>All code lives in a company-owned repository</li>
+    <li>Deploys run from a pipeline, not someone's laptop</li>
+    <li>A staging environment mirrors production</li>
+    <li>You can roll back a bad release in minutes</li>
+    <li>Environment settings and secrets are kept out of the code</li>
+    <li>More than one person can deploy</li>
+  </ul>
+  <div class="foot"><span>Production-Readiness Checklist</span><span>4</span></div>
+</section>
+
+<section class="page">
+  <span class="tag">03 · Testing</span>
+  <h2>Do you know what a change will break?</h2>
+  <ul class="box">
+    <li>Automated tests cover sign-up and login</li>
+    <li>Automated tests cover payments or your core transaction</li>
+    <li>Tests run automatically on every change</li>
+    <li>A failing test blocks the deploy</li>
+    <li>Someone reviews AI-generated changes before they merge</li>
+    <li>You have a short manual checklist for releases</li>
+  </ul>
+  <div class="foot"><span>Production-Readiness Checklist</span><span>5</span></div>
+</section>
+
+<section class="page">
+  <span class="tag">04 · Security</span>
+  <h2>Could you answer a customer's security questionnaire?</h2>
+  <ul class="box">
+    <li>No secrets or API keys in the codebase or its history</li>
+    <li>Admin and cloud accounts use multi-factor authentication</li>
+    <li>Users can only reach their own data<small>Authorization checked on the server, not just hidden in the UI</small></li>
+    <li>Dependencies are scanned for known vulnerabilities</li>
+    <li>Data is encrypted in transit and at rest</li>
+    <li>You know which third parties receive customer data</li>
+  </ul>
+  <div class="foot"><span>Production-Readiness Checklist</span><span>6</span></div>
+</section>
+
+<section class="page">
+  <span class="tag">05 · Data &amp; recovery</span>
+  <h2>If the database disappeared tonight, then what?</h2>
+  <ul class="box">
+    <li>Automated backups run at least daily</li>
+    <li>Backups are stored separately from production</li>
+    <li>You've restored a backup in the last 6 months</li>
+    <li>Database changes are versioned and repeatable</li>
+    <li>You know how much data you can afford to lose</li>
+    <li>A written recovery runbook exists</li>
+  </ul>
+  <div class="foot"><span>Production-Readiness Checklist</span><span>7</span></div>
+</section>
+
+<section class="page">
+  <span class="tag">06 · Scale &amp; cost</span>
+  <h2>What breaks at 10x your current usage?</h2>
+  <ul class="box">
+    <li>You know your slowest pages and queries</li>
+    <li>Heavy work runs in background jobs, not web requests</li>
+    <li>Third-party API rate limits are known and handled</li>
+    <li>Cloud spend is tracked and has budget alerts</li>
+    <li>You've load-tested your critical path at least once</li>
+    <li>Someone owns performance and cost, by name</li>
+  </ul>
+  <div class="foot"><span>Production-Readiness Checklist</span><span>8</span></div>
+</section>
+
+<section class="page">
+  <p class="eyebrow">Scoring</p>
+  <h2>Count your unchecked items.</h2>
+  <div class="score">
+    <div class="g"><b>0–6</b>Solid foundation. Keep it maintained as you grow, and revisit quarterly.</div>
+    <div class="y"><b>7–15</b>Workable, but fragile. Fix monitoring and deployment first. They catch everything else.</div>
+    <div class="r"><b>16+</b>You're scaling on luck. Prioritize monitoring, backups, and security before your next big customer.</div>
+  </div>
+  <div class="why" style="margin-top:22px"><b>Rule of thumb:</b> a section with 3 or more unchecked items is where your next incident comes from.</div>
+  <div class="foot"><span>Production-Readiness Checklist</span><span>9</span></div>
+</section>
+
+<section class="page accent-bg">
+  <p class="brand">Rob Bickel · Managed Software Services</p>
+  <h2 style="margin-top:100px">Want this handled while you keep selling?</h2>
+  <p class="lede">I add monitoring, pipelines, tests, security, and scaling to AI-built products alongside your roadmap, then keep it running under one service agreement with flexible scopes of work and monthly invoicing.</p>
+  <span class="cta-email">robbickel.com/production-ready</span>
+  <p style="margin-top:20px;font-size:19px">bickel.rob@gmail.com</p>
+  <div class="foot"><span>Production-Readiness Checklist</span><span>10</span></div>
+</section>
+
+</body>
+</html>
