@@ -46,7 +46,7 @@ fit:
   - "Bigger prospects are asking about security, uptime, or SOC 2"
 faq:
   - q: "Who actually does the work?"
-    a: "Rob Bickel leads every engagement as senior partner and stays hands-on with architecture, priorities, and the riskiest changes. Onshore and nearshore engineers handle implementation and day-to-day coverage, working in U.S.-aligned time zones. You get senior judgment and team capacity, without depending on any one person."
+    a: "I lead every engagement personally and I'm responsible for the outcome: direction, priorities, and hands-on work on architecture and the riskiest changes. You're consulted on decisions and informed at every step. Our onshore and nearshore engineers are accountable for supporting you, handling implementation and day-to-day coverage in U.S.-aligned time zones, with knowledge shared so nothing depends on one person."
   - q: "Will you rewrite my app?"
     a: "Rarely. The fastest path is usually to harden what you have: add tests and monitoring around it, fix the risky parts, and refactor only where it blocks growth."
   - q: "Do I have to pause new features?"

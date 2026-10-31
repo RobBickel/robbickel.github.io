@@ -15,11 +15,13 @@ We exist because of a pattern we kept seeing. Companies invest heavily to build 
 
 ## How the agency is structured
 
-**Senior partner on every engagement.** Rob Bickel leads each client relationship personally and stays hands-on: setting technical direction, making the hard calls, and doing real work on architecture and the riskiest changes.
+Every engagement follows the same simple split of roles:
 
-**Onshore and nearshore engineers.** Implementation, monitoring, patching, and day-to-day coverage are handled by onshore and nearshore engineers working in U.S.-aligned time zones. That gives clients team-level capacity and continuity at a sensible cost, without offshore handoff lag.
+**I'm responsible.** I'm Rob Bickel, and I lead each client relationship personally: setting technical direction, making the hard calls, and doing real work on architecture and the riskiest changes.
 
-**No single point of failure.** Knowledge is shared across the team and written down, so your systems never depend on one person, including anyone on ours.
+**You're consulted and informed.** Decisions come to you with options and a recommendation. Status, risk, and cost are reported in plain English, on a regular cadence.
+
+**We're accountable for supporting you.** Our onshore and nearshore engineers handle implementation, monitoring, patching, and day-to-day coverage in U.S.-aligned time zones. Knowledge is shared across the team and written down, so your systems never depend on one person, including anyone on ours.
 
 ## Senior partner: Rob Bickel
 

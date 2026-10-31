@@ -46,7 +46,7 @@ fit:
   - "A security review, audit, or insurance renewal is coming"
 faq:
   - q: "Who actually does the work?"
-    a: "Rob Bickel leads every engagement as senior partner and stays hands-on with architecture, priorities, and the riskiest changes. Onshore and nearshore engineers handle implementation and day-to-day coverage, working in U.S.-aligned time zones. You get senior judgment and team capacity, without depending on any one person."
+    a: "I lead every engagement personally and I'm responsible for the outcome: direction, priorities, and hands-on work on architecture and the riskiest changes. You're consulted on decisions and informed at every step. Our onshore and nearshore engineers are accountable for supporting you, handling implementation and day-to-day coverage in U.S.-aligned time zones, with knowledge shared so nothing depends on one person."
   - q: "Are you trying to stop people building with AI?"
     a: "No. The goal is to keep the speed and remove the risk: visibility, ownership, and a clear path for good experiments to become supported tools."
   - q: "Will you rewrite everything?"
