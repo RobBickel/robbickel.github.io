@@ -52,4 +52,4 @@ Sprawl comes back if nothing changes about how tools are adopted. A lightweight 
 
 Most companies respond to software problems by adding more software. Sprawl is fixed by doing the opposite: **fewer systems, better maintained, properly documented.**
 
-That's the approach behind my [software portfolio management](/services/portfolio-management/) work, which takes companies from sprawl to a smaller portfolio that someone actually owns.
+That's the approach behind our [software portfolio management](/services/portfolio-management/) work, which takes companies from sprawl to a smaller portfolio that someone actually owns.

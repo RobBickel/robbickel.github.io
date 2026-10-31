@@ -12,7 +12,7 @@
       {% for item in s.menu %}
         <a href="{{ site.github.url }}{{ item.url }}" class="{% if page.url == item.url %}active{% endif %}">{{ item.name }}</a>
       {% endfor %}
-      <a class="btn btn-small" href="mailto:{{ s.email }}?subject={{ s.email-subject }}&amp;body={{ s.email-body }}">Email Rob</a>
+      <a class="btn btn-small" href="{{ site.github.url }}/contact/">Start a conversation</a>
     </nav>
   </div>
 </header>

@@ -41,6 +41,6 @@ For each system your business depends on, ask:
 - **Create a second set of hands.** Whether that's another employee or an outside partner, someone else should be able to operate the system.
 - **Make ownership explicit.** Assign it formally rather than assuming it.
 
-This is a core part of what I do with [managed software services](/): taking documented, accountable ownership so no single person is a point of failure, including me.
+This is a core part of what we do with [managed software services](/): taking documented, accountable ownership so no single person is a point of failure, including anyone on our team.
 
 Want a quick read on your exposure? Try the free [Software Estate Risk Scorecard](/assets/pdf/software-estate-risk-scorecard.pdf).

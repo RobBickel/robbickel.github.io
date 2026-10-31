@@ -163,7 +163,7 @@
               t.submitted = true;
               form.reset();
               form.classList.add('sent');
-              status.textContent = "Thanks, it's on its way. I'll reply personally, usually within one business day.";
+              status.textContent = "Thanks, it's on its way. You'll hear back from Rob within one business day.";
               track('intake_submit', snap);
               track('generate_lead', { method: 'form', systems: snap.systems, timeline: snap.timeline });
             })

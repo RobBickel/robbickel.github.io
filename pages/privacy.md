@@ -8,7 +8,7 @@ permalink: /privacy/
 
 _Last updated: October 30, 2026_
 
-This policy explains what information Rob Bickel ("we," "us") collects through robbickel.com and our advertising, and how it is used.
+This policy explains what information Rob Bickel Agency ("we," "us") collects through robbickel.com and our advertising, and how it is used.
 
 ## Information we collect
 

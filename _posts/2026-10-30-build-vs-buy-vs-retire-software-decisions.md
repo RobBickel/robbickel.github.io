@@ -59,4 +59,4 @@ Retirement is the most underused option because nobody gets credit for removing 
 
 The best software portfolios aren't the most advanced. They're the smallest that do the job well, with every remaining system clearly owned and properly maintained.
 
-If you're facing these decisions across several systems, a [Software Portfolio Audit](/portfolio-audit/) gives you a ranked plan. If you're considering building something, I'll be direct about whether you should. Sometimes the right answer is "don't build this." [Let's talk](/contact/).
+If you're facing these decisions across several systems, a [Software Portfolio Audit](/portfolio-audit/) gives you a ranked plan. If you're considering building something, we'll be direct about whether you should. Sometimes the right answer is "don't build this." [Let's talk](/contact/).

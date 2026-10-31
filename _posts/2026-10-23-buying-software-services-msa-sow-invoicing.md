@@ -62,6 +62,6 @@ When software costs are itemized per application, portfolio decisions get easier
 
 If a provider can't answer these clearly, that tells you something.
 
-## How I work
+## How we work
 
-Every engagement I take on runs this way: one enterprise service agreement, flexible statements of work for each application or project, and monthly itemized invoicing. No lock-in, because your code, infrastructure, and documentation stay yours. [See how managed software services work](/).
+Every engagement we take on runs this way: one enterprise service agreement, flexible statements of work for each application or project, and monthly itemized invoicing. No lock-in, because your code, infrastructure, and documentation stay yours. [See how managed software services work](/).

@@ -67,4 +67,4 @@ A recorded screen-share walkthrough is often the most efficient way to capture t
 
 If the person is already gone and the handover didn't happen, don't panic. Start with access recovery: domain, hosting, and code repository first, since those are hardest to replace. Then work through the list as far as you can. Most systems can be recovered and documented, but it takes focused effort.
 
-Taking over orphaned systems is exactly what I do with [managed software services](/). If you're facing a handover right now, [get in touch](/contact/).
+Taking over orphaned systems is exactly what we do with [managed software services](/). If you're facing a handover right now, [get in touch](/contact/).

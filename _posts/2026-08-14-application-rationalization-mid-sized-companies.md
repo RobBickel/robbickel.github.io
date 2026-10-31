@@ -53,6 +53,6 @@ Start with retirements, which are quick wins that reduce cost and risk immediate
 
 ## Make it ongoing
 
-The most valuable outcome isn't the one-time cleanup. It's a habit: a quarterly look at the portfolio, a short checklist before adopting new tools, and clear owners for what remains. Quarterly portfolio reviews are built into my [managed software services](/) for exactly that reason.
+The most valuable outcome isn't the one-time cleanup. It's a habit: a quarterly look at the portfolio, a short checklist before adopting new tools, and clear owners for what remains. Quarterly portfolio reviews are built into our [managed software services](/) for exactly that reason.
 
 If you'd like this done for you, start with a [Software Portfolio Audit](/portfolio-audit/).

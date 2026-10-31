@@ -6,7 +6,7 @@ description: "A step-by-step guide to building a software inventory: where to lo
 
 You can't manage, secure, or reduce what you can't see. A **software inventory** is the foundation for every other improvement, and it's simpler to build than most people expect.
 
-Here's the process I use.
+Here's the process we use.
 
 ## Step 1: Start with the money
 

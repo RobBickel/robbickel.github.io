@@ -56,4 +56,4 @@ Look at what's in use, what's overlapping, and what can be consolidated or retir
 
 Companies that put light governance in place now will be able to scale what works with confidence. Companies that don't will spend 2028 untangling it.
 
-AI inventory and governance is part of my [software portfolio management](/services/portfolio-management/) work, and new AI tools are a standing item in the quarterly reviews included with [managed software services](/).
+AI inventory and governance is part of our [software portfolio management](/services/portfolio-management/) work, and new AI tools are a standing item in the quarterly reviews included with [managed software services](/).

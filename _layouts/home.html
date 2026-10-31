@@ -2,7 +2,6 @@
 layout: default
 ---
 {% assign s = site.data.settings %}
-{% capture mailto %}mailto:{{ s.email }}?subject={{ s.email-subject }}&amp;body={{ s.email-body }}{% endcapture %}
 
 <section class="hero">
   <div class="wrap hero-grid">
@@ -15,7 +14,7 @@ layout: default
         your laptops, applied to the software behind your operations.
       </p>
       <div class="actions">
-        <a class="btn" href="{{ mailto }}">Email Rob about your systems <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+        <a class="btn" href="{{ site.github.url }}/contact/">Tell us about your systems <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
         <a class="btn btn-ghost" href="#coverage">See what's covered</a>
       </div>
       <ul class="chips">

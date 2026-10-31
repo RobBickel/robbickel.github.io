@@ -6,7 +6,7 @@ service: "AI sprawl cleanup"
 title: "AI made it easy to build. Now someone has to own what got built."
 description: "Clean up AI-generated apps, abandoned prototypes, and half-finished internal tools: inventory, triage, harden what's worth keeping, and retire the rest."
 eyebrow: "AI-generated and unfinished software"
-lede: "Anyone on your team can now spin up an app, script, or automation in an afternoon. The result is dozens of half-finished tools, abandoned prototypes, and AI-generated code running real processes, with no inventory, no owner, and no security review. I find it all, triage it, and keep what's worth keeping."
+lede: "Anyone on your team can now spin up an app, script, or automation in an afternoon. The result is dozens of half-finished tools, abandoned prototypes, and AI-generated code running real processes, with no inventory, no owner, and no security review. We find it all, triage it, and keep what's worth keeping."
 pains_title: "The hangover from building fast"
 pains:
   - title: "Prototypes became production"
@@ -45,6 +45,8 @@ fit:
   - "Nobody has a list of what exists or what data it touches"
   - "A security review, audit, or insurance renewal is coming"
 faq:
+  - q: "Who actually does the work?"
+    a: "Rob Bickel leads every engagement as senior partner and stays hands-on with architecture, priorities, and the riskiest changes. Onshore and nearshore engineers handle implementation and day-to-day coverage, working in U.S.-aligned time zones. You get senior judgment and team capacity, without depending on any one person."
   - q: "Are you trying to stop people building with AI?"
     a: "No. The goal is to keep the speed and remove the risk: visibility, ownership, and a clear path for good experiments to become supported tools."
   - q: "Will you rewrite everything?"

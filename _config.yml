@@ -7,7 +7,7 @@ plugins:   [jekyll-sitemap, jekyll-feed,  jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 
-title:		   "Rob Bickel"
+title:		   "Rob Bickel Agency"
 description: "Managed software services for the applications your business runs on."
 author:      "Rob Bickel"
 url:         "https://robbickel.com"

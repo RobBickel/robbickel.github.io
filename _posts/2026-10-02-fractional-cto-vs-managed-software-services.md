@@ -49,7 +49,7 @@ The key word is *operations*. The work is keeping the software you rely on healt
 
 Many mid-sized companies need some of each: a few hours a month of strategic guidance, plus reliable hands-on ownership of the systems they already run. Those two roles work best when they're coordinated, because strategy that ignores operational reality fails, and operations without direction drift.
 
-That's why I offer both [technical advisory](/services/consulting/), including fractional CTO work, and [managed software services](/) under one enterprise service agreement, with separate, flexible scopes of work for each.
+That's why we offer both [technical advisory](/services/consulting/), including fractional CTO work, and [managed software services](/) under one enterprise service agreement, with separate, flexible scopes of work for each.
 
 ## A good first step either way
 
