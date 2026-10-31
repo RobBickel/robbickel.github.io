@@ -169,12 +169,19 @@ layout: default
       <p class="eyebrow">Products</p>
       <h2>Software we've built and operated.</h2>
     </div>
+    {% comment %} name|domain|slug — a thumbnail at assets/img/projects/<slug>/thumbnail.png becomes the card background {% endcomment %}
+    {% assign products = "M2M Gateway|m2mgateway.net|m2mgateway_net,Kyooret|kyooret.com|kyooret_com,Traffik Co|traffikco.com|traffikco_com,Mo Drones|modrones.com|modrones_com,Fractional Pipe|fractionalpipe.com|fractionalpipe_com" | split: "," %}
     <div class="grid products">
-      <a class="card card-link" href="https://m2mgateway.net" target="_blank" rel="noopener"><h3>M2M Gateway</h3><p class="domain">m2mgateway.net <i class="fa fa-external-link" aria-hidden="true"></i></p></a>
-      <a class="card card-link" href="https://kyooret.com" target="_blank" rel="noopener"><h3>Kyooret</h3><p class="domain">kyooret.com <i class="fa fa-external-link" aria-hidden="true"></i></p></a>
-      <a class="card card-link" href="https://traffikco.com" target="_blank" rel="noopener"><h3>Traffik Co</h3><p class="domain">traffikco.com <i class="fa fa-external-link" aria-hidden="true"></i></p></a>
-      <a class="card card-link" href="https://modrones.com" target="_blank" rel="noopener"><h3>Mo Drones</h3><p class="domain">modrones.com <i class="fa fa-external-link" aria-hidden="true"></i></p></a>
-      <a class="card card-link" href="https://fractionalpipe.com" target="_blank" rel="noopener"><h3>Fractional Pipe</h3><p class="domain">fractionalpipe.com <i class="fa fa-external-link" aria-hidden="true"></i></p></a>
+      {% for item in products %}
+        {% assign p = item | split: "|" %}
+        {% capture thumb_path %}/assets/img/projects/{{ p[2] }}/thumbnail.png{% endcapture %}
+        {% assign thumb = site.static_files | where: "path", thumb_path | first %}
+        <a class="card card-link{% if thumb %} has-thumb{% endif %}" href="https://{{ p[1] }}" target="_blank" rel="noopener"
+           {% if thumb %}style="background-image: url('{{ site.github.url }}{{ thumb_path }}')"{% endif %}>
+          <h3>{{ p[0] }}</h3>
+          <p class="domain">{{ p[1] }} <i class="fa fa-external-link" aria-hidden="true"></i></p>
+        </a>
+      {% endfor %}
     </div>
     <p class="products-note">We don't just build software and disappear. Every product above is one we've operated, maintained, and evolved. That's the difference between a development shop and a stewardship partner.</p>
   </div>
