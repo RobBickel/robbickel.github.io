@@ -31,22 +31,43 @@
         this.setAttribute('aria-expanded', open);
       });
 
-      // Submit Formspree contact forms in place and count them as leads.
-      document.querySelectorAll('.contact-form').forEach(function (form) {
+      // Two-step intake form: step through, then submit to Formspree in place and count as a lead.
+      document.querySelectorAll('.intake').forEach(function (form) {
+        var status = form.querySelector('.form-status');
+        var label = form.querySelector('.intake-step-label');
+        function show(step) {
+          form.dataset.step = step;
+          label.textContent = 'Step ' + step + ' of 2';
+          if (step === '2') form.querySelector('[data-step="2"] input').focus();
+        }
+        form.classList.add('js-steps');
+        show('1');
+        form.querySelector('.intake-next').addEventListener('click', function () { show('2'); });
+        form.querySelector('.intake-back').addEventListener('click', function () { show('1'); });
+
         form.addEventListener('submit', function (e) {
           e.preventDefault();
-          var status = form.querySelector('.form-status');
+          var required = form.querySelectorAll('[data-step="2"] [required]');
+          for (var i = 0; i < required.length; i++) {
+            if (!required[i].checkValidity()) { required[i].reportValidity(); return; }
+          }
+          var data = new FormData(form);
+          var situations = data.getAll('situation');
+          data.delete('situation');
+          data.append('situation', situations.join('; ') || 'Not specified');
+          var details = [data.get('timeline'), data.get('systems') && data.get('systems') + ' systems'].filter(Boolean).join(', ');
+          data.set('_subject', form.dataset.service + ' inquiry: ' + data.get('company') + (details ? ' (' + details + ')' : ''));
+
           var button = form.querySelector('button[type="submit"]');
           button.disabled = true;
           status.textContent = 'Sending…';
-          fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+          fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
             .then(function (res) {
               if (!res.ok) throw new Error(res.status);
               form.reset();
               form.classList.add('sent');
-              status.textContent = "Thanks — your message is on its way. I'll reply personally, usually within one business day.";
-              if (window.gtag) gtag('event', 'generate_lead', { method: 'form', service: form.dataset.service, page: location.pathname });
-            })
+              status.textContent = "Thanks, it's on its way. I'll reply personally, usually within one business day.";
+              if (window.gtag) gtag('event', 'generate_lead', { method: 'form', service: form.dataset.service, page: location.pathname });            })
             .catch(function () {
               button.disabled = false;
               status.textContent = 'Something went wrong sending that. Please try again, or email bickel.rob@gmail.com.';

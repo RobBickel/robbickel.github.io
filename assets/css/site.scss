@@ -223,26 +223,63 @@ p { margin: 0 0 1em; }
 .cta-form {
   align-items: flex-start;
   h3 { margin-top: 0; }
-  .cta-copy { flex: 1 1 40%; p + p { margin-top: 1em; } }
+  .cta-copy { flex: 1 1 36%; p + p, ul + p { margin-top: 1em; } }
   .cta-alt a { color: #fff; }
 }
-.contact-form {
-  flex: 1 1 55%; width: 100%;
-  display: flex; flex-direction: column; gap: 14px;
+.cta-box .cta-points {
+  list-style: none; padding: 0; margin: 1.1em 0 0;
+  li { position: relative; padding-left: 26px; margin: 0 0 .4em; font-size: .95rem; }
+  li::before { content: '\f00c'; font-family: FontAwesome; position: absolute; left: 0; color: #9be3c8; }
+}
+.intake {
+  flex: 1 1 60%; width: 100%; position: relative;
+  background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .16); border-radius: 14px; padding: 24px;
+  fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+  legend { float: left; width: 100%; padding: 0; margin: 8px 0 2px; color: #fff; font-weight: 600; font-size: 1rem; }
+  legend:first-child { margin-top: 0; }
+  legend span, .optional { font-weight: 400; font-size: .85rem; color: #b9dccf; margin-left: 6px; }
   label { display: flex; flex-direction: column; gap: 6px; font-size: .9rem; font-weight: 500; color: #e6f3ee; }
-  input, textarea {
+  input:not([type=checkbox]):not([type=radio]), textarea, select {
     font: inherit; font-size: 1rem; color: var(--ink);
-    background: #fff; border: 1px solid transparent; border-radius: 10px; padding: .7em .85em;
+    background: #fff; border: 1px solid transparent; border-radius: 10px; padding: .65em .8em; width: 100%;
     &:focus { outline: 3px solid rgba(255, 255, 255, .45); outline-offset: 1px; }
   }
-  textarea { resize: vertical; min-height: 110px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; @media (max-width: 560px) { grid-template-columns: 1fr; } }
-  .btn { align-self: flex-start; }
+  input:not([type=checkbox]):not([type=radio]), select { height: 46px; }
+  textarea { resize: vertical; min-height: 84px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; @media (max-width: 560px) { grid-template-columns: 1fr; } }
+  .btn { align-self: flex-start; margin-top: 6px; }
   .btn:disabled { opacity: .7; cursor: default; transform: none; }
   .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
-  .form-status { margin: 0; min-height: 1.4em; color: #fff; font-weight: 500; }
-  &.sent label, &.sent .btn { display: none; }
+  .form-status { margin: 10px 0 0; min-height: 1.4em; color: #fff; font-weight: 500; }
+  &.sent fieldset, &.sent .intake-progress { display: none; }
+  &.sent .form-status { font-size: 1.1rem; margin: 0; }
 }
+.chips-select {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  label { display: inline-flex; flex-direction: row; cursor: pointer; }
+  input { position: absolute; opacity: 0; pointer-events: none; }
+  span {
+    display: inline-block; padding: .45em .9em; border-radius: 99px; font-size: .9rem; font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, .45); color: #fff; transition: background .12s, color .12s;
+  }
+  label:hover span { background: rgba(255, 255, 255, .12); }
+  input:checked + span { background: #fff; color: var(--accent); border-color: #fff; }
+  input:focus-visible + span { outline: 3px solid rgba(255, 255, 255, .5); outline-offset: 2px; }
+}
+.intake-progress {
+  display: flex; align-items: center; gap: 12px; margin: 0 0 16px; font-size: .8rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: #b9dccf;
+}
+.intake-bar { flex: 1; height: 4px; border-radius: 4px; background: rgba(255, 255, 255, .18); overflow: hidden; }
+.intake-bar span { display: block; height: 100%; width: 50%; background: #fff; transition: width .25s; }
+.intake[data-step="2"] .intake-bar span { width: 100%; }
+.intake-progress { display: none; }
+.intake.js-steps .intake-progress { display: flex; }
+.intake.js-steps[data-step="1"] [data-step="2"],
+.intake.js-steps[data-step="2"] [data-step="1"] { display: none; }
+.intake:not(.js-steps) .intake-next, .intake:not(.js-steps) .intake-back { display: none; }
+.intake-actions { display: flex; align-items: center; gap: 16px; margin-top: 6px; .btn { margin-top: 0; } }
+.intake-back { background: none; border: 0; color: #d5ece3; font: inherit; font-weight: 500; cursor: pointer; padding: 0; &:hover { color: #fff; } }
 
 // ------------------------------------------------
 // Long-form pages

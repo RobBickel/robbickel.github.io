@@ -1,5 +1,5 @@
 {% comment %}
-  Call-to-action used at the bottom of pages. Shows a Formspree contact form when
+  Call-to-action used at the bottom of pages. Shows a two-step Formspree intake form when
   settings.formspree-id is set, otherwise an email button.
   Usage: {% include contact-form.html service="Software Portfolio Audit" %}
 {% endcomment %}
@@ -12,21 +12,79 @@
 <div class="cta-box cta-form">
   <div class="cta-copy">
     <h3>Tell me what you're running.</h3>
-    <p>A few lines about the systems your business depends on and what's prompting the question is plenty. I read and answer every message personally.</p>
+    <p>Two quick steps. I'll reply personally with an honest read on your situation and whether I can help, usually within one business day.</p>
+    <ul class="cta-points">
+      <li>No sales team, no sequences</li>
+      <li>Your details are only used to reply</li>
+    </ul>
     <p class="cta-alt">Prefer email? <a href="{{ mailto }}">{{ s.email }}</a></p>
   </div>
-  <form class="contact-form" action="https://formspree.io/f/{{ s.formspree-id }}" method="POST" data-service="{{ service }}">
+
+  <form class="intake" action="https://formspree.io/f/{{ s.formspree-id }}" method="POST" data-service="{{ service }}" novalidate>
     <input type="hidden" name="service" value="{{ service }}">
     <input type="hidden" name="page" value="{{ page.url }}">
     <input type="hidden" name="_subject" value="{{ service }} inquiry from robbickel.com">
     <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <div class="form-row">
-      <label>Name<input type="text" name="name" required autocomplete="name"></label>
-      <label>Work email<input type="email" name="email" required autocomplete="email"></label>
-    </div>
-    <label>Company<input type="text" name="company" autocomplete="organization"></label>
-    <label>What are you running, and what's prompting this?<textarea name="message" rows="4" required></textarea></label>
-    <button type="submit" class="btn">Send <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+
+    <p class="intake-progress"><span class="intake-step-label">Step 1 of 2</span><span class="intake-bar"><span></span></span></p>
+
+    <fieldset class="intake-step" data-step="1">
+      <legend>What's prompting this? <span>Pick any that apply</span></legend>
+      <div class="chips-select">
+        <label><input type="checkbox" name="situation" value="The developer who built it left"><span>The developer who built it left</span></label>
+        <label><input type="checkbox" name="situation" value="No monitoring or tested backups"><span>Nothing is monitored or backed up</span></label>
+        <label><input type="checkbox" name="situation" value="Security questionnaire or audit coming up"><span>Security questionnaire or audit coming up</span></label>
+        <label><input type="checkbox" name="situation" value="Small changes take months"><span>Small changes take months</span></label>
+        <label><input type="checkbox" name="situation" value="Too many overlapping tools"><span>Too many overlapping tools</span></label>
+        <label><input type="checkbox" name="situation" value="Planning a build or replacement"><span>Planning a build or replacement</span></label>
+      </div>
+
+      <legend>How many business-critical custom systems?</legend>
+      <div class="chips-select chips-row">
+        <label><input type="radio" name="systems" value="1"><span>1</span></label>
+        <label><input type="radio" name="systems" value="2–5"><span>2–5</span></label>
+        <label><input type="radio" name="systems" value="6–15"><span>6–15</span></label>
+        <label><input type="radio" name="systems" value="15+"><span>15+</span></label>
+        <label><input type="radio" name="systems" value="Not sure"><span>Not sure</span></label>
+      </div>
+
+      <legend>Timeline</legend>
+      <div class="chips-select chips-row">
+        <label><input type="radio" name="timeline" value="Urgent"><span>Urgent</span></label>
+        <label><input type="radio" name="timeline" value="This quarter"><span>This quarter</span></label>
+        <label><input type="radio" name="timeline" value="Just exploring"><span>Just exploring</span></label>
+      </div>
+
+      <button type="button" class="btn intake-next">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+    </fieldset>
+
+    <fieldset class="intake-step" data-step="2">
+      <legend>Where should I reply?</legend>
+      <div class="form-row">
+        <label>Name<input type="text" name="name" required autocomplete="name"></label>
+        <label>Work email<input type="email" name="email" required autocomplete="email"></label>
+      </div>
+      <div class="form-row">
+        <label>Company<input type="text" name="company" required autocomplete="organization"></label>
+        <label>Your role
+          <select name="role">
+            <option value="">Select…</option>
+            <option>Owner / CEO</option>
+            <option>COO / Operations</option>
+            <option>CFO / Finance</option>
+            <option>IT / Technology</option>
+            <option>Other</option>
+          </select>
+        </label>
+      </div>
+      <label><span>Phone <span class="optional">optional</span></span><input type="tel" name="phone" autocomplete="tel"></label>
+      <label><span>Anything else I should know? <span class="optional">optional</span></span><textarea name="message" rows="3" placeholder="e.g. Our billing integration was built by a contractor in 2019 and nobody can change it."></textarea></label>
+      <div class="intake-actions">
+        <button type="button" class="intake-back">← Back</button>
+        <button type="submit" class="btn">Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+      </div>
+    </fieldset>
+
     <p class="form-status" role="status" aria-live="polite"></p>
   </form>
 </div>
