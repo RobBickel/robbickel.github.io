@@ -1,15 +1,43 @@
 {% comment %}
-  Email call-to-action used at the bottom of pages (replaces the old form).
+  Call-to-action used at the bottom of pages. Shows a Formspree contact form when
+  settings.formspree-id is set, otherwise an email button.
   Usage: {% include contact-form.html service="Software Portfolio Audit" %}
 {% endcomment %}
 {% assign s = site.data.settings %}
-{% assign topic = include.service | default: 'Managed software' | url_encode | replace: '+', '%20' %}
+{% assign service = include.service | default: 'Managed software' %}
+{% assign topic = service | url_encode | replace: '+', '%20' %}
+{% capture mailto %}mailto:{{ s.email }}?subject={{ topic }}%20inquiry&amp;body={{ s.email-body }}{% endcapture %}
+
+{% if s.formspree-id != '' %}
+<div class="cta-box cta-form">
+  <div class="cta-copy">
+    <h3>Tell me what you're running.</h3>
+    <p>A few lines about the systems your business depends on and what's prompting the question is plenty. I read and answer every message personally.</p>
+    <p class="cta-alt">Prefer email? <a href="{{ mailto }}">{{ s.email }}</a></p>
+  </div>
+  <form class="contact-form" action="https://formspree.io/f/{{ s.formspree-id }}" method="POST" data-service="{{ service }}">
+    <input type="hidden" name="service" value="{{ service }}">
+    <input type="hidden" name="page" value="{{ page.url }}">
+    <input type="hidden" name="_subject" value="{{ service }} inquiry from robbickel.com">
+    <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="form-row">
+      <label>Name<input type="text" name="name" required autocomplete="name"></label>
+      <label>Work email<input type="email" name="email" required autocomplete="email"></label>
+    </div>
+    <label>Company<input type="text" name="company" autocomplete="organization"></label>
+    <label>What are you running, and what's prompting this?<textarea name="message" rows="4" required></textarea></label>
+    <button type="submit" class="btn">Send <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </form>
+</div>
+{% else %}
 <div class="cta-box">
   <div>
     <h3>Tell me what you're running.</h3>
     <p>Send a short note about the systems your business depends on and what's prompting the question. I read and answer every message personally.</p>
   </div>
-  <a class="btn" href="mailto:{{ s.email }}?subject={{ topic }}%20inquiry&amp;body={{ s.email-body }}">
+  <a class="btn" href="{{ mailto }}">
     Email Rob <i class="fa fa-arrow-right" aria-hidden="true"></i>
   </a>
 </div>
+{% endif %}

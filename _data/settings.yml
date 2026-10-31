@@ -18,6 +18,9 @@ email: 'bickel.rob@gmail.com'
 email-subject: 'Managed%20software%20inquiry'
 email-body: 'Company%3A%0D%0A%0D%0AThe%20systems%20we%20depend%20on%3A%0D%0A%0D%0AWhat%27s%20prompting%20this%20now%3A%0D%0A'
 
+# Formspree form ID (the part after formspree.io/f/). Leave empty to show the email-only CTA.
+formspree-id: ''
+
 social:
 - {icon: 'linkedin',  link: 'https://linkedin.com/in/robbickel'}
 - {icon: 'github',    link: 'https://github.com/robbickel'}
