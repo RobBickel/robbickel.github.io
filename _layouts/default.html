@@ -44,6 +44,35 @@
         else utm = JSON.parse(sessionStorage.getItem('utm') || '{}');
       } catch (err) { /* storage blocked: use whatever was on this URL */ }
 
+      // Scroll depth: scroll_depth at 25/50/75/100% of the page, each once per page view.
+      // Only counts real scrolling, so a short page or the first screen alone doesn't register.
+      (function () {
+        var marks = [25, 50, 75, 100], sent = {}, queued = false;
+        var formEl = document.querySelector('.intake');
+        function check() {
+          queued = false;
+          var doc = document.documentElement;
+          var scrollable = doc.scrollHeight - window.innerHeight;
+          if (scrollable <= 0) return;
+          var pct = Math.min(100, Math.round((window.scrollY + window.innerHeight) / doc.scrollHeight * 100));
+          marks.forEach(function (m) {
+            if (pct >= m && !sent[m] && window.gtag) {
+              sent[m] = true;
+              gtag('event', 'scroll_depth', {
+                percent: m,
+                page_path: location.pathname,
+                page_persona: (formEl && formEl.dataset.pagePersona) || 'none',
+                utm_campaign: utm.utm_campaign || '(none)',
+                utm_content: utm.utm_content || '(none)'
+              });
+            }
+          });
+        }
+        window.addEventListener('scroll', function () {
+          if (!queued) { queued = true; requestAnimationFrame(check); }
+        }, { passive: true });
+      })();
+
       document.querySelectorAll('.intake').forEach(function (form) {
         var status = form.querySelector('.form-status');
         var label = form.querySelector('.intake-step-label');
