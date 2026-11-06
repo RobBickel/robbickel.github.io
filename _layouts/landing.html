@@ -14,7 +14,7 @@ layout: default
     <h1>{{ page.title }}</h1>
     <p class="lede">{{ page.lede }}</p>
     <div class="actions">
-      <a class="btn" href="#start">{{ page.cta | default: "Tell us what you're running" }} <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+      <a class="btn btn-action" data-cta="hero" href="#start">{{ page.cta | default: "Tell us what you're running" }} <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
       <a class="btn btn-ghost" href="#approach">How it works</a>
     </div>
     <ul class="chips">
@@ -35,6 +35,10 @@ layout: default
       {% for pain in page.pains %}
         <div class="card"><h3>{{ pain.title }}</h3><p>{{ pain.text }}</p></div>
       {% endfor %}
+    </div>
+    <div class="cta-inline">
+      <p>Sound like your situation? Two quick steps, and I'll reply personally within one business day.</p>
+      <a class="btn btn-action" data-cta="inline" href="#start">{{ page.cta | default: "Tell us what you're running" }} <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
     </div>
   </div>
 </section>
@@ -109,3 +113,10 @@ layout: default
     {% include contact-form.html service=page.service persona=page.persona %}
   </div>
 </section>
+
+<div class="cta-sticky" aria-hidden="true">
+  <div class="wrap">
+    <p>A senior partner for the software your business runs on.</p>
+    <a class="btn btn-action btn-small" data-cta="sticky" href="#start" tabindex="-1">{{ page.cta | default: "Tell us what you're running" }} <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>

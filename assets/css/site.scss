@@ -75,6 +75,33 @@ p { margin: 0 0 1em; }
   &:hover { background: var(--surface); color: var(--ink); }
 }
 .btn-small { padding: .5em 1em; font-size: .92rem; }
+// Primary conversion button (hero, inline prompt, sticky bar, form). Only place --action is used.
+.btn-action {
+  background: var(--action); border-color: var(--action); color: #fff;
+  &:hover { background: var(--action-hover); border-color: var(--action-hover); color: #fff; }
+}
+
+// Mid-page prompt after the pain points
+.cta-inline {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  margin-top: 36px; padding: 24px 28px; border-radius: var(--radius);
+  background: var(--surface); border: 1px solid var(--line);
+  p { margin: 0; color: var(--ink); font-weight: 500; font-size: 1.08rem; max-width: 40em; }
+}
+
+// Sticky bar: shown after the hero scrolls away, hidden once the form is on screen
+.cta-sticky {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+  background: rgba(255, 255, 255, .97); border-top: 1px solid var(--line);
+  box-shadow: 0 -6px 20px rgba(17, 26, 43, .08);
+  transform: translateY(110%); transition: transform .25s ease;
+  .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
+  p { margin: 0; color: var(--ink); font-weight: 500; }
+  &.show { transform: none; }
+  @media (max-width: 640px) { p { display: none; } .btn { width: 100%; justify-content: center; } }
+  @media (prefers-reduced-motion: reduce) { transition: none; }
+}
+
 .text-link { font-weight: 600; text-decoration: none; display: inline-flex; gap: .45em; align-items: center; }
 
 // ------------------------------------------------

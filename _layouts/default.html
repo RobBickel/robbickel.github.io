@@ -203,6 +203,38 @@
             });
         });
       });
+
+      // Sticky CTA bar (landing pages): visible once the hero is off screen, hidden while the form is visible.
+      (function () {
+        var bar = document.querySelector('.cta-sticky');
+        var hero = document.querySelector('.hero');
+        var form = document.getElementById('start');
+        if (!bar || !hero || !form || !('IntersectionObserver' in window)) return;
+        var heroOut = false, formIn = false;
+        function update() {
+          var show = heroOut && !formIn;
+          bar.classList.toggle('show', show);
+          bar.setAttribute('aria-hidden', show ? 'false' : 'true');
+          bar.querySelector('a').tabIndex = show ? 0 : -1;
+        }
+        new IntersectionObserver(function (e) { heroOut = !e[0].isIntersecting; update(); }).observe(hero);
+        new IntersectionObserver(function (e) { formIn = e[0].isIntersecting || e[0].boundingClientRect.top < 0; update(); }).observe(form);
+      })();
+
+      // CTA clicks, by placement (hero / inline / sticky), so we can see which ones pull people to the form.
+      document.querySelectorAll('[data-cta]').forEach(function (a) {
+        a.addEventListener('click', function () {
+          if (!window.gtag) return;
+          var formEl = document.querySelector('.intake');
+          gtag('event', 'cta_click', {
+            cta_location: a.dataset.cta,
+            page_path: location.pathname,
+            page_persona: (formEl && formEl.dataset.pagePersona) || 'none',
+            utm_campaign: utm.utm_campaign || '(none)',
+            utm_content: utm.utm_content || '(none)'
+          });
+        });
+      });
     </script>
   </body>
 </html>
