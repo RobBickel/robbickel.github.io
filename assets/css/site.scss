@@ -198,6 +198,7 @@ p { margin: 0 0 1em; }
   li { background: var(--surface); border-radius: var(--radius); padding: 28px; border: 1px solid var(--line); }
   p { margin: 0; }
 }
+.service-cards .card { display: flex; flex-direction: column; .text-link { margin-top: auto; padding-top: 14px; } }
 .step-num { display: block; font-family: var(--display); font-weight: 700; color: var(--accent); font-size: 1.6rem; margin-bottom: 10px; }
 
 .features {

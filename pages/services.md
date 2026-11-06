@@ -2,7 +2,7 @@
 layout: page
 title: Services
 permalink: /services/
-description: Software portfolio management, technical due diligence, and stewardship operations. We simplify your software estate and keep it running.
+description: Portfolio audits, after-build ownership, change management, and break-fix for the applications your business runs on, plus technical advisory and development.
 ---
 
 # Software Portfolio Services
@@ -16,9 +16,27 @@ We fix that.
 <div class="services-grid">
 
 <div class="service-card">
-<h3><a href="/">Managed Software Services</a></h3>
-<p>Ongoing ownership of the applications your business runs on: monitoring, patching, security, documentation, and enhancements under one service agreement.</p>
-<a href="/" class="service-link">Learn more →</a>
+<h3><a href="/portfolio-audit/">Portfolio Audit</a></h3>
+<p>A fixed-scope, 30-45 day assessment of every system you run, what it costs, what it risks, and what to do next.</p>
+<a href="/portfolio-audit/" class="service-link">Learn more →</a>
+</div>
+
+<div class="service-card">
+<h3><a href="/contact/">After-Build Ownership</a></h3>
+<p>Once the build is done, we own what comes next: monitoring, patching, tested recovery, documentation, and access held in your company's name, at a service level matched to each system's importance.</p>
+<a href="/contact/" class="service-link">Talk about ownership →</a>
+</div>
+
+<div class="service-card">
+<h3><a href="/contact/">Change Management</a></h3>
+<p>Every change is assessed, tested, released, and recorded, from small enhancements to migrations and retirements, so the business keeps moving without added risk.</p>
+<a href="/contact/" class="service-link">Talk about change →</a>
+</div>
+
+<div class="service-card">
+<h3><a href="/contact/">Break-Fix</a></h3>
+<p>Something critical has failed and the people who built it are gone. I step in with senior judgment: stabilize it, find the real cause, make the smallest safe fix, and leave it documented.</p>
+<a href="/contact/" class="service-link">Get urgent help →</a>
 </div>
 
 <div class="service-card">
@@ -43,12 +61,6 @@ We fix that.
 <h3><a href="/services/security-scanning/">Security & Compliance</a></h3>
 <p>Repository scanning, secrets detection, and vulnerability assessment. We find what's exposed before someone else does.</p>
 <a href="/services/security-scanning/" class="service-link">Learn more →</a>
-</div>
-
-<div class="service-card">
-<h3><a href="/portfolio-audit/">Software Portfolio Audit</a></h3>
-<p>A fixed-scope, 30-45 day assessment of every system you run, what it costs, what it risks, and what to do next.</p>
-<a href="/portfolio-audit/" class="service-link">Learn more →</a>
 </div>
 
 </div>
