@@ -2,6 +2,7 @@
 title: "How to Inventory Your Company's Software: A Practical Guide"
 date: 2026-07-10 09:00:00 -0500
 description: "A step-by-step guide to building a software inventory: where to look, what to record, and how to turn the list into decisions."
+image: /assets/img/blog/how-to-inventory-company-software.png
 ---
 
 You can't manage, secure, or reduce what you can't see. A **software inventory** is the foundation for every other improvement, and it's simpler to build than most people expect.

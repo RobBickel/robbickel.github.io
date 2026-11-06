@@ -2,6 +2,7 @@
 title: "Orphaned Software: The Business Risk Nobody Owns"
 date: 2026-06-26 09:00:00 -0500
 description: "Orphaned software is any system your business depends on that no one is accountable for maintaining. Here's how to spot it and what to do about it."
+image: /assets/img/blog/orphaned-software-hidden-business-risk.png
 ---
 
 Every company I talk to has at least one system like this. It runs something important, billing, scheduling, order routing, customer onboarding, and it was built by someone who isn't around anymore. It mostly works. Nobody wants to touch it.

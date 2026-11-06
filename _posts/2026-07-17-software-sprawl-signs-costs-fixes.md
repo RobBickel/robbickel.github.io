@@ -2,6 +2,7 @@
 title: "Software Sprawl: Signs, Costs, and How to Fix It"
 date: 2026-07-17 09:00:00 -0500
 description: "Software sprawl is the slow accumulation of overlapping tools, integrations, and internal apps. Here's how to recognize it, what it really costs, and how to reverse it."
+image: /assets/img/blog/software-sprawl-signs-costs-fixes.png
 ---
 
 Nobody sets out to create **software sprawl**. It accumulates one reasonable decision at a time: a department buys a tool to solve a problem, a contractor builds a quick integration, an acquisition brings its own systems, a pilot project never gets shut down.

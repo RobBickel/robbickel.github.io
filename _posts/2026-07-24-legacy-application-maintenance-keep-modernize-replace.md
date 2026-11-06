@@ -2,6 +2,7 @@
 title: "Legacy Application Maintenance: Keep, Modernize, or Replace?"
 date: 2026-07-24 09:00:00 -0500
 description: "How to decide what to do with a legacy application: when to keep maintaining it, when to modernize it in place, and when replacement is actually worth it."
+image: /assets/img/blog/legacy-application-maintenance-keep-modernize-replace.png
 ---
 
 "Legacy" gets used as an insult, but most legacy applications earned the label by working for a long time. The real question isn't whether a system is old. It's whether it's still a good investment to maintain, and if not, what the least risky path forward is.

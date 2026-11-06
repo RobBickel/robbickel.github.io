@@ -2,6 +2,7 @@
 title: "Application Rationalization for Mid-Sized Companies"
 date: 2026-08-14 09:00:00 -0500
 description: "Application rationalization isn't just for large enterprises. A practical, right-sized approach for companies with dozens of systems instead of thousands."
+image: /assets/img/blog/application-rationalization-mid-sized-companies.png
 ---
 
 **Application rationalization** sounds like something only Fortune 500 companies do, with consultants, frameworks, and multi-year roadmaps. But the core idea is simple and arguably matters more for mid-sized companies: decide deliberately which applications you keep, and stop paying, in money and attention, for the rest.

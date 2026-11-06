@@ -2,6 +2,7 @@
 title: "Runbooks: The Documentation That Actually Gets Used"
 date: 2026-09-18 09:00:00 -0500
 description: "Most software documentation is never read. Runbooks are different: short, task-focused instructions for operating a system. How to write runbooks that turn tribal knowledge into company property."
+image: /assets/img/blog/runbooks-documentation-that-gets-used.png
 ---
 
 Most companies that try to "document their systems" end up with one of two outcomes: nothing, or a long, ambitious document that was out of date the week after it was written.

@@ -2,6 +2,7 @@
 title: "Secrets in Code: How API Keys Leak and How to Stop It"
 date: 2026-09-04 09:00:00 -0500
 description: "Passwords and API keys committed to code repositories are a common and avoidable security risk. How secrets leak, why deleting them isn't enough, and how to prevent it."
+image: /assets/img/blog/secrets-in-code-how-api-keys-leak.png
 ---
 
 One of the most common security problems in business software is also one of the simplest: credentials stored directly in source code. Database passwords, API keys for payment or email providers, cloud access keys, all sitting in plain text in a code repository.

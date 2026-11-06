@@ -2,6 +2,7 @@
 title: "AI Sprawl: Governing AI Experiments Before They Become Infrastructure"
 date: 2026-10-16 09:00:00 -0500
 description: "Teams everywhere are experimenting with AI tools, scripts, and integrations. Without light governance, today's experiments become tomorrow's unowned, insecure infrastructure."
+image: /assets/img/blog/ai-sprawl-governing-ai-experiments.png
 ---
 
 Every team is experimenting with AI right now, and that's a good thing. Marketing has a content workflow calling a language model. Operations has a script summarizing support tickets. Someone in finance connected a spreadsheet to an AI API. Sales is trying three different assistant tools.

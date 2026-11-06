@@ -2,6 +2,7 @@
 title: "Patching Your Applications Matters as Much as Patching Your Laptops"
 date: 2026-09-11 09:00:00 -0500
 description: "Your IT provider patches operating systems, but the frameworks and libraries inside your custom applications need updates too. Why dependency patching gets skipped and how to do it sustainably."
+image: /assets/img/blog/dependency-updates-patching-applications.png
 ---
 
 Most companies have laptop and server patching under control. Updates roll out automatically, an IT provider tracks compliance, and someone gets an alert when a machine falls behind.

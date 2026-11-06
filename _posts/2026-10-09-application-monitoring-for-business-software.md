@@ -2,6 +2,7 @@
 title: "Application Monitoring for Business Software: What to Watch"
 date: 2026-10-09 09:00:00 -0500
 description: "You shouldn't learn your application is down from a customer. A practical guide to monitoring business applications: what to measure, who gets alerted, and how to avoid alert fatigue."
+image: /assets/img/blog/application-monitoring-for-business-software.png
 ---
 
 If the way you find out a critical application is down is a phone call from a customer, you don't have monitoring. You have customers doing your monitoring for you.

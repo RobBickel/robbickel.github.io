@@ -2,6 +2,7 @@
 title: "Taking Over Software from a Departing Contractor: A Handover Checklist"
 date: 2026-09-25 09:00:00 -0500
 description: "A practical checklist for transferring ownership of custom software when a developer or contractor leaves: access, code, infrastructure, documentation, and knowledge."
+image: /assets/img/blog/software-handover-checklist-departing-contractor.png
 ---
 
 The best time to plan a software handover is before anyone leaves. The second-best time is the moment you learn they're leaving. Either way, a structured handover saves weeks of reverse-engineering later.

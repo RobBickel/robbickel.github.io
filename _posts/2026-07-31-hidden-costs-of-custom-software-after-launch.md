@@ -2,6 +2,7 @@
 title: "The Hidden Costs of Custom Software After Launch"
 date: 2026-07-31 09:00:00 -0500
 description: "Custom software keeps costing money after it ships. Here's where the ongoing costs come from and how to plan for them instead of being surprised."
+image: /assets/img/blog/hidden-costs-of-custom-software-after-launch.png
 ---
 
 When companies budget for custom software, they budget for the build. The proposal has a number, the project ends, and the software goes live.

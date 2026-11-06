@@ -2,6 +2,7 @@
 title: "How to Answer a Security Questionnaire About Software You Didn't Build"
 date: 2026-08-28 09:00:00 -0500
 description: "Customers, auditors, and insurers increasingly ask detailed security questions about your applications. How to prepare honest, confident answers, even for inherited software."
+image: /assets/img/blog/answering-security-questionnaires-software-you-didnt-build.png
 ---
 
 It usually arrives as a spreadsheet with dozens of rows. A large customer, a cyber insurer, or an auditor wants to know how your applications are secured. Who has access? How often are they patched? Where are credentials stored? How are backups tested?

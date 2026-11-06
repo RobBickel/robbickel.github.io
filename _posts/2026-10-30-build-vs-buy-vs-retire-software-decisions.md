@@ -2,6 +2,7 @@
 title: "Build vs. Buy vs. Retire: Making Better Software Decisions"
 date: 2026-10-30 09:00:00 -0500
 description: "Most build-versus-buy debates forget a third option: retire it. A practical framework for deciding whether to build custom software, buy a product, or stop doing the thing at all."
+image: /assets/img/blog/build-vs-buy-vs-retire-software-decisions.png
 ---
 
 "Should we build it or buy it?" is one of the most common technology questions in any growing company. It's a good question, but it's incomplete. It assumes the software should exist at all.

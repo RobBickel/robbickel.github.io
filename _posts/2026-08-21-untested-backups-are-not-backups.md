@@ -2,6 +2,7 @@
 title: "Why an Untested Backup Isn't Really a Backup"
 date: 2026-08-21 09:00:00 -0500
 description: "Backups that have never been restored are an assumption, not a safeguard. How to test restores for business applications and what a good backup routine looks like."
+image: /assets/img/blog/untested-backups-are-not-backups.png
 ---
 
 Ask most companies whether their business applications are backed up and you'll hear "yes." Ask when they last *restored* from a backup and the room gets quiet.

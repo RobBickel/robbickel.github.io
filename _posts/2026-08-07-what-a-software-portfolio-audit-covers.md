@@ -2,6 +2,7 @@
 title: "What a Software Portfolio Audit Covers (and What You Get at the End)"
 date: 2026-08-07 09:00:00 -0500
 description: "A software portfolio audit maps every system you run, what it costs, what depends on it, and what to do next. Here's what's included and how it works."
+image: /assets/img/blog/what-a-software-portfolio-audit-covers.png
 ---
 
 Most companies don't have a software problem. They have a **visibility** problem. Somewhere between the third internal tool and the fifth "temporary" integration, they lost track of what they actually own.

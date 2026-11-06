@@ -2,6 +2,7 @@
 title: "Key-Person Risk in Software: What Happens When Your Developer Leaves"
 date: 2026-07-03 09:00:00 -0500
 description: "When one person is the only one who understands a critical system, their departure becomes a business risk. How to measure key-person risk in software and reduce it."
+image: /assets/img/blog/key-person-risk-in-software.png
 ---
 
 Here's a question worth asking in your next leadership meeting: *if one specific person left tomorrow, which of our systems would nobody be able to change?*

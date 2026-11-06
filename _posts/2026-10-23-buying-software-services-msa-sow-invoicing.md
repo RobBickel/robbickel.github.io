@@ -2,6 +2,7 @@
 title: "Buying Software Services the Right Way: Service Agreements, SOWs, and Invoicing"
 date: 2026-10-23 09:00:00 -0500
 description: "How established companies structure software service relationships: a master service agreement for the terms, statements of work for scope, and invoicing that finance can reconcile."
+image: /assets/img/blog/buying-software-services-msa-sow-invoicing.png
 ---
 
 Many companies buy software help in the least efficient way possible: a new contract for every project, hourly invoices nobody can reconcile, and a fresh round of legal review each time scope changes. It's slow for procurement, frustrating for finance, and it discourages the small, ongoing work that keeps software healthy.
