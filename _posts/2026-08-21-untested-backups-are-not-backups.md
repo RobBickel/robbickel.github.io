@@ -55,4 +55,4 @@ A short runbook covering where backups live, how to access them, and the step-by
 
 "When did we last restore our most important system from backup, and how long did it take?"
 
-If nobody knows, that's your next project. Verified backups and tested restores are part of every [managed software services](/) engagement we run, and backup testing is one of the 20 questions in the free [Software Estate Risk Scorecard](/assets/pdf/software-estate-risk-scorecard.pdf).
+If nobody knows, that's your next project. Verified backups and tested restores are part of every [managed software services](/) engagement we run, and a tested restore is one of four critical items in the free [Software Estate Risk Scorecard](/assets/pdf/software-estate-risk-scorecard.pdf).

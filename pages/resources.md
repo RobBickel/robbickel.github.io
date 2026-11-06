@@ -13,13 +13,13 @@ Practical guides for leaders responsible for business software they didn't build
 
 <div class="service-card">
 <h3><a href="/assets/pdf/orphaned-software-playbook.pdf">The Orphaned Software Playbook</a></h3>
-<p>Seven steps to regain control of the applications nobody owns anymore, from finding every system to putting it under ongoing management.</p>
+<p>A research-backed, seven-step approach to restoring ownership of the applications your business runs on, from mapping every system to its business capability to putting it under ongoing management.</p>
 <a href="/assets/pdf/orphaned-software-playbook.pdf" class="service-link">Download PDF →</a>
 </div>
 
 <div class="service-card">
 <h3><a href="/assets/pdf/software-estate-risk-scorecard.pdf">Software Estate Risk Scorecard</a></h3>
-<p>Twenty yes-or-no questions across ownership, operations, security, and cost that show where your software is most likely to fail you.</p>
+<p>A 34-point assessment across ownership, recoverability, security, lifecycle, cost, and AI components, each item mapped to NIST CSF 2.0, CIS Controls, and ISO 27001.</p>
 <a href="/assets/pdf/software-estate-risk-scorecard.pdf" class="service-link">Download PDF →</a>
 </div>
 

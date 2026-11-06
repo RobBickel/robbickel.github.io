@@ -5,157 +5,222 @@
 <title>The Orphaned Software Playbook</title>
 <link rel="stylesheet" href="base.css">
 <style>
-  @page { size: 8in 10in; margin: 0; }
-  body { font-size: 20px; line-height: 1.5; }
-  .page { width: 8in; height: 10in; padding: 64px 64px 56px; }
-  .foot { padding: 0 64px 32px; }
-  h1 { font-size: 64px; }
-  h2 { font-size: 46px; margin: 14px 0 22px; }
-  .lede { font-size: 23px; max-width: 30em; }
-  .num { font-family: 'Inter Tight'; font-weight: 700; font-size: 120px; line-height: 1; color: var(--accent); opacity: .9; }
-  .dark .num { color: var(--mint); }
-  ul.check { list-style: none; margin-top: 26px; }
-  ul.check li { position: relative; padding: 13px 0 13px 40px; border-top: 1px solid var(--line); color: var(--ink); }
-  ul.check li::before { content: ''; position: absolute; left: 4px; top: 20px; width: 18px; height: 10px; border-left: 3px solid var(--accent); border-bottom: 3px solid var(--accent); transform: rotate(-45deg); }
-  .win { margin-top: 26px; background: var(--accent-soft); border-radius: 14px; padding: 18px 22px; font-size: 18px; color: var(--ink); }
-  .win b { color: var(--accent); }
-  .cover h1 { margin-top: 150px; }
-  .cover .lede { margin-top: 26px; color: var(--night-text); }
-  .stamp { display: inline-block; margin-top: 44px; border: 1px solid #2c3950; border-radius: 99px; padding: 8px 18px; font-size: 16px; color: var(--mint); }
-  .signs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 26px; }
-  .signs div { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; font-size: 18px; }
-  .signs b { display: block; color: var(--ink); margin-bottom: 4px; font-size: 19px; }
-  .steps-mini { list-style: none; margin-top: 26px; counter-reset: s; }
-  .steps-mini li { counter-increment: s; display: flex; gap: 18px; align-items: baseline; padding: 10px 0; border-top: 1px solid #2c3950; color: #fff; font-size: 21px; }
-  .steps-mini li::before { content: '0' counter(s); font-family: 'Inter Tight'; font-weight: 700; color: var(--mint); width: 36px; }
-  .cta-email { display: inline-block; margin-top: 34px; background: #fff; color: var(--accent); font-weight: 700; padding: 16px 26px; border-radius: 12px; font-size: 22px; }
+@page { size: 8in 10in; margin: 0.75in 0.8in 0.9in;
+  @bottom-left { content: "The Orphaned Software Playbook · robbickel.com"; font: 500 9.5pt Inter, sans-serif; color: #6b7280; }
+  @bottom-right { content: counter(page); font: 600 9.5pt Inter, sans-serif; color: #6b7280; } }
+@page cover { margin: 0; @bottom-left { content: none } @bottom-right { content: none } }
+@page back { margin: 0; @bottom-left { content: none } @bottom-right { content: none } }
+html { background: #fff; }
+body { background: #fff; font-size: 12.4pt; line-height: 1.55; color: var(--ink-2); }
+.cover, .back { page: cover; width: 8in; height: 10in; padding: 0.85in 0.8in; position: relative; break-after: page; }
+.back { page: back; break-before: page; break-after: auto; }
+.cover h1 { font-size: 46pt; margin-top: 1.5in; max-width: 6in; text-wrap: balance; }
+.cover .sub { margin-top: 22pt; font-size: 16pt; line-height: 1.45; color: var(--night-text); max-width: 5.6in; }
+.cover .stamp { display: inline-block; margin-top: 30pt; border: 1px solid #2c3950; border-radius: 99px; padding: 7pt 15pt; font-size: 11pt; color: var(--mint); }
+.cover .edition { position: absolute; bottom: 0.8in; left: 0.8in; right: 0.8in; display: flex; justify-content: space-between; font-size: 10.5pt; color: #9fb0c4; }
+.cover .rule { width: 72pt; height: 4pt; background: var(--mint); margin-top: 0.9in; }
+h2 { font-size: 21pt; margin: 26pt 0 10pt; break-after: avoid; text-wrap: balance; }
+h3 { font-size: 14pt; margin: 0 0 8pt; break-after: avoid; }
+p { margin: 0 0 10pt; orphans: 3; widows: 3; }
+ul, ol { margin: 0 0 12pt 18pt; } li { margin-bottom: 6pt; }
+strong { color: var(--ink); font-weight: 600; }
+sup { font-size: 7.5pt; color: var(--accent); font-weight: 600; margin-left: 1pt; }
+.brief { break-after: page; }
+.brief h2 { margin-top: 0; font-size: 26pt; }
+.brief > p:first-of-type { font-size: 14.5pt; line-height: 1.5; color: var(--ink); }
+.brief ul { list-style: none; margin: 18pt 0 0; }
+.brief li { border-top: 1px solid var(--line); padding: 10pt 0 4pt; margin: 0; }
+.callout { background: var(--accent-soft); border-radius: 10pt; padding: 13pt 16pt 3pt; margin: 14pt 0; break-inside: avoid; color: var(--ink); }
+.steps p { padding-left: 14pt; border-left: 3pt solid var(--accent); margin-bottom: 12pt; break-inside: avoid; }
+.levels p, .bands p { background: var(--alt); border-radius: 8pt; padding: 9pt 13pt; margin-bottom: 7pt; break-inside: avoid; }
+.services { background: var(--night); color: var(--night-text); border-radius: 12pt; padding: 18pt 22pt 8pt; margin-top: 18pt; break-inside: avoid; }
+.services h3 { color: #fff; font-size: 16pt; } .services strong { color: #fff; }
+.sources { break-before: page; font-size: 9.5pt; line-height: 1.45; }
+.sources h2 { margin-top: 0; } .sources ol { margin-left: 16pt; } .sources li { margin-bottom: 3pt; }
+.appendix { break-before: page; }
+body.scorecard h2[id^="dim"], body.scorecard h2.newpage { break-before: page; }
+table.items { width: 100%; border-collapse: collapse; margin: 6pt 0 16pt; break-inside: auto; }
+table.items td { padding: 6pt 4pt; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink); font-size: 11.5pt; line-height: 1.4; }
+table.items tr { break-inside: avoid; }
+table.items td.id { width: 34pt; font-weight: 700; color: var(--accent); white-space: nowrap; }
+table.items td.box { width: 92pt; text-align: right; white-space: nowrap; font-size: 9pt; color: var(--muted); }
+table.items th { text-align: right; font-size: 8.5pt; color: var(--muted); font-weight: 600; padding: 0 4pt 3pt; border-bottom: 2px solid var(--ink); }
+table.items th:first-child { text-align: left; }
+.b { display: inline-block; width: 13pt; height: 13pt; border: 1.3pt solid var(--ink-2); border-radius: 3pt; margin-left: 9pt; vertical-align: -2pt; text-align: center; line-height: 12pt; font-size: 7.5pt; color: var(--muted); }
+table.tally, table.xw { width: 100%; border-collapse: collapse; margin: 8pt 0 16pt; break-inside: avoid; }
+table.tally th, table.tally td { border: 1px solid var(--line); padding: 9pt 10pt; text-align: left; font-size: 11pt; color: var(--ink); }
+table.tally th { background: var(--alt); font-size: 9.5pt; }
+table.tally td.blank { width: 72pt; } table.tally tr.total td { font-weight: 700; border-top: 2px solid var(--ink); }
+table.xw { break-inside: auto; font-size: 8.4pt; line-height: 1.3; }
+table.xw th, table.xw td { border-bottom: 1px solid var(--line); padding: 4pt 4pt; text-align: left; vertical-align: top; color: var(--ink); }
+table.xw th { border-bottom: 2px solid var(--ink); font-size: 8pt; } table.xw tr { break-inside: avoid; }
+table.xw td:first-child { font-weight: 700; color: var(--accent); white-space: nowrap; }
+.star { color: #c2410c; }
+.back h2 { font-size: 30pt; margin-top: 1.6in; color: #fff; }
+.back p { font-size: 14pt; max-width: 5.4in; }
+.back .em { display: inline-block; margin-top: 20pt; background: #fff; color: var(--accent); font-weight: 700; padding: 12pt 20pt; border-radius: 10pt; font-size: 15pt; }
 </style>
 </head>
-<body>
-
-<section class="page dark cover">
+<body class="playbook">
+<section class="cover dark">
   <p class="brand">Rob Bickel Agency · Managed Software Services</p>
+  <div class="rule"></div>
   <h1>The Orphaned Software Playbook</h1>
-  <p class="lede">Seven steps to regain control of the applications your business depends on, but nobody owns anymore.</p>
-  <span class="stamp">For COOs, CFOs, and operations leaders</span>
-  <div class="foot"><span>robbickel.com</span><span>Swipe →</span></div>
+  <p class="sub">Restoring ownership of the applications your business runs on. An enterprise architecture approach for established mid-sized companies.</p>
+  <span class="stamp">For COOs, CFOs, CIOs, and operations leaders</span>
+  <div class="edition"><span>robbickel.com</span><span>2026 edition</span></div>
 </section>
-
-<section class="page">
-  <p class="eyebrow">The problem</p>
-  <h2>Orphaned software is software your business runs on, with no one accountable for it.</h2>
-  <div class="signs">
-    <div><b>The builder is gone</b>A contractor or employee wrote it, then moved on.</div>
-    <div><b>Nobody will touch it</b>Changes feel risky, so requests wait for months.</div>
-    <div><b>No one is watching</b>Outages surface when a customer complains.</div>
-    <div><b>Keys are scattered</b>Logins and API keys live in inboxes and laptops.</div>
-    <div><b>It's still billing</b>Hosting and licenses renew whether it's used or not.</div>
-    <div><b>Audits get awkward</b>Security questionnaires stall on "we're not sure."</div>
-  </div>
-  <div class="foot"><span>The Orphaned Software Playbook</span><span>2</span></div>
-</section>
-
-<section class="page">
-  <div class="num">01</div>
-  <h2>Find everything</h2>
-  <p class="lede">You can't manage what you can't see. Start with a list, not a fix.</p>
-  <ul class="check">
-    <li>Pull every software line item from the last 12 months of card and AP statements</li>
-    <li>Ask each department head: "What would stop you working if it went down?"</li>
-    <li>Include scripts, spreadsheets with macros, and integrations, not just apps</li>
-    <li>Record for each: what it does, who uses it, what it costs</li>
-  </ul>
-  <div class="win"><b>Quick win:</b> the finance statement review alone usually surfaces tools nobody knew were still running.</div>
-  <div class="foot"><span>The Orphaned Software Playbook</span><span>3</span></div>
-</section>
-
-<section class="page">
-  <div class="num">02</div>
-  <h2>Name an owner for each system</h2>
-  <p class="lede">"IT" or "the vendor" isn't an owner. A named person is accountable for each system's health.</p>
-  <ul class="check">
-    <li>Assign a business owner (who decides) and a technical owner (who maintains)</li>
-    <li>Flag every system where the technical owner is "nobody" or has left</li>
-    <li>Rank those by business impact: revenue, customers, compliance</li>
-  </ul>
-  <div class="win"><b>Rule of thumb:</b> if one person leaving would leave a system with no one able to change it, that's your first priority.</div>
-  <div class="foot"><span>The Orphaned Software Playbook</span><span>4</span></div>
-</section>
-
-<section class="page">
-  <div class="num">03</div>
-  <h2>Secure the keys</h2>
-  <p class="lede">Access is the first thing lost when someone leaves, and the hardest to recover.</p>
-  <ul class="check">
-    <li>Move domains, hosting, code repositories, and vendor accounts into company-owned logins</li>
-    <li>Store credentials in a shared password manager, not inboxes or laptops</li>
-    <li>Rotate any API key or password a departed person had access to</li>
-    <li>Scan code repositories for secrets committed by accident</li>
-  </ul>
-  <div class="foot"><span>The Orphaned Software Playbook</span><span>5</span></div>
-</section>
-
-<section class="page">
-  <div class="num">04</div>
-  <h2>Turn the lights on</h2>
-  <p class="lede">Learn about problems before your customers do.</p>
-  <ul class="check">
-    <li>Add uptime monitoring with alerts that reach a real person</li>
-    <li>Capture application errors in one place</li>
-    <li>Confirm backups exist, then test a restore. An untested backup is a guess.</li>
-    <li>Write down what "down" costs per hour, so you know how fast to respond</li>
-  </ul>
-  <div class="foot"><span>The Orphaned Software Playbook</span><span>6</span></div>
-</section>
-
-<section class="page">
-  <div class="num">05</div>
-  <h2>Write it down</h2>
-  <p class="lede">Documentation turns personal knowledge into company property.</p>
-  <ul class="check">
-    <li>A one-page summary per system: purpose, users, dependencies, costs</li>
-    <li>Runbooks for the common tasks: deploy, restart, restore, rotate a key</li>
-    <li>A simple diagram of how systems pass data to each other</li>
-    <li>Keep it next to the code, and update it when things change</li>
-  </ul>
-  <div class="win"><b>Test:</b> could a competent engineer who has never seen this system deploy a fix using only what's written down?</div>
-  <div class="foot"><span>The Orphaned Software Playbook</span><span>7</span></div>
-</section>
-
-<section class="page">
-  <div class="num">06</div>
-  <h2>Cut what you don't need</h2>
-  <p class="lede">Every system you retire is one less thing to secure, patch, and pay for.</p>
-  <ul class="check">
-    <li><b>Keep:</b> it works and the business depends on it</li>
-    <li><b>Consolidate:</b> several tools doing one job</li>
-    <li><b>Rebuild:</b> it's critical but too fragile to maintain</li>
-    <li><b>Retire:</b> nobody will miss it. Export the data first.</li>
-  </ul>
-  <div class="foot"><span>The Orphaned Software Playbook</span><span>8</span></div>
-</section>
-
-<section class="page">
-  <div class="num">07</div>
-  <h2>Put it under management</h2>
-  <p class="lede">The first six steps restore control. Ongoing ownership keeps it.</p>
-  <ul class="check">
-    <li>Patch dependencies and runtimes on a schedule, not after an incident</li>
-    <li>Handle change requests through one accountable owner</li>
-    <li>Review the portfolio quarterly: cost, risk, and what to cut next</li>
-    <li>Decide who owns this long-term: an internal hire or a managed service</li>
-  </ul>
-  <div class="foot"><span>The Orphaned Software Playbook</span><span>9</span></div>
-</section>
-
-<section class="page accent-bg">
+<div class="brief">
+<h2>In brief</h2>
+<p>Most established companies run at least one business-critical application that nobody is accountable for. It was built by a contractor, an employee who has since moved on, or a vendor engagement that closed. It still runs billing, scheduling, fulfilment, or onboarding. It mostly works, and people are reluctant to touch it.</p>
+<p>This playbook treats that situation as what it is: a gap in ownership, not a failure of technology. It draws on enterprise architecture practice, on the published research on key-person risk and software cost, and on the governance frameworks your auditors and customers already recognize.</p>
+<ul>
+<li><strong>The research is consistent.</strong> In a study of 1,932 open-source projects, the projects that lost their key developers survived only when someone new took ownership. Nothing else predicted recovery.<sup>1</sup></li>
+<li><strong>Most of software&rsquo;s cost arrives after launch.</strong> Robert Glass&rsquo;s widely cited synthesis puts maintenance at 40 to 80 percent of lifetime cost, and most of that is the system keeping pace with the business.<sup>2</sup></li>
+<li><strong>AI is accelerating the problem.</strong> Employees now build working tools in an afternoon, and the AI models those tools depend on have published retirement dates.<sup>3,4</sup></li>
+<li><strong>Ownership can be restored without a rewrite.</strong> The seven-step sequence in Part 8 restores control of an orphaned application in weeks, not quarters.</li>
+</ul>
+</div>
+<h2>1. What an orphan is, and why it is a capability problem</h2>
+<p>An orphaned application is software the business depends on with no one accountable for keeping it healthy, changing it safely, or retiring it on purpose. It is rarely abandoned in any dramatic sense. It simply fell out of every process that would have kept it owned.</p>
+<p>Enterprise architecture gives a more precise way to describe this. TOGAF, the most widely used architecture framework, starts from <strong>business capabilities</strong>: the things the business must be able to do, such as Order Fulfilment, Customer Onboarding, or Billing. Applications are the means by which capabilities are realized. TOGAF&rsquo;s Application Portfolio Catalog exists &ldquo;to identify and maintain a list of all the applications in the enterprise,&rdquo; along with what each one supports.<sup>5</sup></p>
+<p>Seen that way, an orphaned application is an <strong>unowned capability</strong>. The business owner can describe what the capability does. Nobody can say who maintains the systems behind it. That distinction matters because it changes the remedy. An application problem invites a technical fix, often a rewrite. A capability problem is closed with governance: a named owner, a known lifecycle state, and a level of service that matches the capability&rsquo;s importance.</p>
+<p>The stakes are large because established organizations spend most of their technology money running what already exists. The US Government Accountability Office reports that federal agencies typically spend about 80 percent of their IT budgets, out of more than $100 billion a year, operating and maintaining existing systems.<sup>6</sup> Public-sector budgets are not a perfect proxy for a 300-person company, but they are the best freely citable view of where an established organization&rsquo;s technology spend actually goes: overwhelmingly into what is already running.</p>
+<p>The first test of ownership is therefore simple. <strong>Can your company produce a list of its applications, with a named business owner and a named technical owner against each one?</strong> Most mid-sized companies cannot, and the gaps in that list are where the orphans are.</p>
+<h2>2. Key-person risk: the truck factor</h2>
+<p>Software engineers have a blunt name for concentration of knowledge: the <em>truck factor</em>, the number of people who would have to leave before a project stalls. It has been studied carefully.</p>
+<ul>
+<li>A 2016 study of 133 popular open-source projects found that <strong>65 percent had a truck factor of two or fewer</strong>. In most, the departure of one or two people would leave nobody able to maintain the code.<sup>7</sup></li>
+<li>A follow-up study tracked 1,932 projects. <strong>315 of them (16 percent) lost their truck-factor developers. Only 128 of those, or 41 percent, survived</strong>, and every survivor did so because new core developers took over.<sup>1</sup></li>
+<li>A 2024 replication across more than 36,000 projects found that <strong>89 percent had lost their core team at least once</strong>, and that <strong>only 27 percent of abandoned projects attracted a new key developer</strong>.<sup>8</sup></li>
+</ul>
+<p>Two honest caveats apply. These are open-source projects, which typically have far larger contributor pools than an internal tool at a mid-sized company. The internal picture is plausibly worse, but nobody has measured it. And the research describes code, not the business rules and vendor relationships that also live in people&rsquo;s heads.</p>
+<p>The time dimension makes the risk structural rather than unlucky. The US Bureau of Labor Statistics reports that the <strong>median tenure of workers in computer and mathematical occupations was 4.6 years in January 2026</strong>.<sup>9</sup> A business-critical application is usually expected to run for a decade or more. On those numbers, a system will typically outlive its builder&rsquo;s time at the company, and planning as though it will not is a decision in itself.</p>
+<p>The lesson from the research is the thesis of this playbook. <strong>Projects recovered from losing their key people only when someone new took ownership.</strong> Documentation helped. Monitoring helped. But the deciding factor was an accountable successor.</p>
+<h2>3. Knowledge loss and the cost of re-learning</h2>
+<p>When the builder leaves, the knowledge does not disappear evenly. What usually survives is the code. What is usually lost is the reasoning: why a rule exists, which customer it was written for, which downstream process quietly depends on a nightly job.</p>
+<p>Re-learning is expensive even under good conditions. A study published in <em>IEEE Transactions on Software Engineering</em> followed 78 professional developers across seven projects and 3,148 working hours. They spent <strong>about 58 percent of their time on program comprehension</strong>, simply understanding code, and junior developers spent a larger share than seniors.<sup>10</sup> That was on code they worked with every day. For an undocumented system nobody has touched in two years, the share is plausibly higher. The seniority gap is also practical guidance: inherited systems are where experienced engineers pay for themselves.</p>
+<p>Two operational findings point to what reduces the cost:</p>
+<ul>
+<li><strong>Documentation quality pays off measurably.</strong> Google&rsquo;s DORA research program reported in 2023 that teams with high-quality documentation showed 25 percent higher team performance, and that reliability practices had markedly more impact where documentation was strong.<sup>11</sup></li>
+<li><strong>Written response procedures shorten recovery.</strong> Google&rsquo;s <em>Site Reliability Engineering</em> book observes that a prepared playbook &ldquo;produces roughly a 3x improvement in MTTR as compared to the strategy of &lsquo;winging it.&rsquo;&rdquo;<sup>12</sup> That is Google&rsquo;s stated experience rather than a controlled study, but it matches what most operations leaders see.</li>
+</ul>
+<div class="callout">
+<p><strong>A useful test.</strong> Could a competent engineer who has never seen this system deploy a safe fix using only what is written down? If the honest answer is no, the system&rsquo;s continuity depends on a person rather than on the company.</p>
+</div>
+<h2>4. Access custody: who holds the keys</h2>
+<p>The quietest form of orphaning is administrative. The hosting account was opened on a contractor&rsquo;s card. The domain is registered to a former employee&rsquo;s email address. The API keys sit in a laptop&rsquo;s configuration file. Everything works until someone needs to change it, renew it, or prove who has access to it.</p>
+<p>NIST&rsquo;s Cybersecurity Framework 2.0 states the expected outcome plainly: &ldquo;Identities and credentials for authorized users, services, and hardware are managed <strong>by the organization</strong>.&rdquo;<sup>13</sup> The last three words are the custody test. Credentials held personally by builders, however trustworthy, are not managed by the organization.</p>
+<p>The external data shows why this matters for continuity. Verizon&rsquo;s 2025 Data Breach Investigations Report analysed 12,195 confirmed breaches and found that <strong>the abuse of legitimate credentials was the most common way in, at 22 percent</strong> of breaches where the entry point was known. <strong>Involvement of a third party doubled, from 15 to 30 percent.</strong><sup>14</sup> Secrets also outlive the people who created them: a secrets-detection vendor reports that 70 percent of credentials it found leaked in 2022 were still valid when re-tested in 2025.<sup>15</sup> The failure is rarely detection. It is that nobody owns revocation.</p>
+<p>Restoring custody is unglamorous and decisive:</p>
+<ul>
+<li>Move every administrative account, domain, repository, cloud subscription, and vendor portal to company-owned identities and company billing.</li>
+<li>Store credentials in a managed vault, rotate anything a former builder could have seen, and record who can do what.</li>
+<li>Make revocation part of every departure, including contractors and service accounts, on the day of departure.</li>
+</ul>
+<h2>5. The real cost of software after launch</h2>
+<p>Leadership teams often treat an orphaned system as cheap because nobody is spending money on it. The research suggests the opposite: the money is being deferred, not saved.</p>
+<p>Robert Glass&rsquo;s <em>Facts and Fallacies of Software Engineering</em>, one of the most cited syntheses in the field, puts <strong>maintenance at 40 to 80 percent of total software cost, averaging about 60 percent</strong>. Of that, roughly <strong>60 percent is enhancement</strong>, the system being changed to keep pace with the business, and only around 17 percent is correcting errors.<sup>2</sup> For a CFO, the reframing is important. Most post-launch spending is not repair. It is the price of a system staying useful. An orphan with no budget for change is not avoiding that cost. It is accumulating it as risk.</p>
+<p>Three further sources describe the scale of that accumulation, each with a caveat worth stating:</p>
+<ul>
+<li><strong>McKinsey&rsquo;s 2020 survey of 50 CIOs</strong> at companies with more than $1 billion in revenue found that they estimated technical debt at <strong>20 to 40 percent of the value of their entire technology estate</strong>, and that less than 20 percent of technology budgets went to paying it down.<sup>16</sup> These are self-estimates by large firms, but they are the clearest board-level figure available.</li>
+<li><strong>Stripe&rsquo;s 2018 <em>Developer Coefficient</em></strong> survey reported developers spending about <strong>13.5 hours a week on technical debt and 3.8 hours on bad code</strong>, out of a 41.1-hour week.<sup>17</sup></li>
+<li><strong>The Consortium for Information and Software Quality</strong> estimated accumulated US technical debt at about <strong>$1.52 trillion</strong> in 2022.<sup>18</sup> It is a macro estimate, useful only for scale.</li>
+</ul>
+<p>Gartner has published a research note titled &ldquo;Technical Debt Benchmarks Are a Waste of Time.&rdquo;<sup>19</sup> The point is well made. What matters is not how your estate compares to an industry average, but whether you know your own baseline: what each capability costs to run, what it would cost to change, and what you are deferring.</p>
+<h2>6. Handover done right</h2>
+<p>Most orphans are created at a single moment: the end of a build. The project closes, the team disperses, and nothing carries the solution into ongoing ownership.</p>
+<p>TOGAF describes exactly the step that is usually skipped. Its implementation governance phase (Phase G) &ldquo;establishes the connection between architecture and implementation organization, through the <strong>Architecture Contract</strong>,&rdquo; and a signed contract is one of its outputs.<sup>20</sup> The following phase, architecture change management (Phase H), keeps the delivered solution aligned with the business as both change. An orphan, in these terms, is a solution that left the build without an Architecture Contract and never entered the change-management loop.</p>
+<p>Mid-sized companies do not need TOGAF&rsquo;s full apparatus to close that gap. They need its intent, written into a short handover agreement that names:</p>
+<ul>
+<li><strong>The accountable owner</strong> after go-live, business and technical, and the service level each capability warrants.</li>
+<li><strong>What is handed over:</strong> source code, infrastructure definitions, credentials, runbooks, architecture notes, and open issues, all in company custody.</li>
+<li><strong>How change will be made:</strong> who assesses, approves, tests, and releases changes. ITIL 4 describes the purpose of change enablement as maximizing &ldquo;the number of successful service and product changes by properly assessing risks, authorizing changes to proceed, and managing the change schedule.&rdquo;<sup>21</sup></li>
+<li><strong>The exit path:</strong> what happens if the supplier relationship ends.</li>
+</ul>
+<p>Government digital services have codified the same lessons. The US 18F <em>De-risking Government Technology</em> guide added a vendor-management section in its 2024 revision,<sup>22</sup> and the Canadian Digital Service&rsquo;s technical playbook directs teams to avoid vendor lock-in.<sup>23</sup> The operational data points the same way. Uptime Institute&rsquo;s 2025 outage analysis found that IT and networking causes rose to 23 percent of impactful outages, which it associates with change management and misconfiguration.<sup>24</sup> Outages increasingly come from how systems are run. That is precisely what an orphan lacks.</p>
+<h2>7. AI-built tools: orphaned from birth</h2>
+<p>Every pattern above is being compressed by AI. A capable employee can now produce a working integration in an afternoon and an agent that automates a workflow in a week. The speed is genuinely valuable. It also means realizations of business capabilities are being created far faster than ownership is being assigned.</p>
+<p>Adoption is running well ahead of governance:</p>
+<ul>
+<li>Microsoft and LinkedIn&rsquo;s 2024 Work Trend Index (31,000 people in 31 countries) found that <strong>75 percent of knowledge workers use generative AI at work, and 78 percent of those users bring their own AI tools</strong>.<sup>3</sup></li>
+<li>Stack Overflow&rsquo;s 2025 developer survey (more than 49,000 responses) found <strong>84 percent of developers using or planning to use AI tools, while 46 percent do not trust the accuracy of the output</strong>, up from 31 percent a year earlier.<sup>25</sup></li>
+<li>IBM&rsquo;s 2025 <em>Cost of a Data Breach</em> study (600 organizations) found that <strong>one in five organizations reported a breach involving shadow AI</strong>, and that <strong>63 percent of breached organizations had no AI governance policy or were still developing one</strong>.<sup>26</sup></li>
+</ul>
+<p>The quality evidence argues for review, not alarm. In a Stanford study presented at ACM CCS 2023, participants using an AI assistant wrote less secure code in four of five tasks, <strong>and were more likely to believe their code was secure</strong>.<sup>27</sup> Veracode&rsquo;s 2025 benchmark found security flaws in 45 percent of AI-generated solutions across more than 100 models, on tasks designed to probe known weaknesses.<sup>28</sup> DORA&rsquo;s research describes AI as an &ldquo;amplifier&rdquo; of whatever practices an organization already has.<sup>29</sup></p>
+<p>The most distinctive point is also the least alarming. <strong>An AI feature built on a vendor model has a published expiry date.</strong> Anthropic commits to &ldquo;at least 60 days&rsquo; notice&rdquo; before retiring a model, and retired Claude 3.5 Sonnet in October 2025, about ten weeks after announcing its deprecation. OpenAI commits to at least six months for generally available models, and as little as two weeks for previews.<sup>4</sup> An AI component nobody owns does not degrade gracefully. It stops on a known date.</p>
+<p>The NIST AI Risk Management Framework sets out the governance response in terms most auditors will recognize. GOVERN 1.6 calls for mechanisms &ldquo;to inventory AI systems.&rdquo; GOVERN 2.1 calls for documented roles and responsibilities. GOVERN 1.7 calls for processes to decommission AI systems safely. MANAGE 3.2 requires that pre-trained models &ldquo;are monitored as part of AI system regular monitoring and maintenance.&rdquo;<sup>30</sup> ISO/IEC 42001 builds a management system around the same expectations, including controls for the AI system life cycle.<sup>31</sup> For a mid-sized company, the practical version is simple: <strong>every AI component goes on the application list, gets a technical owner, and gets a lifecycle state, exactly like any other software.</strong></p>
+<h2>8. The restoration sequence</h2>
+<p>Ownership can be restored without rebuilding anything. The sequence below is the one I use with clients. Steps 1 to 4 typically take a few weeks for a single capability. Steps 5 to 7 then become the ongoing rhythm.</p>
+<div class="steps">
+<p><strong>1. Inventory against capabilities.</strong> Build the Application Portfolio Catalog: every application, integration, scheduled job, spreadsheet with business rules, and AI component, mapped to the business capability it serves. Interview by capability, not by system. Asking the owner of Customer Onboarding to walk through a new customer surfaces the script and the AI-assisted email workflow that a system-by-system interview misses. Confirm the list against twelve months of payments, single sign-on records, and cloud accounts.</p>
+<p><strong>2. Name two owners.</strong> For each capability, a business owner who decides what it must do, and a technical owner accountable for every component that realizes it, whoever built them.</p>
+<p><strong>3. Take custody.</strong> Move accounts, domains, repositories, and billing to company identities, vault the credentials, and rotate anything former builders could reach.</p>
+<p><strong>4. Baseline and document.</strong> Describe the components, their dependencies, and their data flows. Write the runbook for the three most likely failures. A simple diagram of the capability, its applications, and their interfaces is enough.</p>
+<p><strong>5. Stabilize.</strong> Add monitoring that alerts a named person, confirm backups run, and <strong>perform a test restore</strong>. Bring the runtime and dependencies to supported versions, or record a deliberate exception.</p>
+<p><strong>6. Decide with TIME.</strong> Classify each component using Gartner&rsquo;s TIME model, as widely described: <strong>Tolerate, Invest, Migrate, or Eliminate</strong>, based on business value and technical fit.<sup>32</sup> LeanIX describes Tolerate as &ldquo;more a stay of execution pending appeal.&rdquo; That is a useful warning. An orphan is usually a Tolerate that nobody is reviewing.</p>
+<p><strong>7. Enter the change loop.</strong> Put the capability on a regular cadence: changes assessed against the capability map, a quarterly review of cost, risk, and lifecycle state, and the delivery measures DORA recommends, such as change fail rate and failed-deployment recovery time.<sup>33</sup></p>
+</div>
+<p>The US federal government&rsquo;s own legacy-systems review offers a useful benchmark for discipline. In 2025, the GAO examined 69 legacy systems, flagged 11 as most in need of modernization, and found that only three agencies had documented modernization plans covering all key practices.<sup>34</sup> Having a plan, owned and current, is itself the differentiator.</p>
+<h2>9. Who owns it next</h2>
+<p>The final decision is who carries the ownership forward. There are three sound answers, and many companies use a mix.</p>
+<ul>
+<li><strong>An internal owner</strong> works well when the capability is core to how the company competes, the technology is mainstream, and the company can retain at least two people who understand it.</li>
+<li><strong>An outside partner</strong> works well when the capability is essential but not distinctive, when the skills required are specialized or intermittent, or when the company needs coverage beyond what one or two employees can provide.</li>
+<li><strong>A hybrid</strong> keeps business ownership and product decisions inside the company, while a partner holds technical ownership, change management, and response.</li>
+</ul>
+<p>Whichever you choose, the commitment should be written down: the owner, the scope, the service level for each capability, how changes are approved, and how the relationship ends. That is the Architecture Contract, scaled to a mid-sized company. Without it, the next departure creates the next orphan.</p>
+<div class="services">
+<h3>Where my team fits</h3>
+<p>This is the work Rob Bickel Agency does. We take <strong>after-build ownership</strong> of the applications behind a set of business capabilities: monitored, patched, recoverable, and documented, at a service level matched to each one&rsquo;s importance. We own <strong>change management</strong> for them, so every change is assessed, tested, released, and recorded. And when something critical fails and the people who built it are gone, our <strong>break-fix and urgent consulting</strong> work stabilizes it first, diagnoses the real cause, and leaves the system in company custody, documented, and on the path to ongoing ownership.</p>
+<p>Many client relationships start with that urgent call. The rest start with a portfolio audit that builds the capability map and tells leadership what is unowned.</p>
+</div>
+<div class="sources">
+<h2>Sources and notes</h2>
+<p>Figures are quoted as published. Vendor surveys are labelled; they are useful for direction, and their publishers sell related products. TOGAF quotations are from The Open Group&rsquo;s public TOGAF 9 pages; current TOGAF Standard text paraphrased.</p>
+<ol>
+<li>Avelino, Constantinou, Valente, Serebrenik, &ldquo;On the abandonment and survival of open source projects,&rdquo; ESEM 2019. arxiv.org/abs/1906.08058</li>
+<li>Robert L. Glass, <em>Facts and Fallacies of Software Engineering</em>, Addison-Wesley, 2002, facts on maintenance.</li>
+<li>Microsoft and LinkedIn, <em>2024 Work Trend Index</em>. microsoft.com</li>
+<li>Anthropic, <em>Model deprecations</em>; OpenAI, <em>Deprecations</em>. platform.claude.com; developers.openai.com</li>
+<li>The Open Group, TOGAF 9, <em>Application Portfolio Catalog</em>. pubs.opengroup.org</li>
+<li>US GAO, GAO-23-106821 and GAO-21-524T, federal IT operations and maintenance spending. gao.gov</li>
+<li>Avelino, Passos, Hora, Valente, &ldquo;A novel approach for estimating truck factors,&rdquo; ICPC 2016. arxiv.org/abs/1604.06766</li>
+<li>Large-scale replication of truck-factor and project-abandonment research, 2024. arXiv 2412.00313</li>
+<li>US Bureau of Labor Statistics, <em>Employee Tenure</em>, January 2026, Table 6. bls.gov</li>
+<li>Xia, Bao, Lo, Xing, Hassan, Li, &ldquo;Measuring program comprehension: a large-scale field study with professionals,&rdquo; <em>IEEE Transactions on Software Engineering</em>, 2018.</li>
+<li>Google Cloud, <em>2023 Accelerate State of DevOps Report</em> announcement. cloud.google.com</li>
+<li>Beyer et al., <em>Site Reliability Engineering</em>, Google, Introduction. sre.google</li>
+<li>NIST, <em>Cybersecurity Framework 2.0</em> (CSWP 29), February 2024, PR.AA-01. nist.gov</li>
+<li>Verizon, <em>2025 Data Breach Investigations Report</em>. verizon.com</li>
+<li>GitGuardian, <em>The State of Secrets Sprawl 2025</em> (vendor). gitguardian.com</li>
+<li>McKinsey &amp; Company, &ldquo;Tech debt: Reclaiming tech equity,&rdquo; 2020. mckinsey.com</li>
+<li>Stripe, <em>The Developer Coefficient</em>, 2018.</li>
+<li>CISQ, <em>The Cost of Poor Software Quality in the US: A 2022 Report</em>. it-cisq.org</li>
+<li>Gartner, &ldquo;Technical Debt Benchmarks Are a Waste of Time&rdquo; (research note).</li>
+<li>The Open Group, TOGAF 9, Phase G: Implementation Governance. pubs.opengroup.org</li>
+<li>ITIL 4 change enablement purpose, as published in AWS, <em>Change Enablement in the Cloud</em>. docs.aws.amazon.com</li>
+<li>18F / GSA, <em>De-risking Government Technology</em>, Guide 2.0, September 2024. digital.gov</li>
+<li>Canadian Digital Service, <em>Technical Playbook</em>. cds-snc.github.io</li>
+<li>Uptime Institute, <em>Annual Outage Analysis 2025</em>, press release. uptimeinstitute.com</li>
+<li>Stack Overflow, <em>2025 Developer Survey</em>. stackoverflow.co</li>
+<li>IBM and Ponemon Institute, <em>Cost of a Data Breach Report 2025</em>. ibm.com</li>
+<li>Perry, Srivastava, Kumar, Boneh, &ldquo;Do users write more insecure code with AI assistants?&rdquo;, ACM CCS 2023. arxiv.org/abs/2211.03622</li>
+<li>Veracode, <em>2025 GenAI Code Security Report</em> (vendor). veracode.com</li>
+<li>Google, <em>2025 DORA State of AI-assisted Software Development</em>. dora.dev</li>
+<li>NIST, <em>AI Risk Management Framework 1.0</em> (AI 100-1), Core. airc.nist.gov</li>
+<li>ISO/IEC 42001:2023, <em>Artificial intelligence: Management system</em>, Annex A. iso.org</li>
+<li>LeanIX, &ldquo;Gartner TIME model&rdquo; and &ldquo;TIME: Tolerate.&rdquo; leanix.net</li>
+<li>DORA, <em>DORA&rsquo;s software delivery metrics</em>. dora.dev</li>
+<li>US GAO, GAO-25-107795, review of critical federal legacy IT systems, July 2025. gao.gov</li>
+</ol>
+</div>
+<section class="back accent-bg">
   <p class="brand">Rob Bickel Agency · Managed Software Services</p>
-  <h2 style="margin-top:110px">Want someone to own this for you?</h2>
-  <p class="lede">We provide managed services for the software your business runs on: monitored, patched, documented, and improved. I lead every engagement personally, and our onshore and nearshore engineers support you, all under one enterprise service agreement with flexible scopes of work and monthly invoicing.</p>
-  <span class="cta-email">bickel.rob@gmail.com</span>
-  <p style="margin-top:22px;font-size:19px">robbickel.com</p>
-  <div class="foot"><span>The Orphaned Software Playbook</span><span>10</span></div>
+  <h2>Need an owner for the software your business runs on?</h2>
+  <p>After-build ownership, change management, and urgent break-fix for the applications established, mid-sized companies depend on. I lead every engagement personally, supported by our onshore and nearshore engineers.</p>
+  <span class="em">bickel.rob@gmail.com</span>
+  <p style="margin-top:18pt">robbickel.com</p>
 </section>
-
 </body>
 </html>

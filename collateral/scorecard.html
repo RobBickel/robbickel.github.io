@@ -2,143 +2,487 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Software Estate Risk Scorecard</title>
+<title>The Software Estate Risk Scorecard</title>
 <link rel="stylesheet" href="base.css">
 <style>
-  @page { size: letter; margin: 0; }
-  body { font-size: 13.5px; line-height: 1.5; }
-  .page { width: 8.5in; height: 11in; padding: 56px 60px 52px; }
-  .foot { padding: 0 60px 28px; }
-  h1 { font-size: 46px; }
-  h2 { font-size: 24px; margin: 6px 0 10px; }
-  .intro { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; margin-top: 18px; }
-  .lede { font-size: 16px; }
-  .how { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
-  .how ol { padding-left: 18px; margin-top: 6px; }
-  .how li { margin-bottom: 4px; }
-  .cat { margin-top: 22px; }
-  .cat-head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid var(--ink); padding-bottom: 6px; }
-  .cat-head h2 { margin: 0; }
-  .cat-head span { font-size: 12px; color: var(--muted); }
-  table { width: 100%; border-collapse: collapse; }
-  td { padding: 9px 4px; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink); }
-  td.n { width: 28px; color: var(--accent); font-weight: 700; }
-  td.box { width: 92px; text-align: right; white-space: nowrap; color: var(--muted); font-size: 12px; }
-  .b { display: inline-block; width: 14px; height: 14px; border: 1.5px solid var(--ink-2); border-radius: 3px; vertical-align: -3px; margin: 0 3px 0 10px; }
-  .score { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
-  .band { border-radius: 12px; padding: 18px; background: var(--surface); border: 1px solid var(--line); }
-  .band .r { font-family: 'Inter Tight'; font-weight: 700; font-size: 26px; color: var(--ink); }
-  .band h3 { font-size: 16px; margin: 4px 0 6px; }
-  .band.hi { border-top: 5px solid #b4322a; } .band.md { border-top: 5px solid #c2760c; } .band.lo { border-top: 5px solid #1f9d6f; }
-  .tally { margin-top: 16px; display: flex; gap: 12px; }
-  .tally div { flex: 1; border: 1px dashed var(--ink-2); border-radius: 10px; padding: 12px 14px; font-size: 12px; color: var(--muted); }
-  .tally b { display: block; height: 26px; }
-  .cta { margin-top: 26px; border-radius: 14px; padding: 26px 28px; }
-  .cta h2 { font-size: 26px; }
-  .cta p { font-size: 15px; max-width: 40em; }
-  .cta .em { display: inline-block; margin-top: 12px; background: #fff; color: var(--accent); font-weight: 700; padding: 10px 18px; border-radius: 10px; font-size: 16px; }
+@page { size: 8in 10in; margin: 0.75in 0.8in 0.9in;
+  @bottom-left { content: "Software Estate Risk Scorecard · robbickel.com"; font: 500 9.5pt Inter, sans-serif; color: #6b7280; }
+  @bottom-right { content: counter(page); font: 600 9.5pt Inter, sans-serif; color: #6b7280; } }
+@page cover { margin: 0; @bottom-left { content: none } @bottom-right { content: none } }
+@page back { margin: 0; @bottom-left { content: none } @bottom-right { content: none } }
+html { background: #fff; }
+body { background: #fff; font-size: 12.4pt; line-height: 1.55; color: var(--ink-2); }
+.cover, .back { page: cover; width: 8in; height: 10in; padding: 0.85in 0.8in; position: relative; break-after: page; }
+.back { page: back; break-before: page; break-after: auto; }
+.cover h1 { font-size: 46pt; margin-top: 1.5in; max-width: 6in; text-wrap: balance; }
+.cover .sub { margin-top: 22pt; font-size: 16pt; line-height: 1.45; color: var(--night-text); max-width: 5.6in; }
+.cover .stamp { display: inline-block; margin-top: 30pt; border: 1px solid #2c3950; border-radius: 99px; padding: 7pt 15pt; font-size: 11pt; color: var(--mint); }
+.cover .edition { position: absolute; bottom: 0.8in; left: 0.8in; right: 0.8in; display: flex; justify-content: space-between; font-size: 10.5pt; color: #9fb0c4; }
+.cover .rule { width: 72pt; height: 4pt; background: var(--mint); margin-top: 0.9in; }
+h2 { font-size: 21pt; margin: 26pt 0 10pt; break-after: avoid; text-wrap: balance; }
+h3 { font-size: 14pt; margin: 0 0 8pt; break-after: avoid; }
+p { margin: 0 0 10pt; orphans: 3; widows: 3; }
+ul, ol { margin: 0 0 12pt 18pt; } li { margin-bottom: 6pt; }
+strong { color: var(--ink); font-weight: 600; }
+sup { font-size: 7.5pt; color: var(--accent); font-weight: 600; margin-left: 1pt; }
+.brief { break-after: page; }
+.brief h2 { margin-top: 0; font-size: 26pt; }
+.brief > p:first-of-type { font-size: 14.5pt; line-height: 1.5; color: var(--ink); }
+.brief ul { list-style: none; margin: 18pt 0 0; }
+.brief li { border-top: 1px solid var(--line); padding: 10pt 0 4pt; margin: 0; }
+.callout { background: var(--accent-soft); border-radius: 10pt; padding: 13pt 16pt 3pt; margin: 14pt 0; break-inside: avoid; color: var(--ink); }
+.steps p { padding-left: 14pt; border-left: 3pt solid var(--accent); margin-bottom: 12pt; break-inside: avoid; }
+.levels p, .bands p { background: var(--alt); border-radius: 8pt; padding: 9pt 13pt; margin-bottom: 7pt; break-inside: avoid; }
+.services { background: var(--night); color: var(--night-text); border-radius: 12pt; padding: 18pt 22pt 8pt; margin-top: 18pt; break-inside: avoid; }
+.services h3 { color: #fff; font-size: 16pt; } .services strong { color: #fff; }
+.sources { break-before: page; font-size: 9.5pt; line-height: 1.45; }
+.sources h2 { margin-top: 0; } .sources ol { margin-left: 16pt; } .sources li { margin-bottom: 3pt; }
+.appendix { break-before: page; }
+body.scorecard h2[id^="dim"], body.scorecard h2.newpage { break-before: page; }
+table.items { width: 100%; border-collapse: collapse; margin: 6pt 0 16pt; break-inside: auto; }
+table.items td { padding: 6pt 4pt; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink); font-size: 11.5pt; line-height: 1.4; }
+table.items tr { break-inside: avoid; }
+table.items td.id { width: 34pt; font-weight: 700; color: var(--accent); white-space: nowrap; }
+table.items td.box { width: 92pt; text-align: right; white-space: nowrap; font-size: 9pt; color: var(--muted); }
+table.items th { text-align: right; font-size: 8.5pt; color: var(--muted); font-weight: 600; padding: 0 4pt 3pt; border-bottom: 2px solid var(--ink); }
+table.items th:first-child { text-align: left; }
+.b { display: inline-block; width: 13pt; height: 13pt; border: 1.3pt solid var(--ink-2); border-radius: 3pt; margin-left: 9pt; vertical-align: -2pt; text-align: center; line-height: 12pt; font-size: 7.5pt; color: var(--muted); }
+table.tally, table.xw { width: 100%; border-collapse: collapse; margin: 8pt 0 16pt; break-inside: avoid; }
+table.tally th, table.tally td { border: 1px solid var(--line); padding: 9pt 10pt; text-align: left; font-size: 11pt; color: var(--ink); }
+table.tally th { background: var(--alt); font-size: 9.5pt; }
+table.tally td.blank { width: 72pt; } table.tally tr.total td { font-weight: 700; border-top: 2px solid var(--ink); }
+table.xw { break-inside: auto; font-size: 8.4pt; line-height: 1.3; }
+table.xw th, table.xw td { border-bottom: 1px solid var(--line); padding: 4pt 4pt; text-align: left; vertical-align: top; color: var(--ink); }
+table.xw th { border-bottom: 2px solid var(--ink); font-size: 8pt; } table.xw tr { break-inside: avoid; }
+table.xw td:first-child { font-weight: 700; color: var(--accent); white-space: nowrap; }
+.star { color: #c2410c; }
+.back h2 { font-size: 30pt; margin-top: 1.6in; color: #fff; }
+.back p { font-size: 14pt; max-width: 5.4in; }
+.back .em { display: inline-block; margin-top: 20pt; background: #fff; color: var(--accent); font-weight: 700; padding: 12pt 20pt; border-radius: 10pt; font-size: 15pt; }
 </style>
 </head>
-<body>
-
-<section class="page">
+<body class="scorecard">
+<section class="cover dark">
   <p class="brand">Rob Bickel Agency · Managed Software Services</p>
-  <div class="intro">
-    <div>
-      <p class="eyebrow" style="margin-top:34px">Free assessment</p>
-      <h1>Software Estate Risk Scorecard</h1>
-      <p class="lede" style="margin-top:14px">Twenty yes-or-no questions that show where the software your business depends on is most likely to fail you, and what to fix first.</p>
-    </div>
-    <div class="how" style="margin-top:34px">
-      <b style="color:var(--ink)">How to use it</b>
-      <ol>
-        <li>Answer for your most business-critical systems: billing, customer-facing apps, operations tools, and integrations.</li>
-        <li>Answer honestly. "Probably" counts as <b>No</b>.</li>
-        <li>Count your <b>No</b> answers per section and in total.</li>
-        <li>Use the scoring guide on page 3.</li>
-      </ol>
-      <p class="muted" style="margin-top:8px">Takes about 10 minutes.</p>
-    </div>
-  </div>
-
-  <div class="cat">
-    <div class="cat-head"><h2>1 · Ownership &amp; knowledge</h2><span>Count of No: ____ / 5</span></div>
-    <table>
-      <tr><td class="n">1</td><td>Every critical system has a named person accountable for keeping it healthy.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">2</td><td>At least two people (internal or a vendor) could safely change each critical system.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">3</td><td>Nothing critical was built by someone who has since left without a documented handoff.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">4</td><td>We have a current, written inventory of every application, integration, and script we rely on.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">5</td><td>Each critical system has documentation a new engineer could use to deploy a fix.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-    </table>
-  </div>
-
-  <div class="cat">
-    <div class="cat-head"><h2>2 · Operations &amp; reliability</h2><span>Count of No: ____ / 5</span></div>
-    <table>
-      <tr><td class="n">6</td><td>We'd know a critical system was down before a customer or employee told us.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">7</td><td>Backups exist for every critical system, and we've tested a restore in the last 12 months.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">8</td><td>Small change requests are completed in weeks, not months.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">9</td><td>Deploying a change follows a repeatable, written process.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">10</td><td>We know roughly what an hour of downtime costs for each critical system.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-    </table>
-  </div>
-  <div class="foot"><span>Software Estate Risk Scorecard · robbickel.com</span><span>1</span></div>
+  <div class="rule"></div>
+  <h1>The Software Estate Risk Scorecard</h1>
+  <p class="sub">A 34-point assessment of ownership, recoverability, security, lifecycle, cost, and AI across the applications your business runs on.</p>
+  <span class="stamp">For COOs, CFOs, CIOs, and the people who keep the systems running</span>
+  <div class="edition"><span>robbickel.com</span><span>2026 edition</span></div>
 </section>
+<div class="brief">
+<h2>In brief</h2>
+<p>Most assessments of business software stop at security. This one starts from ownership, because that is where the other risks come from. An application with an accountable owner tends to get patched, backed up, documented, and reviewed. An application without one tends to drift, however well it was built.</p>
+<p>The scorecard has <strong>34 items in six dimensions</strong>. Each is scored 0, 1, or 2, and each is cross-referenced to the frameworks your auditors, insurers, and customers already use: NIST Cybersecurity Framework 2.0, CIS Critical Security Controls v8.1, ISO/IEC 27001:2022, ITIL 4, DORA and Google SRE practice, TOGAF, the NIST AI Risk Management Framework, and ISO/IEC 42001. The full crosswalk is in the appendix.</p>
+<ul>
+<li><strong>It takes about an hour</strong> with a business leader and the most technical person who knows your systems in the same room.</li>
+<li><strong>It produces a baseline, not a grade.</strong> The point is to know where you stand and what to fix first, then to measure progress against your own last score.</li>
+<li><strong>It highlights four critical items</strong> that deserve attention whatever your total.</li>
+</ul>
+</div>
+<h2>How to use this scorecard</h2>
+<p><strong>Choose the scope.</strong> Score either your whole software estate or a single business-critical application. If you are unsure where to start, score the application that would hurt most if it stopped working tomorrow: billing, order fulfilment, scheduling, or whatever your customers would notice first. Then score the next one.</p>
+<p><strong>Bring two perspectives.</strong> A business owner knows what the application must do and what it costs. A technical lead knows how it actually runs. Scoring together surfaces the gaps between those two views, and those gaps are often the most important finding.</p>
+<p><strong>Score honestly.</strong> Every item uses the same three levels:</p>
+<div class="levels">
+<p><strong>0 · Absent.</strong> It does not exist, or nobody is sure.</p>
+<p><strong>1 · Exists, unproven.</strong> It exists, but is informal, incomplete, out of date, or has not been tested.</p>
+<p><strong>2 · Owned and proven.</strong> It exists, someone is accountable for it, and it has been tested or reviewed in the last 12 months.</p>
+</div>
+<p>&ldquo;Nobody is sure&rdquo; scores 0. Uncertainty is itself the finding.</p>
+<p><strong>About the bands.</strong> The score bands on the results page reflect professional judgment, not an empirically validated threshold. No published research supports a universal cut-off, and Gartner has argued in a research note titled &ldquo;Technical Debt Benchmarks Are a Waste of Time&rdquo; that comparisons against other companies mislead.<sup>1</sup> Use your score as a baseline and re-score every six to twelve months.</p>
+<h2 id="dim">Dimension 1 · Ownership</h2>
+<p>Ownership is the foundation. The best evidence on key-person risk comes from open-source research: a 2016 study of 133 popular projects found that <strong>65 percent depended on two or fewer people</strong>,<sup>2</sup> and a study of 1,932 projects found that of those that lost their key developers, <strong>only 41 percent survived, all because someone new took ownership</strong>.<sup>3</sup> With a median tenure of <strong>4.6 years in computer and mathematical occupations</strong>,<sup>4</sup> most business applications will outlive their builders&rsquo; time at the company.</p>
+<p>TOGAF&rsquo;s starting artifact, the Application Portfolio Catalog, exists &ldquo;to identify and maintain a list of all the applications in the enterprise.&rdquo;<sup>5</sup> Many mid-sized companies cannot produce one. That is where this dimension begins.</p>
+<table class="items"><thead><tr><th colspan="2">Item</th><th>Score</th></tr></thead>
+<tr><td class="id">O1 <span class="star">★</span></td><td>Every business-critical application has a named business owner and a named technical owner.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">O2</td><td>A current inventory of applications, integrations, and scheduled jobs exists, ranked by business criticality.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">O3</td><td>At least two people can change and deploy each critical application.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">O4 <span class="star">★</span></td><td>Admin accounts, domains, cloud billing, and code repositories are held by company accounts, not by individuals or contractors.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">O5</td><td>Every supplier-built or supplier-run application has a written support and ownership agreement.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr></table>
 
-<section class="page">
-  <div class="cat" style="margin-top:0">
-    <div class="cat-head"><h2>3 · Security &amp; access</h2><span>Count of No: ____ / 5</span></div>
-    <table>
-      <tr><td class="n">11</td><td>Domains, hosting, code repositories, and vendor accounts are owned by company logins, not individuals.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">12</td><td>Credentials live in a shared password manager, not in inboxes, documents, or laptops.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">13</td><td>Access is removed, and shared keys rotated, when someone leaves.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">14</td><td>Software dependencies and frameworks are updated on a regular schedule.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">15</td><td>We could answer a customer's or insurer's security questionnaire about these systems with confidence.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-    </table>
-  </div>
+<h2 id="dim">Dimension 2 · Operations and recoverability</h2>
+<p>This dimension separates applications that run from applications that are run. The strongest evidence concerns backups. In a Sophos study of 2,974 organizations hit by ransomware, attackers attempted to compromise backups in <strong>94 percent</strong> of attacks. Where backups were compromised, the <strong>median recovery cost was $3 million, against $375,000</strong> where they were not.<sup>6</sup> Veeam&rsquo;s 2025 research found that while 98 percent of organizations had a ransomware playbook, <strong>only 44 percent included backup verification</strong>.<sup>7</sup> Both are vendors that sell recovery products, but CISA&rsquo;s vendor-neutral guidance says the same: &ldquo;Maintain offline, encrypted backups of critical data, and regularly test the availability and integrity of backups.&rdquo;<sup>8</sup></p>
+<p>One point is worth knowing. In the CIS Controls, testing data recovery (safeguard 11.5) sits in Implementation Group 2, above the baseline set that CIS calls essential cyber hygiene.<sup>9</sup> NIST CSF 2.0, by contrast, builds testing into the outcome itself: &ldquo;Backups of data are created, protected, maintained, and <strong>tested</strong>.&rdquo;<sup>10</sup> Item R3 deliberately sets the higher bar.</p>
+<p>For R6, DORA defines five software delivery measures, including change fail rate and failed deployment recovery time.<sup>11</sup> If nobody can say what they are for a critical application, that is an ownership finding.</p>
+<table class="items"><thead><tr><th colspan="2">Item</th><th>Score</th></tr></thead>
+<tr><td class="id">R1</td><td>Automated backups run for each critical application and its data.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">R2</td><td>Backups are protected, and an isolated or offline copy exists.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">R3 <span class="star">★</span></td><td>A restore has been tested in the last quarter, and the time it took is known.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">R4</td><td>The application could be rebuilt from scratch using documented procedures or infrastructure-as-code.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">R5</td><td>Monitoring alerts a named person, and each alert has a written runbook.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">R6</td><td>The team can report change fail rate and failed-deployment recovery time.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">R7</td><td>Changes are assessed, approved, and recorded, and configuration is managed.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">R8</td><td>Recurring incidents get a root-cause review that leads to a change.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr></table>
 
-  <div class="cat">
-    <div class="cat-head"><h2>4 · Cost &amp; complexity</h2><span>Count of No: ____ / 5</span></div>
-    <table>
-      <tr><td class="n">16</td><td>We know the full annual cost of each system: licenses, hosting, and people's time.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">17</td><td>We don't pay for multiple tools that do the same job.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">18</td><td>Every subscription we pay for is actively used.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">19</td><td>New tools, including AI experiments, are reviewed before teams adopt them.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-      <tr><td class="n">20</td><td>Leadership reviews the software portfolio's cost and risk at least once a year.</td><td class="box"><span class="b"></span>Yes<span class="b"></span>No</td></tr>
-    </table>
-  </div>
+<h2 id="dim">Dimension 3 · Security posture</h2>
+<p>The security items focus on the hygiene that ownership makes possible. Verizon&rsquo;s 2025 Data Breach Investigations Report, covering 12,195 confirmed breaches, found <strong>credential abuse was the leading way in, at 22 percent</strong> of breaches where the entry point was known, and <strong>third-party involvement doubled to 30 percent</strong>.<sup>12</sup> Its 2026 edition reports that the exploitation of vulnerabilities became the top initial access route, at 31 percent.<sup>13</sup> Sophos&rsquo;s 2025 ransomware study, whose sample is weighted toward mid-sized organizations of 100 to 5,000 employees, independently found <strong>exploited vulnerabilities to be the most common root cause, at 32 percent</strong>.<sup>14</sup></p>
+<p>Mid-sized companies are not too small to matter. The UK government&rsquo;s <em>Cyber Security Breaches Survey</em> found that <strong>67 percent of medium-sized businesses</strong> identified a breach or attack in the previous 12 months in its 2025 edition.<sup>15</sup></p>
+<table class="items"><thead><tr><th colspan="2">Item</th><th>Score</th></tr></thead>
+<tr><td class="id">S1</td><td>Multi-factor authentication protects every externally exposed application and all admin access.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">S2</td><td>When someone leaves, their access, including API keys, tokens, and shared accounts, is revoked the same day.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">S3</td><td>Secrets are kept out of source code, stored in a vault, and rotated.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">S4</td><td>Vulnerability management covers application dependencies and libraries, not only servers and laptops.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">S5</td><td>Suppliers are listed, ranked by criticality, and included in incident planning.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr></table>
 
-  <div class="tally">
-    <div>Ownership<b></b></div><div>Operations<b></b></div><div>Security<b></b></div><div>Cost<b></b></div><div style="border-style:solid;color:var(--ink)"><strong>Total No answers</strong><b></b></div>
-  </div>
-  <div class="foot"><span>Software Estate Risk Scorecard · robbickel.com</span><span>2</span></div>
+<h2 id="dim">Dimension 4 · Lifecycle and supportability</h2>
+<p>Unsupported software is a baseline failure, not an advanced concern. CISA&rsquo;s catalogue of <em>Bad Practices</em> lists the use of unsupported or end-of-life software as dangerous for all organizations.<sup>16</sup> CIS safeguard 2.2, part of the essential-hygiene baseline, treats unsupported software as unauthorized unless there is a documented exception with mitigations.<sup>17</sup> NIST CSF 2.0 frames the outcome as &ldquo;Software is maintained, replaced, and removed commensurate with risk.&rdquo;<sup>10</sup></p>
+<p>The open-source components inside applications age quietly. Black Duck&rsquo;s 2025 analysis of 965 commercial codebases, audited mostly during acquisitions, found <strong>90 percent contained components more than four years out of date</strong>.<sup>18</sup></p>
+<p>Item L4 brings in the TIME model, attributed to Gartner and widely used in application portfolio management: each application is classified as <strong>Tolerate, Invest, Migrate, or Eliminate</strong>, based on business value and technical fit.<sup>19</sup></p>
+<table class="items"><thead><tr><th colspan="2">Item</th><th>Score</th></tr></thead>
+<tr><td class="id">L1 <span class="star">★</span></td><td>Every critical application&#x27;s operating system, runtime, and framework is vendor-supported, and end-of-support dates are recorded.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">L2</td><td>Any unsupported software has a documented exception, mitigations, and an accepted owner of the risk.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">L3</td><td>Third-party components are updated on a schedule, and none is more than four years out of date.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">L4</td><td>Each application has a TIME classification, reviewed at least annually.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">L5</td><td>Cloud and SaaS dependencies have a documented exit path.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr></table>
+
+<h2 id="dim">Dimension 5 · Cost</h2>
+<p>The cost of software arrives mostly after launch. Robert Glass&rsquo;s widely cited synthesis puts maintenance at <strong>40 to 80 percent of total software cost, averaging about 60 percent</strong>, and most of that is enhancement, the system keeping pace with the business.<sup>20</sup> McKinsey&rsquo;s 2020 survey of 50 CIOs found technical debt estimated at <strong>20 to 40 percent of the value of the entire technology estate</strong>.<sup>21</sup></p>
+<p>Licence waste is the most visible symptom. Zylo, a vendor of SaaS management software, reported in its 2025 index that average licence utilization was <strong>about 47 percent</strong>, meaning roughly half of paid licences went unused.<sup>22</sup></p>
+<table class="items"><thead><tr><th colspan="2">Item</th><th>Score</th></tr></thead>
+<tr><td class="id">C1</td><td>The annual cost of each critical application is known, including licences, hosting, support, and people&#x27;s time.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">C2</td><td>Licence utilization is known for the 20 largest software subscriptions.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">C3</td><td>Technical debt is estimated for each critical application, with a budget to reduce it.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">C4</td><td>A budget for planned change exists, separate from break-fix.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr></table>
+
+<h2 id="dim">Dimension 6 · AI components</h2>
+<p>This is where most estate assessments are silent and where risk is growing fastest. In Microsoft and LinkedIn&rsquo;s 2024 Work Trend Index, <strong>78 percent of people who use AI at work bring their own tools</strong>.<sup>23</sup> IBM&rsquo;s 2025 <em>Cost of a Data Breach</em> study found that <strong>63 percent of breached organizations had no AI governance policy or were still developing one</strong>.<sup>24</sup></p>
+<p>AI components also have a lifecycle that is set by someone else. Anthropic commits to at least 60 days&rsquo; notice before retiring a model; OpenAI commits to at least six months for generally available models and as little as two weeks for previews.<sup>25</sup> An AI feature without an owner stops working on a known date.</p>
+<p>The NIST AI Risk Management Framework makes each item below concrete. GOVERN 1.6 calls for mechanisms &ldquo;to inventory AI systems.&rdquo; GOVERN 1.7 calls for safe decommissioning. MANAGE 3.2 requires that pre-trained models &ldquo;are monitored as part of AI system regular monitoring and maintenance.&rdquo;<sup>26</sup> ISO/IEC 42001 builds a certifiable management system around the same expectations.<sup>27</sup></p>
+<table class="items"><thead><tr><th colspan="2">Item</th><th>Score</th></tr></thead>
+<tr><td class="id">A1</td><td>An inventory of AI components exists, including AI features in applications and tools staff have built.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">A2</td><td>Each AI component has a named owner and documented responsibilities.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">A3</td><td>Model versions are pinned, vendor retirement notices are monitored, and a fallback exists.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">A4</td><td>The outputs of AI components are monitored after deployment.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">A5</td><td>AI-generated code is reviewed and security-tested before it reaches production.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">A6</td><td>Each AI feature can be switched off or retired without breaking the process it supports.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr>
+<tr><td class="id">A7</td><td>A written policy covers which AI tools staff may use and with what data.</td><td class="box"><span class="b">0</span><span class="b">1</span><span class="b">2</span></td></tr></table>
+
+<h2 class="newpage">Your results</h2>
+<table class="tally"><tr><th>Dimension</th><th>Items</th><th>Your score</th><th>Maximum</th><th>Percent</th><th>Band</th></tr>
+<tr><td>Ownership</td><td>5</td><td class="blank"></td><td>10</td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>Operations and recoverability</td><td>8</td><td class="blank"></td><td>16</td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>Security posture</td><td>5</td><td class="blank"></td><td>10</td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>Lifecycle and supportability</td><td>5</td><td class="blank"></td><td>10</td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>Cost</td><td>4</td><td class="blank"></td><td>8</td><td class="blank"></td><td class="blank"></td></tr>
+<tr><td>AI components</td><td>7</td><td class="blank"></td><td>14</td><td class="blank"></td><td class="blank"></td></tr>
+<tr class="total"><td>Total</td><td>34</td><td class="blank"></td><td>68</td><td class="blank"></td><td class="blank"></td></tr></table>
+
+<div class="bands">
+<p><strong>Owned · 75 percent or more of the maximum.</strong> The dimension has owners and proven practices. Keep it that way with a scheduled review.</p>
+<p><strong>Exposed · 40 to 74 percent.</strong> Things work, but some of it depends on individuals or luck. One departure, failed change, or vendor notice could become expensive.</p>
+<p><strong>Unowned · below 40 percent.</strong> Treat the dimension as a business risk, not an IT task. Start with the critical items and the owner question.</p>
+</div>
+<p><strong>Critical items.</strong> Whatever your total, a score of 0 on any of the four items marked ★ (<strong>O1</strong> named owners, <strong>O4</strong> company custody of accounts, <strong>R3</strong> tested restore, <strong>L1</strong> supported software) deserves action this quarter. Each one is a single point of failure that a good total can hide.</p>
+<h2>Reading your score</h2>
+<p>A scorecard is useful only if it changes what happens next. Three patterns are common.</p>
+<p><strong>Low Ownership, decent everything else.</strong> The practices exist because of one or two capable people. That is a strength today and a concentration risk tomorrow. Start with O1, O3, and O4: name the owners, give each critical application a second person, and move every account into company custody.</p>
+<p><strong>Good Ownership, low Recoverability or Lifecycle.</strong> The applications have owners who are fully occupied keeping them running. The gap is capacity, not accountability. Prioritize a tested restore (R3) and a supported-software plan (L1 and L2), then build the runbooks that let other people respond.</p>
+<p><strong>Low AI.</strong> This is now the most common pattern, including in companies that score well elsewhere. Begin with the inventory (A1) and owners (A2); the rest follows from knowing what exists.</p>
+<p>In enterprise architecture terms, the scorecard is a lightweight baseline. TOGAF builds every change on a baseline description of the current state, and keeps delivered systems aligned with the business through architecture change management (Phase H). Re-scoring every six to twelve months, and recording each application&rsquo;s TIME classification as you go, gives a mid-sized company the same discipline without the bureaucracy.</p>
+<h2>What to do in the next 90 days</h2>
+<ol>
+<li><strong>Score your three most critical applications</strong>, not just the estate as a whole. The differences between them will tell you where ownership is thin.</li>
+<li><strong>Close the critical items.</strong> Name owners, move accounts into company custody, run and time a test restore, and record end-of-support dates.</li>
+<li><strong>Classify each application with TIME.</strong> Decide what to invest in, what to tolerate on purpose, what to migrate, and what to retire.</li>
+<li><strong>Assign the work.</strong> Each gap needs an owner and a date. Some will sit with your team; some are better carried by a partner.</li>
+<li><strong>Re-score in six months</strong> and compare against your own baseline.</li>
+</ol>
+<div class="services">
+<h3>Where my team fits</h3>
+<p>Rob Bickel Agency takes ownership of the applications established, mid-sized companies run on. We provide <strong>after-build ownership</strong> of the applications behind your critical capabilities, so the Ownership, Recoverability, and Lifecycle dimensions stay at 2 rather than drifting back. We own <strong>change management</strong>, so every change is assessed, tested, released, and recorded. And when something critical fails, our <strong>break-fix and urgent consulting</strong> work stabilizes it first, then puts it on the path to ongoing ownership.</p>
+<p>If you would like a second opinion on your results, send me your dimension scores and the applications that worry you. I will reply personally with the two or three changes that would reduce your exposure most.</p>
+</div>
+<div class="appendix">
+<h2>Appendix · Framework crosswalk</h2>
+<p>NIST CSF 2.0 references are to subcategories. CIS references are to v8.1 safeguards; all listed safeguards are in Implementation Group 1 except 11.5, which is IG2. ISO references are to ISO/IEC 27001:2022 Annex A control titles. AI RMF references are to NIST AI 100-1. TOGAF references are to the Application Portfolio Catalog (APM) and the Architecture Development Method phases.</p>
+<table class="xw">
+<tr>
+<th>ID</th>
+<th>NIST CSF 2.0</th>
+<th>CIS v8.1</th>
+<th>ISO 27001 Annex A</th>
+<th>Operations, architecture, and AI</th>
+</tr>
+<tr>
+<td>O1</td>
+<td>GV.RR-02</td>
+<td>—</td>
+<td>5.9</td>
+<td>TOGAF</td>
+</tr>
+<tr>
+<td>O2</td>
+<td>ID.AM-02</td>
+<td>2.1</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>O3</td>
+<td>GV.RR-03</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>O4</td>
+<td>PR.AA-01, PR.AA-05</td>
+<td>5.1</td>
+<td>5.17, 5.18</td>
+<td>—</td>
+</tr>
+<tr>
+<td>O5</td>
+<td>GV.SC-05</td>
+<td>—</td>
+<td>5.19, 5.20</td>
+<td>—</td>
+</tr>
+<tr>
+<td>R1</td>
+<td>PR.DS-11</td>
+<td>11.2</td>
+<td>8.13</td>
+<td>—</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>PR.DS-11</td>
+<td>11.3, 11.4</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>PR.DS-11, RC.RP-03</td>
+<td>11.5 (IG2)</td>
+<td>8.13, 5.30</td>
+<td>—</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>RC.RP-02</td>
+<td>11.1</td>
+<td>5.30</td>
+<td>—</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>ID.IM-04</td>
+<td>—</td>
+<td>—</td>
+<td>ITIL incident mgmt; SRE</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>DORA; SRE service level objectives</td>
+</tr>
+<tr>
+<td>R7</td>
+<td>PR.PS-01</td>
+<td>4.1</td>
+<td>8.9, 8.32</td>
+<td>—</td>
+</tr>
+<tr>
+<td>R8</td>
+<td>ID.IM-04</td>
+<td>—</td>
+<td>—</td>
+<td>ITIL problem mgmt; SRE postmortems</td>
+</tr>
+<tr>
+<td>S1</td>
+<td>PR.AA-03</td>
+<td>6.3, 6.5</td>
+<td>5.17</td>
+<td>—</td>
+</tr>
+<tr>
+<td>S2</td>
+<td>PR.AA-05</td>
+<td>5.3, 6.2</td>
+<td>5.11, 5.18</td>
+<td>—</td>
+</tr>
+<tr>
+<td>S3</td>
+<td>PR.AA-01</td>
+<td>—</td>
+<td>5.17</td>
+<td>—</td>
+</tr>
+<tr>
+<td>S4</td>
+<td>PR.PS-02</td>
+<td>7.1, 7.2, 7.4</td>
+<td>8.8</td>
+<td>—</td>
+</tr>
+<tr>
+<td>S5</td>
+<td>GV.SC-04, ID.AM-04</td>
+<td>—</td>
+<td>5.19, 5.21</td>
+<td>—</td>
+</tr>
+<tr>
+<td>L1</td>
+<td>PR.PS-02, ID.AM-08</td>
+<td>2.2</td>
+<td>8.8</td>
+<td>—</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>PR.PS-02</td>
+<td>2.2</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>L3</td>
+<td>PR.PS-02</td>
+<td>7.4</td>
+<td>8.8</td>
+<td>—</td>
+</tr>
+<tr>
+<td>L4</td>
+<td>ID.AM-08</td>
+<td>—</td>
+<td>—</td>
+<td>TIME; TOGAF Phase H</td>
+</tr>
+<tr>
+<td>L5</td>
+<td>GV.SC-07</td>
+<td>—</td>
+<td>5.23</td>
+<td>—</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>GV.RR-03</td>
+<td>—</td>
+<td>—</td>
+<td>TOGAF APM</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>ID.AM-02</td>
+<td>2.1, 2.3</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>TOGAF Phase H; TIME</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>GV.RR-03</td>
+<td>—</td>
+<td>—</td>
+<td>TOGAF Phases G and H</td>
+</tr>
+<tr>
+<td>A1</td>
+<td>ID.AM-02</td>
+<td>—</td>
+<td>—</td>
+<td>AI RMF GOVERN 1.6; ISO 42001 A.6</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>GV.RR-02</td>
+<td>—</td>
+<td>—</td>
+<td>AI RMF GOVERN 2.1</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>AI RMF MANAGE 3.1, 3.2, GOVERN 6.2; ISO 42001 A.10</td>
+</tr>
+<tr>
+<td>A4</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>AI RMF MANAGE 4.1; ISO 42001 A.6</td>
+</tr>
+<tr>
+<td>A5</td>
+<td>PR.PS-06</td>
+<td>—</td>
+<td>—</td>
+<td>ISO 42001 A.6</td>
+</tr>
+<tr>
+<td>A6</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>AI RMF GOVERN 1.7, MANAGE 2.4</td>
+</tr>
+<tr>
+<td>A7</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>AI RMF GOVERN 6.1; ISO 42001 A.2</td>
+</tr>
+</table>
+</div>
+<div class="sources">
+<h2>Sources and notes</h2>
+<p>Figures are quoted as published. Vendor research is labelled; it is useful for direction, and its publishers sell related products. TOGAF quotations are from The Open Group&rsquo;s public TOGAF 9 pages.</p>
+<ol>
+<li>Gartner, &ldquo;Technical Debt Benchmarks Are a Waste of Time&rdquo; (research note).</li>
+<li>Avelino, Passos, Hora, Valente, &ldquo;A novel approach for estimating truck factors,&rdquo; ICPC 2016. arxiv.org/abs/1604.06766</li>
+<li>Avelino, Constantinou, Valente, Serebrenik, &ldquo;On the abandonment and survival of open source projects,&rdquo; ESEM 2019. arxiv.org/abs/1906.08058</li>
+<li>US Bureau of Labor Statistics, <em>Employee Tenure</em>, January 2026, Table 6. bls.gov</li>
+<li>The Open Group, TOGAF 9, <em>Application Portfolio Catalog</em>. pubs.opengroup.org</li>
+<li>Sophos, <em>The impact of compromised backups on ransomware outcomes</em>, survey of 2,974 ransomware victims by Vanson Bourne (vendor). sophos.com</li>
+<li>Veeam, 2025 ransomware research (vendor), as announced via Business Wire, April 2025. businesswire.com</li>
+<li>CISA and MS-ISAC, <em>#StopRansomware Guide</em>. cisa.gov</li>
+<li>Center for Internet Security, <em>CIS Critical Security Controls v8.1</em>, safeguard 11.5 and Implementation Groups. cisecurity.org</li>
+<li>NIST, <em>Cybersecurity Framework 2.0</em> (CSWP 29), February 2024. nist.gov</li>
+<li>DORA, <em>DORA&rsquo;s software delivery metrics</em>. dora.dev</li>
+<li>Verizon, <em>2025 Data Breach Investigations Report</em>. verizon.com</li>
+<li>Verizon, <em>2026 Data Breach Investigations Report</em>, as reported by Help Net Security. helpnetsecurity.com</li>
+<li>Sophos, <em>The State of Ransomware 2025</em> (vendor). sophos.com</li>
+<li>UK Department for Science, Innovation and Technology, <em>Cyber Security Breaches Survey 2025</em>. gov.uk</li>
+<li>CISA, <em>Bad Practices</em>. cisa.gov</li>
+<li>Center for Internet Security, <em>CIS Critical Security Controls v8.1</em>, safeguard 2.2. cisecurity.org</li>
+<li>Black Duck, <em>2025 Open Source Security and Risk Analysis Report</em> (vendor; based on M&amp;A audits). blackduck.com</li>
+<li>LeanIX, &ldquo;Gartner TIME model.&rdquo; leanix.net</li>
+<li>Robert L. Glass, <em>Facts and Fallacies of Software Engineering</em>, Addison-Wesley, 2002.</li>
+<li>McKinsey &amp; Company, &ldquo;Tech debt: Reclaiming tech equity,&rdquo; 2020. mckinsey.com</li>
+<li>Zylo, <em>2025 SaaS Management Index</em> (vendor). zylo.com</li>
+<li>Microsoft and LinkedIn, <em>2024 Work Trend Index</em>. microsoft.com</li>
+<li>IBM and Ponemon Institute, <em>Cost of a Data Breach Report 2025</em>. ibm.com</li>
+<li>Anthropic, <em>Model deprecations</em>; OpenAI, <em>Deprecations</em>. platform.claude.com; developers.openai.com</li>
+<li>NIST, <em>AI Risk Management Framework 1.0</em> (AI 100-1), Core. airc.nist.gov</li>
+<li>ISO/IEC 42001:2023, <em>Artificial intelligence: Management system</em>. iso.org</li>
+</ol>
+</div>
+<section class="back accent-bg">
+  <p class="brand">Rob Bickel Agency · Managed Software Services</p>
+  <h2>Need an owner for the software your business runs on?</h2>
+  <p>After-build ownership, change management, and urgent break-fix for the applications established, mid-sized companies depend on. I lead every engagement personally, supported by our onshore and nearshore engineers.</p>
+  <span class="em">bickel.rob@gmail.com</span>
+  <p style="margin-top:18pt">robbickel.com</p>
 </section>
-
-<section class="page">
-  <p class="eyebrow">Scoring guide</p>
-  <h1 style="font-size:36px;margin-top:8px">What your score means</h1>
-  <div class="score">
-    <div class="band lo"><div class="r">0–4</div><h3>Under control</h3><p>Your software has owners, visibility, and basic safeguards. Focus on keeping it that way with a quarterly portfolio review.</p></div>
-    <div class="band md"><div class="r">5–10</div><h3>Exposed</h3><p>Things work today, but you're relying on luck in places. One departure or outage could become expensive. Fix your weakest section first.</p></div>
-    <div class="band hi"><div class="r">11–20</div><h3>At risk</h3><p>Critical systems lack an owner, visibility, or protection. Treat this as a business risk, not an IT task. Start with a full inventory.</p></div>
-  </div>
-
-  <h2 style="margin-top:30px">Where to start, by section</h2>
-  <table style="margin-top:6px">
-    <tr><td class="n">1</td><td><b>Ownership:</b> name an accountable owner for each critical system, and document anything only one person understands.</td></tr>
-    <tr><td class="n">2</td><td><b>Operations:</b> add uptime monitoring and alerts, then test one backup restore this month.</td></tr>
-    <tr><td class="n">3</td><td><b>Security:</b> move accounts to company ownership, adopt a password manager, and rotate keys former staff could reach.</td></tr>
-    <tr><td class="n">4</td><td><b>Cost:</b> review 12 months of software spend line by line and cancel what nobody uses.</td></tr>
-  </table>
-  <p class="muted" style="margin-top:12px">A section with 3 or more No answers is usually where the next incident comes from.</p>
-
-  <div class="cta accent-bg">
-    <h2>Scored 5 or higher? Let's talk it through.</h2>
-    <p>Send me your score and the systems you're worried about. I'll reply personally with the two or three changes that would reduce your risk the most. If you'd like ongoing help, our team provides managed services for business software under one enterprise service agreement, with flexible scopes of work and monthly invoicing.</p>
-    <span class="em">bickel.rob@gmail.com</span>
-  </div>
-  <div class="foot"><span>Software Estate Risk Scorecard · robbickel.com</span><span>3</span></div>
-</section>
-
 </body>
 </html>

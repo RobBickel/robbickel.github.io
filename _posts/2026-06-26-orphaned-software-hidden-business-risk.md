@@ -44,6 +44,6 @@ You don't need to rewrite anything to start. The first steps are mostly organiza
 4. **Turn the lights on.** Add uptime monitoring and confirm backups can be restored.
 5. **Write it down.** A one-page summary and a few runbooks per system.
 
-I've written these up in more detail in [The Orphaned Software Playbook](/assets/pdf/orphaned-software-playbook.pdf), a free 10-page guide.
+I've written these up in more detail in [The Orphaned Software Playbook](/assets/pdf/orphaned-software-playbook.pdf), a free, in-depth guide.
 
 If you'd rather someone else take ownership, that's exactly what [managed software services](/) are for.

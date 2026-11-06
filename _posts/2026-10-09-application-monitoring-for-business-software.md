@@ -57,4 +57,4 @@ Too many alerts are as bad as none, because people start ignoring them. Start wi
 
 At minimum, set up uptime checks on your most important application and certificate expiration alerts. Both take less than an hour.
 
-Monitoring with a named engineer responding is a core part of [managed software services](/). It's also question 6 on the free [Software Estate Risk Scorecard](/assets/pdf/software-estate-risk-scorecard.pdf): would you know a critical system was down before a customer told you?
+Monitoring with a named engineer responding is a core part of [managed software services](/). It's also an item on the free [Software Estate Risk Scorecard](/assets/pdf/software-estate-risk-scorecard.pdf): does monitoring alert a named person, with a written runbook for each alert?
