@@ -10,7 +10,7 @@ lede: "Non-recurring engineering for wireless devices, radar and sensing systems
 chips:
   - "Hardware through firmware"
   - "DO-178C and DO-254 experience"
-  - "ITAR and EAR work"
+  - "ITAR work"
   - "US-person staffing"
 paths:
   - title: "You're building a connected product"
@@ -61,7 +61,7 @@ regulated:
   - name: "Avionics assurance"
     text: "Experience with DO-178C for airborne software and DO-254 for airborne electronic hardware, including the planning and evidence those standards expect."
   - name: "Export control"
-    text: "We handle export-controlled work under ITAR and EAR. Tell us up front, and we'll settle how technical data is handled before any of it is shared."
+    text: "We can handle your ITAR export-controlled work. Tell us up front, and we'll settle how technical data is handled before any of it is shared."
   - name: "US-person staffing"
     text: "Restricted work is staffed with US persons only. Our nearshore engineers don't work on it."
 faq:
