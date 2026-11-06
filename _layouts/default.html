@@ -175,8 +175,8 @@
           var situations = data.getAll('situation');
           data.delete('situation');
           data.append('situation', situations.join('; ') || 'Not specified');
-          var details = [data.get('timeline'), data.get('systems') && data.get('systems') + ' systems'].filter(Boolean).join(', ');
-          var personaLabels = { corporate: 'Portfolio governance', 'ai-sprawl': 'AI sprawl', production: 'Production readiness', other: 'Other' };
+          var details = [data.get('timeline'), data.get('systems') && data.get('systems') + ' systems', data.get('stage'), data.get('export_controlled') === 'Yes' && 'export-controlled'].filter(Boolean).join(', ');
+          var personaLabels = { corporate: 'Portfolio governance', 'ai-sprawl': 'AI sprawl', production: 'Production readiness', 'hw-product': 'Hardware: product', 'hw-program': 'Hardware: A&D program', 'hw-operator': 'Hardware: operator', other: 'Other' };
           var personaLabel = personaLabels[data.get('persona')] || form.dataset.service;
           data.set('_subject', personaLabel + ' inquiry: ' + data.get('company') + (details ? ' (' + details + ')' : ''));
           data.set('persona_page', form.dataset.pagePersona || 'none');

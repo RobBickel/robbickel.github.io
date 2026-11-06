@@ -1,0 +1,142 @@
+---
+layout: default
+---
+{% comment %}
+  Hardware and embedded engineering vertical. Content comes from front matter in pages/embedded-engineering.md.
+{% endcomment %}
+<section class="hero landing-hero">
+  <div class="wrap">
+    <p class="eyebrow">{{ page.eyebrow }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="lede">{{ page.lede }}</p>
+    <div class="actions">
+      <a class="btn btn-action" data-cta="hero" href="#start">Tell us what you're building <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+      <a class="btn btn-ghost" href="#capabilities">See what we design</a>
+    </div>
+    <ul class="chips">
+      {% for c in page.chips %}<li>{{ c }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Who this is for</p>
+      <h2>Three situations where we can help.</h2>
+    </div>
+    <div class="eng-paths">
+      {% for p in page.paths %}
+      <div>
+        <p class="eng-who">{{ p.who }}</p>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="capabilities">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What we design</p>
+      <h2>Devices that have to work where nobody can reach them.</h2>
+    </div>
+    <dl class="eng-table">
+      {% for d in page.domains %}
+      <div><dt>{{ d.name }}</dt><dd>{{ d.text }}</dd></div>
+      {% endfor %}
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How the work runs</p>
+      <h2>Every stage of NRE, under one team.</h2>
+      <p>Take the whole path, or bring us in for the stage you need.</p>
+    </div>
+    <ol class="steps steps-4">
+      {% for s in page.stages %}
+      <li>
+        <span class="step-num">0{{ forloop.index }}</span>
+        <h3>{{ s.name }}</h3>
+        <p>{{ s.text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Platforms</p>
+      <h2>We design around parts you can source and support.</h2>
+      <p class="eng-note">Product and company names are trademarks of their owners. Listing them describes the parts we design with and does not imply a partnership or endorsement.</p>
+    </div>
+    <dl class="eng-table eng-table-tight">
+      {% for p in page.platforms %}
+      <div><dt>{{ p.name }}</dt><dd>{{ p.list }}</dd></div>
+      {% endfor %}
+    </dl>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Regulated work</p>
+      <h2>Flight and defense programs, handled accordingly.</h2>
+    </div>
+    <div class="grid grid-3">
+      {% for r in page.regulated %}
+      <div class="card card-dark">
+        <h3>{{ r.name }}</h3>
+        <p>{{ r.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">After the design</p>
+      <h2>The NRE ends. The device's life doesn't.</h2>
+      <p>Modules reach end of life. Carriers retire networks. Firmware needs updates long after the design team has moved on. Owning systems after the build is the core of our agency, so the team that designed your device can stay with it.</p>
+      <a class="text-link" href="{{ site.github.url }}/services/">See all services <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <ul class="principles">
+      <li><strong>After-build ownership.</strong> Firmware maintenance, documentation, and planning for component and module end of life.</li>
+      <li><strong>Change management.</strong> Every hardware and firmware change assessed, tested, released, and recorded, including what it means for your certifications.</li>
+      <li><strong>Break-fix.</strong> When devices fail in the field and the original designers are gone, we stabilize first, then find the real cause.</li>
+    </ul>
+  </div>
+</section>
+
+{% include terms.html %}
+
+<section class="section section-alt">
+  <div class="wrap faq">
+    <div class="section-head">
+      <p class="eyebrow">Questions</p>
+      <h2>Common questions</h2>
+    </div>
+    {% for item in page.faq %}
+      <details>
+        <summary>{{ item.q }}</summary>
+        <p>{{ item.a }}</p>
+      </details>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section" id="start">
+  <div class="wrap">
+    {% include contact-form.html service=page.service persona=page.persona variant="hardware" %}
+  </div>
+</section>

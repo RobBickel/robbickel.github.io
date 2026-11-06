@@ -40,6 +40,12 @@ We fix that.
 </div>
 
 <div class="service-card">
+<h3><a href="/embedded-engineering/">Hardware and Embedded Engineering</a></h3>
+<p>Non-recurring engineering for wireless and IoT devices, GPS trackers, radar, flight systems, and avionics sensors, from RF and PCB through firmware, FPGA, and certification support.</p>
+<a href="/embedded-engineering/" class="service-link">Learn more →</a>
+</div>
+
+<div class="service-card">
 <h3><a href="/services/portfolio-management/">Portfolio Management</a></h3>
 <p>Audit, consolidate, and rationalize your software estate. We map what you have, identify what's costing you money, and recommend what to keep, retire, or rebuild.</p>
 <a href="/services/portfolio-management/" class="service-link">Learn more →</a>

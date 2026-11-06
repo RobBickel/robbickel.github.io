@@ -11,13 +11,19 @@
 {% if s.formspree-id != '' %}
 <div class="cta-box cta-form">
   <div class="cta-copy">
+    {% if include.variant == 'hardware' %}
+    <h3>Tell us what you're building.</h3>
+    <p>Two quick steps. I'll read it personally and reply with an honest read on your design and whether our team can help, usually within one business day.</p>
+    {% else %}
     <h3>Tell us what you're running.</h3>
     <p>Two quick steps. I'll read it personally and reply with an honest read on your situation and whether our team can help, usually within one business day.</p>
+    {% endif %}
     <ul class="cta-points">
       <li>I lead every engagement personally</li>
       <li>No sales sequences, and your details are only used to reply</li>
     </ul>
     <p class="cta-alt">Prefer email? <a href="{{ mailto }}">{{ s.email }}</a></p>
+    {% if include.variant == 'hardware' %}<p class="cta-alt"><strong>Please don't send export-controlled or classified technical data through this form or by email.</strong> Tell us the work is restricted, and we'll agree how to handle it first.</p>{% endif %}
   </div>
 
   <form class="intake" data-page-persona="{{ include.persona | default: 'none' }}" action="https://formspree.io/f/{{ s.formspree-id }}" method="POST" data-service="{{ service }}" novalidate>
@@ -29,6 +35,42 @@
     <p class="intake-progress"><span class="intake-step-label">Step 1 of 2</span><span class="intake-bar"><span></span></span></p>
 
     <fieldset class="intake-step" data-step="1">
+      {% if include.variant == 'hardware' %}
+      <legend>Which sounds most like you?</legend>
+      <div class="chips-select chips-persona">
+        <label><input type="radio" name="persona" value="hw-product"><span>We're building a connected product</span></label>
+        <label><input type="radio" name="persona" value="hw-program"><span>We have an aerospace or defense program</span></label>
+        <label><input type="radio" name="persona" value="hw-operator"><span>We need a custom device for our operation</span></label>
+        <label><input type="radio" name="persona" value="other"><span>Something else</span></label>
+      </div>
+
+      <legend>What do you need? <span>Pick any that apply</span></legend>
+      <div class="chips-select">
+        <label><input type="checkbox" name="situation" value="New design"><span>A new design</span></label>
+        <label><input type="checkbox" name="situation" value="Firmware or FPGA work"><span>Firmware or FPGA work</span></label>
+        <label><input type="checkbox" name="situation" value="Certification support"><span>Certification support</span></label>
+        <label><input type="checkbox" name="situation" value="Prototype to production"><span>Prototype to production</span></label>
+        <label><input type="checkbox" name="situation" value="Take over an existing design"><span>Take over an existing design</span></label>
+        <label><input type="checkbox" name="situation" value="Component or module end of life"><span>Component or module end of life</span></label>
+        <label><input type="checkbox" name="situation" value="Field failures"><span>Field failures</span></label>
+      </div>
+
+      <legend>Where is the design today?</legend>
+      <div class="chips-select chips-row">
+        <label><input type="radio" name="stage" value="Concept"><span>Concept</span></label>
+        <label><input type="radio" name="stage" value="Prototype"><span>Prototype</span></label>
+        <label><input type="radio" name="stage" value="Pilot"><span>Pilot</span></label>
+        <label><input type="radio" name="stage" value="In production"><span>In production</span></label>
+      </div>
+
+      <legend>Is any of this export-controlled?</legend>
+      <div class="chips-select chips-row">
+        <label><input type="radio" name="export_controlled" value="Yes"><span>Yes</span></label>
+        <label><input type="radio" name="export_controlled" value="No"><span>No</span></label>
+        <label><input type="radio" name="export_controlled" value="Not sure"><span>Not sure</span></label>
+      </div>
+
+      {% else %}
       <legend>Which sounds most like you?</legend>
       <div class="chips-select chips-persona">
         <label><input type="radio" name="persona" value="corporate"{% if include.persona == 'corporate' %} checked{% endif %}><span>I've seen portfolio management at a big company and want it here</span></label>
@@ -57,6 +99,7 @@
         <label><input type="radio" name="systems" value="Not sure"><span>Not sure</span></label>
       </div>
 
+      {% endif %}
       <legend>Timeline</legend>
       <div class="chips-select chips-row">
         <label><input type="radio" name="timeline" value="Urgent"><span>Urgent</span></label>
@@ -78,16 +121,23 @@
         <label>Your role
           <select name="role">
             <option value="">Select…</option>
+            {% if include.variant == 'hardware' %}
+            <option>CEO / Founder</option>
+            <option>CTO / VP Engineering</option>
+            <option>Program manager</option>
+            <option>Operations</option>
+            {% else %}
             <option>Owner / CEO</option>
             <option>COO / Operations</option>
             <option>CFO / Finance</option>
             <option>IT / Technology</option>
+            {% endif %}
             <option>Other</option>
           </select>
         </label>
       </div>
       <label><span>Phone <span class="optional">optional</span></span><input type="tel" name="phone" autocomplete="tel"></label>
-      <label><span>Anything else I should know? <span class="optional">optional</span></span><textarea name="message" rows="3" placeholder="e.g. Our billing integration was built by a contractor in 2019 and nobody can change it."></textarea></label>
+      <label><span>Anything else I should know? <span class="optional">optional</span></span><textarea name="message" rows="3" placeholder="{% if include.variant == 'hardware' %}e.g. A cellular tracker for our fleet, about 2,000 units, with a pilot planned next year.{% else %}e.g. Our billing integration was built by a contractor in 2019 and nobody can change it.{% endif %}"></textarea></label>
       <div class="intake-actions">
         <button type="button" class="intake-back">← Back</button>
         <button type="submit" class="btn">Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
