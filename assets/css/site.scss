@@ -134,7 +134,7 @@ p { margin: 0 0 1em; }
   span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 5px 0; transition: transform .2s; }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1120px) {
   .nav-toggle { display: block; }
   .site-nav {
     display: none; position: absolute; top: 72px; left: 0; right: 0;
@@ -494,7 +494,8 @@ a:hover { color: var(--redline); }
 .site-header { background: rgba(241, 238, 230, .96); border-bottom: 2px solid var(--rule); backdrop-filter: none; }
 .brand { flex-direction: row; align-items: center; gap: 12px; color: var(--ink); }
 .brand-mark { flex: none; polygon { fill: none; stroke: currentColor; stroke-width: 3.6; } path { fill: currentColor; } }
-.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; white-space: nowrap; }
+.site-nav a { white-space: nowrap; }
 .brand-name { font-family: var(--display); font-weight: 750; font-stretch: 112%; text-transform: uppercase; letter-spacing: .05em; font-size: 1rem; }
 .brand-tag { font-family: var(--mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
 .site-nav a:not(.btn) { color: var(--ink); font-weight: 500;
