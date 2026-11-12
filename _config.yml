@@ -17,3 +17,8 @@ exclude: [README.md, LICENSE.md, Gemfile, Gemfile.lock, portfolio-jekyll-theme.g
 defaults:
   - scope: {path: "", type: posts}
     values: {layout: post, permalink: "/blog/:title/", author: "Rob Bickel"}
+  # Keep old theme project pages and the downloadable PDFs out of the sitemap
+  - scope: {path: "projects"}
+    values: {sitemap: false}
+  - scope: {path: "assets/pdf"}
+    values: {sitemap: false}
