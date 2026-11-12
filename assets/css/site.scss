@@ -561,3 +561,12 @@ a:hover { color: var(--redline); }
 .grid:not(.products), .steps { gap: 0; }
 .grid:not(.products) > .card, .steps > li { margin: 0 -1px -1px 0; }
 .features { gap: 32px 28px; }
+
+// Phones: keep the menu button on screen next to the lockup.
+.nav-toggle { flex: none; margin-right: -10px; }
+@media (max-width: 520px) {
+  .brand { gap: 10px; min-width: 0; }
+  .brand-mark { width: 30px; height: 27px; }
+  .brand-name { font-size: .9rem; letter-spacing: .03em; }
+  .brand-tag { font-size: .6rem; letter-spacing: .08em; }
+}
