@@ -5,27 +5,33 @@
 // Tokens
 
 :root {
-  --bg: #f7f6f2;
-  --surface: #ffffff;
-  --alt: #efede6;
-  --ink: #111a2b;
-  --ink-2: #3a4556;
-  --muted: #6b7280;
-  --line: #e2dfd5;
-  --accent: #0f5c4d;
-  --accent-hover: #0b4a3e;
-  --accent-soft: #e2efe9;
-  --warn: #c2760c;
-  --action: #c2410c;        // conversion buttons only; white text 5.2:1
-  --action-hover: #9a3412;
-  --field-line: #7c8492;    // form field/chip borders; 3.5:1 on the form panel
-  --night: #111a2b;
-  --night-2: #1b2639;
-  --night-line: #2c3950;
-  --night-text: #c9d1de;
-  --radius: 14px;
-  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --display: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  // Rev B identity (2026-11-12): drafting paper, ink, one redline accent.
+  // Paper and ink for everything; redline only for revision marks and the primary action.
+  --bg: #f1eee6;            // paper
+  --surface: #f7f5ef;       // a lighter sheet for panels
+  --alt: #e7e2d6;           // paper-2
+  --ink: #141414;
+  --ink-2: #2e2c28;         // body text
+  --muted: #6e6a60;         // 4.65:1 on paper
+  --line: #c9c2b2;
+  --rule: #141414;          // drawing-frame rules
+  --accent: #141414;        // links are ink, underlined in redline
+  --accent-hover: #c2321c;
+  --accent-soft: #e7e2d6;
+  --warn: #9a5b00;
+  --redline: #c2321c;       // 4.8:1 on paper
+  --action: #c2321c;        // primary action; white text 5.6:1
+  --action-hover: #a82a17;
+  --field-line: #6e6a60;
+  --night: #141414;
+  --night-2: #1f1e1b;
+  --night-line: #3a3833;
+  --night-text: #cfcabe;
+  --radius: 0;
+  --font: 'Source Serif 4', Georgia, serif;
+  --sans: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'IBM Plex Mono', Menlo, monospace;
   --wrap: 1120px;
 }
 
@@ -443,3 +449,114 @@ p { margin: 0 0 1em; }
   label, span { display: block; }
   span { border-radius: 12px; padding: .6em .9em; }
 }
+
+
+// ------------------------------------------------
+// Rev B identity layer (2026-11-12)
+// The site reads as a drawing set: paper, ink rules, mono annotations, one redline.
+// No rounded cards, shadows, pills or icon tiles.
+
+body { font-size: 18px; line-height: 1.6; }
+h1, h2 { font-weight: 800; font-stretch: 80%; letter-spacing: -.005em; line-height: 1.02; }
+h3, h4 { font-weight: 700; font-stretch: 92%; letter-spacing: 0; }
+h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+a { color: var(--ink); text-decoration-color: var(--redline); text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+a:hover { color: var(--redline); }
+::selection { background: #f2c9bf; }
+
+// Sans for interface text; serif stays for reading.
+.site-nav, .btn, .chips, .intake, .chips-select, .tag, .card-label, .post-meta, .footer-nav,
+.faq summary, .text-link, .service-link, .eng-who, .intake-progress, .domain, .cta-sticky p { font-family: var(--sans); }
+
+// Annotations: section labels become drawing notes, flagged with a small revision delta.
+.eyebrow, .card-label, .intake-progress, .post-card time, .eng-who {
+  font-family: var(--mono); font-weight: 500; font-size: .78rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted);
+}
+.eyebrow { display: flex; align-items: center; gap: .7em; }
+.eyebrow::before {
+  content: ''; flex: none; width: 15px; height: 13px; background: var(--redline);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%, 50% 0, 50% 22%, 18% 86%, 82% 86%, 50% 22%);
+}
+.section-dark .eyebrow { color: var(--night-text); }
+
+// Buttons: square, ink; the primary action is the redline.
+.btn { border-radius: 0; font-weight: 650; letter-spacing: .01em; background: var(--ink); border-color: var(--ink);
+  &:hover { background: #000; transform: none; } }
+.btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink);
+  &:hover { background: var(--ink); color: var(--bg); } }
+.btn-action, .cta-box .btn { background: var(--action); border-color: var(--action);
+  &:hover { background: var(--action-hover); border-color: var(--action-hover); } }
+.text-link, .service-link { color: var(--ink); text-decoration: underline; text-decoration-color: var(--redline); text-underline-offset: 4px; }
+
+// Header and footer: a title strip.
+.site-header { background: rgba(241, 238, 230, .96); border-bottom: 2px solid var(--rule); backdrop-filter: none; }
+.brand { flex-direction: row; align-items: center; gap: 12px; color: var(--ink); }
+.brand-mark { flex: none; polygon { fill: none; stroke: currentColor; stroke-width: 3.6; } path { fill: currentColor; } }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name { font-family: var(--display); font-weight: 750; font-stretch: 112%; text-transform: uppercase; letter-spacing: .05em; font-size: 1rem; }
+.brand-tag { font-family: var(--mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+.site-nav a:not(.btn) { color: var(--ink); font-weight: 500;
+  &.active { text-decoration-color: var(--redline); text-decoration-thickness: 2px; } }
+.site-footer { border-top: 2px solid var(--rule); }
+.site-footer .brand-name { font-size: .95rem; }
+.social a:hover { color: var(--redline); }
+
+// Panels: ruled boxes on paper, no radius, no lift.
+.card, .steps li, .service-card, .post-card, .hero-card, .cta-box, .intake {
+  border-radius: 0; box-shadow: none; background: var(--surface); border: 1px solid var(--line);
+}
+.card-link:hover, .post-card:hover { transform: none; border-color: var(--ink); }
+.cta-box { border: 2px solid var(--rule); }
+.section-alt { background: var(--alt); }
+.section-dark { .card-dark { background: var(--night-2); border-color: var(--night-line); } }
+
+// Hero register: the estate as a drawing schedule, not a dashboard widget.
+.hero-card { border: 2px solid var(--rule); padding: 0; }
+.hero-card .card-label { display: block; padding: 14px 18px; border-bottom: 2px solid var(--rule); margin: 0; }
+.status-list { margin: 0; li { padding: 12px 18px; font-family: var(--sans); border-bottom: 1px solid var(--line); } }
+.dot { border-radius: 0; width: 8px; height: 8px; }
+.dot.ok { background: var(--ink); }
+.dot.warn { background: var(--redline); }
+.tag { background: none; color: var(--muted); font-family: var(--mono); font-weight: 500; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; padding: 0; border-radius: 0; }
+.card-foot { padding: 12px 18px; font-family: var(--mono); font-size: .78rem; }
+
+// Hero facts: plain annotations instead of pills.
+.chips { gap: 0; li { background: none; border: 0; border-radius: 0; padding: 0; font-family: var(--mono); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+  &:not(:last-child)::after { content: '/'; margin: 0 .8em; color: var(--line); } } }
+
+// Numbers and markers.
+.step-num { font-family: var(--mono); font-weight: 500; font-size: .9rem; color: var(--redline); letter-spacing: .08em; }
+.path-icon, .features > div > i, .features > i { display: none; }
+.eng-paths > div { border-top: 2px solid var(--rule); }
+.checklist li::before, .cta-box .cta-points li::before {
+  content: ''; width: 8px; height: 8px; background: var(--ink); top: 1.05em; left: 6px;
+}
+.cta-box .cta-points li::before { top: .55em; left: 2px; }
+.section-dark .checklist li::before { background: var(--night-text); }
+.faq summary::after { color: var(--redline); }
+
+// Forms: ruled fields.
+.intake { background: var(--bg); }
+.intake input:not([type=checkbox]):not([type=radio]), .intake textarea, .intake select { border-radius: 0; background: #fffdf8;
+  &:focus { outline: 2px solid var(--ink); outline-offset: 1px; border-color: var(--ink); } }
+.chips-select span { border-radius: 0; background: #fffdf8; }
+.chips-select label:hover span { background: var(--alt); }
+.chips-select input:checked + span { background: var(--ink); border-color: var(--ink); }
+.chips-select input:focus-visible + span { outline: 2px solid var(--redline); }
+.chips-persona span { border-radius: 0; }
+.intake-bar { border-radius: 0; span { background: var(--redline); } }
+
+// Long-form: reading column in serif, tables as schedules.
+.prose { h2 { margin-top: 1.6em; } th { background: var(--alt); font-family: var(--sans); } td, th { border-bottom-color: var(--line); } }
+.prose blockquote { margin: 1.5em 0; padding: .2em 0 .2em 1.2em; border-left: 3px solid var(--redline); color: var(--ink); }
+
+// Project thumbnails keep their images under an ink wash.
+.products .has-thumb::before { background: linear-gradient(to bottom, rgba(20, 20, 20, 0) 0%, rgba(20, 20, 20, .6) 45%, rgba(20, 20, 20, .95) 100%); }
+.cta-sticky { box-shadow: none; border-top: 2px solid var(--rule); background: rgba(241, 238, 230, .98); }
+
+// Panels in a grid share their rules, like cells in a schedule, instead of floating apart.
+.grid:not(.products), .steps { gap: 0; }
+.grid:not(.products) > .card, .steps > li { margin: 0 -1px -1px 0; }
+.features { gap: 32px 28px; }
