@@ -163,17 +163,18 @@ layout: default
       <p class="eyebrow">Products</p>
       <h2>Software we've built and operated.</h2>
     </div>
-    {% comment %} name|domain|slug — a thumbnail at assets/img/projects/<slug>/thumbnail.png becomes the card background {% endcomment %}
-    {% assign products = "M2M Gateway|m2mgateway.net|m2mgateway_net,Kyooret|kyooret.com|kyooret_com,Traffik Co|traffikco.com|traffikco_com,Facility Access Control|facilityaccesscontrol.com|facilityaccesscontrol_com,Mo Drones|modrones.com|modrones_com,Fractional Pipe|fractionalpipe.com|fractionalpipe_com" | split: "," %}
+    {% comment %} name|domain|slug[|internal path] — a thumbnail at assets/img/projects/<slug>/thumbnail.png becomes the card background; an internal path links to a page on this site instead of the domain {% endcomment %}
+    {% assign products = "M2M Gateway|m2mgateway.net|m2mgateway_net,Kyooret|kyooret.com|kyooret_com,Traffik Co|traffikco.com|traffikco_com,Facility Access Control|facilityaccesscontrol.com|facilityaccesscontrol_com,Mo Drones|modrones.com|modrones_com,Fractional Pipe|fractionalpipe.com|fractionalpipe_com,FAAS|Actuarial modelling · in development|faas|/faas/" | split: "," %}
     <div class="grid products">
       {% for item in products %}
         {% assign p = item | split: "|" %}
         {% capture thumb_path %}/assets/img/projects/{{ p[2] }}/thumbnail.png{% endcapture %}
         {% assign thumb = site.static_files | where: "path", thumb_path | first %}
-        <a class="card card-link{% if thumb %} has-thumb{% endif %}" href="https://{{ p[1] }}" target="_blank" rel="noopener"
+        <a class="card card-link{% if thumb %} has-thumb{% endif %}"
+           {% if p[3] %}href="{{ site.github.url }}{{ p[3] }}"{% else %}href="https://{{ p[1] }}" target="_blank" rel="noopener"{% endif %}
            {% if thumb %}style="background-image: url('{{ site.github.url }}{{ thumb_path }}')"{% endif %}>
           <h3>{{ p[0] }}</h3>
-          <p class="domain">{{ p[1] }} <i class="fa fa-external-link" aria-hidden="true"></i></p>
+          <p class="domain">{{ p[1] }}{% unless p[3] %} <i class="fa fa-external-link" aria-hidden="true"></i>{% endunless %}</p>
         </a>
       {% endfor %}
     </div>

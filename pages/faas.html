@@ -1,0 +1,163 @@
+---
+layout: default
+title: "FAAS: actuarial modelling and mortality resilience"
+permalink: /faas/
+description: "FAAS stress-tests life insurance premiums against volatile markets, mortality tables and the comorbidities of the people actually insured. Monte Carlo solvency bands by product code, solved premiums at your confidence level, results in Parquet, PostgreSQL or SQL Server."
+image: /assets/img/projects/faas/share.png
+---
+{% assign img = site.github.url | append: "/assets/img/projects/faas/" %}
+
+<section class="hero faas-hero">
+  <div class="wrap">
+    <p class="eyebrow">FAAS · Actuarial modelling and mortality resilience</p>
+    <h1>Will the premium last? Find out before the policy lapses.</h1>
+    <p class="lede">An illustration assumes the same return every year. Markets don't deliver that, and the mortality table isn't your block either. FAAS runs every policy through thousands of market paths and mortality stresses. It shows the odds that coverage is still in force at the age that matters, and solves the premium that gets it there.</p>
+    <div class="actions">
+      <a class="btn btn-action" href="{{ site.github.url }}/contact/">Ask for a walkthrough <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+      <a class="btn btn-ghost" href="#features">See what it does</a>
+    </div>
+    <ul class="chips">
+      <li>Native desktop studio</li>
+      <li>Monte Carlo at block scale</li>
+      <li>Parquet, PostgreSQL, SQL Server</li>
+      <li>In active development</li>
+    </ul>
+    <figure class="shot shot-hero">
+      <img src="{{ img }}studio-summary.webp" width="2000" height="1275"
+           alt="FAAS Studio showing a results summary for a 1,500-policy block across five scenarios, with in-force probabilities at ages 90 and 100 for each product code">
+      <figcaption>A 1,500-policy block run across five market and mortality scenarios, summarized by product code. Illustrative data.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The gap</p>
+      <h2>An illustration is one path. Your policyholders live on all of them.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><h3>Constant returns hide the risk</h3><p>An 8% illustration and an <em>average</em> 8% are different policies. One bad sequence early on can drain the account value years before the illustrated lapse age.</p></div>
+      <div class="card"><h3>The table isn't your block</h3><p>Pricing tables carry loadings, and moving from the 2001 to the 2017 CSO table shifts charges by several percent. Then the insured lives arrive with their own health histories.</p></div>
+      <div class="card"><h3>Spreadsheets run one policy at a time</h3><p>A workbook macro can price one case. It can't test 1,500 policies across five scenarios and a thousand trials, then hand an auditor a record of exactly what went in.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What you see</p>
+      <h2>Answers by product code, scenario and confidence level.</h2>
+    </div>
+
+    <div class="showcase">
+      <figure class="shot">
+        <img src="{{ img }}inforce-by-scenario.webp" width="1800" height="1199" loading="lazy"
+             alt="Chart of face-weighted probability in force by projection year for five scenarios, with a 90% confidence line">
+      </figure>
+      <div>
+        <h3>Probability in force, under every scenario</h3>
+        <p>Watch how much of the block stays in force, year by year, under a base market, a fresh bootstrap, elevated mortality, longevity and a pandemic-with-crash scenario. Each line is weighted by face amount, so the policies that matter most count most.</p>
+        <p>Set testing points as a policy year or an attained age, such as life expectancy or age 100, and FAAS reports the probability of reaching each one.</p>
+      </div>
+    </div>
+
+    <div class="showcase showcase-flip">
+      <figure class="shot">
+        <img src="{{ img }}cohort-fund-band.webp" width="1800" height="1199" loading="lazy"
+             alt="Percentile band chart of a product code's cohort fund over 70 projection years, showing the 5th to 95th and 25th to 75th percentile ranges and the median">
+      </figure>
+      <div>
+        <h3>Solvency bands, not a single line</h3>
+        <p>For every product code, FAAS charts the policy fund (account values times survivors) as percentile bands across all trials. The median tells you what's likely. The 5th percentile tells you what you need to survive.</p>
+      </div>
+    </div>
+
+    <div class="showcase">
+      <figure class="shot">
+        <img src="{{ img }}mortality-margin-band.webp" width="1800" height="1199" loading="lazy"
+             alt="Percentile band chart of cumulative mortality margin for one product code, falling below zero and leveling off around negative 57 million dollars at the median">
+      </figure>
+      <div>
+        <h3>Mortality margin, from the insurer's side</h3>
+        <p>Cost-of-insurance charges are priced on one basis; claims arrive on another. FAAS tracks the cumulative difference by product code, so you can see which block is quietly losing money, and by how much, under uncertainty.</p>
+        <p>In this illustrative block, one product code runs a median shortfall of about $57 million while another stays positive. A single average would have hidden both.</p>
+      </div>
+    </div>
+
+    <div class="showcase showcase-flip">
+      <figure class="shot">
+        <img src="{{ img }}studio-model-points.webp" width="1800" height="1190" loading="lazy"
+             alt="FAAS Studio model point editor showing 1,500 policies with a summary of policies, sum assured and premium for each of four product codes">
+      </figure>
+      <div>
+        <h3>Your block, the way you already store it</h3>
+        <p>Open model point files in the RPT and CSV formats actuarial teams already use. FAAS validates them and summarizes each product code, and writes them back without losing a field.</p>
+        <p>Each policy can carry its own comorbidity factor, with a default per product code for everything else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Under the hood</p>
+      <h2>Built for the questions actuaries get asked next.</h2>
+    </div>
+    <div class="grid grid-4 features faas-features">
+      <div><h3>Reproducible Monte Carlo</h3><p>A counter-based random number generator means the same seed gives the same answer, whatever the number of cores.</p></div>
+      <div><h3>Block-scale speed</h3><p>7.5 million policy-trials in about a second on a 10-core laptop, using every core.</p></div>
+      <div><h3>Premium solver</h3><p>Finds the premium that keeps each policy in force to each testing point at your chosen confidence, such as 90%.</p></div>
+      <div><h3>Comorbidity uncertainty</h3><p>Experience mortality can differ from the pricing basis by an uncertain factor, drawn per trial, so the bands reflect what you don't know.</p></div>
+      <div><h3>Mortality stresses</h3><p>Level shocks, age-band shocks, catastrophe years and improvement, applied to charges, experience or both.</p></div>
+      <div><h3>Results where you need them</h3><p>Every run writes Parquet tables and can load PostgreSQL or SQL Server in one transaction. Re-running replaces the run instead of duplicating it.</p></div>
+      <div><h3>An audit trail by default</h3><p>Each run records its inputs with SHA-256 fingerprints, plus the seeds, version and who ran it.</p></div>
+      <div><h3>No secrets in project files</h3><p>Database passwords come from the environment or integrated sign-on. A connection string with a password in it is refused.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Checked, not assumed</p>
+      <h2>Tested against the actuary's own workbook.</h2>
+      <p>FAAS's engine is tested against a working actuarial workbook and reproduces its results exactly, including the solved premiums. Actuarial input from Gary Flotron (UMSL) shaped what it measures and why.</p>
+    </div>
+    <ul class="checklist">
+      <li>Acceptance tests built from the original workbook's inputs and outputs</li>
+      <li>Every run's results folder can be traced back to the exact inputs</li>
+      <li>Same project, same seed, same numbers</li>
+      <li>Runs on your machines; your policy data never leaves them</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Roadmap</p>
+      <h2>What's coming next</h2>
+    </div>
+    <ol class="steps steps-4">
+      <li><span class="step-num">01</span><h3>Grid workers</h3><p>Spread a run across worker machines, batch by batch, for full in-force blocks.</p></li>
+      <li><span class="step-num">02</span><h3>Illustration view</h3><p>Cash value, net amount at risk and cost of insurance, side by side under constant and stochastic returns.</p></li>
+      <li><span class="step-num">03</span><h3>Asset allocation</h3><p>Equity and bond mixes inside each scenario, so allocation becomes a lever you can test.</p></li>
+      <li><span class="step-num">04</span><h3>Governance</h3><p>Assumption versioning, review and sign-off before a run's results are used.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="cta-box">
+      <div>
+        <h3>See it on a block like yours.</h3>
+        <p>Tell me what you're pricing or testing, and I'll show you FAAS on an illustrative block shaped like it.</p>
+      </div>
+      <a class="btn" href="{{ site.github.url }}/contact/">Ask for a walkthrough <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</section>
