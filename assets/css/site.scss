@@ -153,6 +153,7 @@ p { margin: 0 0 1em; }
 .hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: center; }
 .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 36em; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 24px; }
+.hero .note { font-size: 0.9rem; color: var(--ink-2); margin: -12px 0 24px; max-width: 40em; }
 .chips {
   list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px;
   li { font-size: .85rem; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line); border-radius: 99px; padding: .3em .85em; }
