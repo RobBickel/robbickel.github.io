@@ -38,7 +38,6 @@ seo:
 #-------------------------------
 # Analytics
 
-google-analytics-ua: ''
 google-analytics-ga4: 'G-DF02EVXTK4'
 
 # LinkedIn Insight Tag partner ID (Campaign Manager > Analyze > Insight Tag).
