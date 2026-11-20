@@ -1,8 +1,12 @@
 {% if site.data.settings.google-tag-manager %}
 <script>
-  // gtag() pushes onto the dataLayer; the GA4 Google tag in the GTM container sends these events.
+  // ga4Event(name, params): the container's "GA4 - site events" tag sends these to GA4.
+  // ga4 is cleared first so one event's parameters don't carry into the next.
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  window.ga4Event = function (name, params) {
+    dataLayer.push({ ga4: null });
+    dataLayer.push({ event: name, ga4: params || {} });
+  };
 </script>
 <!-- Google Tag Manager: GA4 and the LinkedIn Insight Tag are configured in the container -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -17,6 +21,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   // Count email-link clicks as leads in GA4.
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="mailto:"]');
-    if (a && window.gtag) gtag('event', 'generate_lead', { method: 'email', page: location.pathname });
+    if (a && window.ga4Event) ga4Event('generate_lead', { method: 'email', page: location.pathname });
   });
 </script>

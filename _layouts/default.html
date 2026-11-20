@@ -34,7 +34,7 @@
       });
 
       // Two-step intake form: step through, submit to Formspree in place, and report the
-      // funnel to GA4: intake_view > intake_start > intake_step > intake_submit, or intake_abandon.
+      // funnel to GA4 (via GTM): intake_view > intake_start > intake_step > intake_submit, or intake_abandon.
       // Remember ad UTM tags for the visit, so a lead on a later page still traces back to its ad.
       var utm = {};
       try {
@@ -58,9 +58,9 @@
           if (scrollable <= 0) return;
           var pct = Math.min(100, Math.round((window.scrollY + window.innerHeight) / doc.scrollHeight * 100));
           marks.forEach(function (m) {
-            if (pct >= m && !sent[m] && window.gtag) {
+            if (pct >= m && !sent[m] && window.ga4Event) {
               sent[m] = true;
-              gtag('event', 'scroll_depth', {
+              ga4Event('scroll_depth', {
                 percent: m,
                 page_path: location.pathname,
                 page_persona: (formEl && formEl.dataset.pagePersona) || 'none',
@@ -81,7 +81,7 @@
         var t = { started: false, submitted: false, abandoned: false, startTime: 0, maxStep: 1, lastField: '' };
 
         function track(name, params) {
-          if (!window.gtag) return;
+          if (!window.ga4Event) return;
           var picked = form.querySelector('input[name="persona"]:checked');
           var base = {
             form_service: form.dataset.service,
@@ -93,7 +93,7 @@
             utm_content: utm.utm_content || '(none)'
           };
           for (var k in params) base[k] = params[k];
-          gtag('event', name, base);
+          ga4Event(name, base);
         }
         function snapshot() {
           var data = new FormData(form);
@@ -226,9 +226,9 @@
       // CTA clicks, by placement (hero / inline / sticky), so we can see which ones pull people to the form.
       document.querySelectorAll('[data-cta]').forEach(function (a) {
         a.addEventListener('click', function () {
-          if (!window.gtag) return;
+          if (!window.ga4Event) return;
           var formEl = document.querySelector('.intake');
-          gtag('event', 'cta_click', {
+          ga4Event('cta_click', {
             cta_location: a.dataset.cta,
             page_path: location.pathname,
             page_persona: (formEl && formEl.dataset.pagePersona) || 'none',
