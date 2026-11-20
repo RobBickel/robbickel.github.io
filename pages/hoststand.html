@@ -1,0 +1,165 @@
+---
+layout: default
+title: "Hoststand: the host stand, guest texting and Google reviews in one app"
+permalink: /hoststand/
+description: "Hoststand runs the restaurant host stand from one iPad: a waitlist and optional reservations, two-way texting with guests, a post-visit survey, and Google reviews with replies you approve. In design."
+image: /assets/img/projects/hoststand/share.png
+---
+{% assign img = site.github.url | append: "/assets/img/projects/hoststand/" %}
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Hoststand · The host stand, texting and reviews</p>
+    <h1>Every guest conversation, from Google to the table to the review.</h1>
+    <p class="lede">Guests find you on Google, join the waitlist or book, and get every update by text. After the meal, a two-question survey goes out with your review link, and low scores reach a manager while there's still time to fix it. Your host runs all of it from one iPad.</p>
+    <div class="actions">
+      <a class="btn btn-action" href="{{ site.github.url }}/contact/">Join early access <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+      <a class="btn btn-ghost" href="#features">See how it works</a>
+    </div>
+    <p class="note">Hoststand is in design. The screens on this page are design mockups with illustrative data, not a shipped product.</p>
+    <ul class="chips">
+      <li>iPad host app</li>
+      <li>Two-way texting</li>
+      <li>Google reviews in the inbox</li>
+      <li>In design</li>
+    </ul>
+    <figure class="shot shot-hero">
+      <img src="{{ img }}host-inbox.webp" width="2000" height="1275"
+           alt="Hoststand inbox on a Friday night: a list of guest conversations with waitlist, booking, survey and review status, an open text thread with a guest whose table is ready, and the guest's visit history and the next parties on the waitlist">
+      <figcaption>Friday dinner in the host inbox. Every waitlist party, booking, survey and review is a conversation. Design mockup, illustrative data.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The gap</p>
+      <h2>The host stand runs on four tools and a notepad.</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><h3>The waitlist lives on paper</h3><p>Quotes are guesses, guests crowd the door to hear their name, and nobody knows how many parties gave up and walked away.</p></div>
+      <div class="card"><h3>Guests can't reach you</h3><p>The phone rings mid-rush. Booking apps send texts one way. A guest running late has no one to tell, so the table sits empty.</p></div>
+      <div class="card"><h3>Reviews arrive with no context</h3><p>A one-star review shows up days later. The manager can't tell which visit it was, and the reply waits, or never happens.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How it works</p>
+      <h2>One loop: get found, seat them, follow up, prove it.</h2>
+    </div>
+
+    <div class="showcase">
+      <figure class="shot">
+        <img src="{{ img }}guest-texts.webp" width="1800" height="1199" loading="lazy"
+             alt="Two phones showing text messages from a restaurant: a waitlist confirmation and table-ready message, and a two-question survey followed by a Google review link, next to a manager alert for a guest who rated the visit 2 out of 5">
+      </figure>
+      <div>
+        <h3>Texting that runs the waitlist</h3>
+        <p>Guests join from your Google listing, a QR code at the door, or the host. They get their place in line, a table-ready text, and a way to say they're running late. No app to download.</p>
+        <p>After the visit, a two-question survey goes out with your review link. Every guest gets the same link. When someone scores the night a 1, 2 or 3, a manager hears about it within minutes.</p>
+      </div>
+    </div>
+
+    <div class="showcase showcase-flip">
+      <figure class="shot">
+        <img src="{{ img }}book-and-floor.webp" width="1800" height="1199" loading="lazy"
+             alt="Reservation timeline by table for a Friday night next to a floor plan showing seated, reserved, bussing and open tables">
+      </figure>
+      <div>
+        <h3>Reservations when you want them</h3>
+        <p>Walk-in-only places can leave Book mode off and run the waitlist and inbox alone. Turn it on for a reservation book, reminders, no-show tracking and card holds for large parties.</p>
+        <p>The floor plan shows what's seated, reserved, bussing and open, and every booking is tied to the guest's conversation, so "running 15 late" lands where the host already is.</p>
+      </div>
+    </div>
+
+    <div class="showcase">
+      <figure class="shot">
+        <img src="{{ img }}reviews.webp" width="1800" height="1199" loading="lazy"
+             alt="Google reviews inbox with a two-star review, a suggested reply waiting for approval, and the matched visit showing the party was seated 41 minutes after their reservation">
+      </figure>
+      <div>
+        <h3>Every Google review, matched to the visit</h3>
+        <p>Connect your Google Business Profile and new reviews land in the same inbox, matched to the visit when the guest is in your book. The manager sees when they were seated, who served them and what the survey said.</p>
+        <p>A suggested reply is drafted for each review. Nothing posts to Google until a person approves it.</p>
+      </div>
+    </div>
+
+    <div class="showcase showcase-flip">
+      <figure class="shot">
+        <img src="{{ img }}shift-report.webp" width="1800" height="1199" loading="lazy"
+             alt="Shift report with covers, average wait, no-show rate, survey reply rate and Google rating, a chart of actual versus quoted wait by half hour, and a 12-week Google rating trend">
+      </figure>
+      <div>
+        <h3>A shift report the owner will actually read</h3>
+        <p>Covers, actual wait against quoted wait, no-shows, parties that walked away, survey scores and the Google rating, for every shift.</p>
+        <p>Because the waitlist, the texts and the reviews live in one place, you can see what moved the rating, not just that it moved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Under the hood</p>
+      <h2>Built for a busy door, not a demo.</h2>
+    </div>
+    <div class="grid grid-4 features faas-features">
+      <div><h3>One thread per guest</h3><p>Texts, Google messages, survey replies and reviews in one conversation, with every host's replies attributed.</p></div>
+      <div><h3>Join from Google</h3><p>Waitlist and booking links on your Google Business Profile. Guests never need an app or an account.</p></div>
+      <div><h3>One-tap actions</h3><p>Table ready, need more time, move to bar, seat at table 12. The common replies are buttons, not typing.</p></div>
+      <div><h3>Guest memory</h3><p>Visits, usual party size, allergies and seating preferences appear the moment a regular texts.</p></div>
+      <div><h3>Surveys, done fairly</h3><p>Every guest gets the same review invitation. Low scores also alert a manager, so problems get fixed instead of hidden.</p></div>
+      <div><h3>Replies you approve</h3><p>Suggested replies to Google reviews in your voice. A person approves every one before it posts.</p></div>
+      <div><h3>Texting that stays compliant</h3><p>Guest opt-in, STOP handling, quiet hours and carrier registration built in from the first message.</p></div>
+      <div><h3>Your guests stay yours</h3><p>Export your guest list, history and reviews whenever you want. No per-cover fees on your own regulars.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Who it's for</p>
+      <h2>Independent restaurants and coffee shops with a busy door.</h2>
+      <p>Places that don't want to pay per cover to seat their own regulars, and don't want four separate tools for the waitlist, texting, reviews and surveys.</p>
+    </div>
+    <ul class="checklist">
+      <li>Big tap targets for an iPad on a crowded host stand</li>
+      <li>Works for walk-in-only places, with reservations optional</li>
+      <li>Several hosts on one inbox, and a manager view for the GM</li>
+      <li>Priced for a single location, not a restaurant group</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Roadmap</p>
+      <h2>What's being built, in order</h2>
+    </div>
+    <ol class="steps steps-4">
+      <li><span class="step-num">01 · In design</span><h3>Inbox, waitlist and texting</h3><p>The host inbox, a text-first waitlist, table-ready and running-late messages, and guest notes.</p></li>
+      <li><span class="step-num">02</span><h3>Surveys and Google reviews</h3><p>The post-visit survey, manager alerts for low scores, and Google reviews with approved replies.</p></li>
+      <li><span class="step-num">03</span><h3>Book mode and floor plan</h3><p>Reservations, reminders, no-show tracking, card holds and a live floor plan.</p></li>
+      <li><span class="step-num">04</span><h3>Reserve with Google and POS</h3><p>Booking directly inside Google, and Square and Toast integrations so covers line up with sales.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="cta-box">
+      <div>
+        <h3>Run a host stand? Help shape it.</h3>
+        <p>I'm looking for a few restaurants and coffee shops to try early versions. Tell me how your door runs on a Friday night, and I'll walk you through the flow.</p>
+      </div>
+      <a class="btn" href="{{ site.github.url }}/contact/">Join early access <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</section>
