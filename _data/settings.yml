@@ -38,11 +38,11 @@ seo:
 #-------------------------------
 # Analytics
 
-google-analytics-ga4: 'G-DF02EVXTK4'
+google-tag-manager: 'GTM-T246LDH3'
+# GA4 (G-DF02EVXTK4) and the LinkedIn Insight Tag (10341628) now load from the GTM container.
 
 # LinkedIn Insight Tag partner ID (Campaign Manager > Analyze > Insight Tag).
 # Leave empty to disable.
-linkedin-partner-id: '10341628'
 
 #-------------------------------
 # Disqus Section

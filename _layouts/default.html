@@ -20,6 +20,7 @@
     {% seo %}
   </head>
   <body class="{{ page.layout }}">
+    {% include gtm-noscript.html %}
     {% include header.html %}
     <main>
       {{ content }}
