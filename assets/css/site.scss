@@ -113,6 +113,9 @@ p { margin: 0 0 1em; }
 // ------------------------------------------------
 // Header
 
+// In-page anchors (robbickel.com/#projects…) land below the sticky header, not under it.
+[id] { scroll-margin-top: 88px; }
+
 .site-header {
   position: sticky; top: 0; z-index: 10;
   background: rgba(247, 246, 242, .92);
