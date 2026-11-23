@@ -172,7 +172,7 @@ layout: default
         {% assign thumb = site.static_files | where: "path", thumb_path | first %}
         <a class="card card-link{% if thumb %} has-thumb{% endif %}"
            {% if p[3] %}href="{{ site.github.url }}{{ p[3] }}"{% else %}href="https://{{ p[1] }}" target="_blank" rel="noopener"{% endif %}
-           {% if thumb %}style="background-image: url('{{ site.github.url }}{{ thumb_path }}')"{% endif %}>
+           {% if thumb %}style="background-image: url('{{ thumb_path | relative_url }}')"{% endif %}>
           <h3>{{ p[0] }}</h3>
           <p class="domain">{{ p[1] }}{% unless p[3] %} <i class="fa fa-external-link" aria-hidden="true"></i>{% endunless %}</p>
         </a>
