@@ -101,7 +101,7 @@ All models run under one enterprise service agreement, with flexible statements 
 
 ## Recent Work
 
-We've built internal tools, customer-facing platforms, and SaaS products across fintech, IoT, and marketing technology. [Email Rob](mailto:bickel.rob@gmail.com) to discuss your specific situation.
+We've built internal tools, customer-facing platforms, and SaaS products across fintech, IoT, and marketing technology. [Email Rob](mailto:hello@robbickel.com) to discuss your specific situation.
 
 ---
 
